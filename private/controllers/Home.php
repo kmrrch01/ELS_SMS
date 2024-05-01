@@ -1,14 +1,20 @@
 <?php
 
-
+/**
+ * home controller
+ */
 class Home extends Controller
 {
+	
+	function index()
+	{
+		// code...
+		if(!Auth::isLoggedIn())
+		{
+			$this->redirect('login');
+		}
 
-    function index()
-    {
-        // code...
-        echo $this->view('home');
-    }
-
+		
+		$this->view('home');
+	}
 }
-
