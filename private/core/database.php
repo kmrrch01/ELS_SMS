@@ -5,18 +5,25 @@
  */
 class Database
 {
+    private $connection;
 
-    private function connect()
+    public function connect()
     {
-        //code...
-        $string = DBDRIVER . ":host=".DBHOST.";dbname=".DBNAME;
-        if(!$con = new PDO($string,DBUSER,DBPASSWORD)){
-            die("could not connect to database");
+        // If connection already exists, return it
+        if ($this->connection instanceof PDO) {
+            return $this->connection;
         }
-
-        return $con;
-
+    
+        $string = DBDRIVER . ":host=".DBHOST.";dbname=".DBNAME;
+        try {
+            $this->connection = new PDO($string, DBUSER, DBPASSWORD);
+        } catch (PDOException $e) {
+            die("Could not connect to database: " . $e->getMessage());
+        }
+    
+        return $this->connection;
     }
+    
 
     public function query($query, $data = array(),$data_type = "object")
     {

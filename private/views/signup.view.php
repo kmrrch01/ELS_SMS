@@ -32,9 +32,9 @@
             </button>
             </div>
             <?php endif;?>
-             <input class="my-2 form-control" value="<?=get_var('first_name')?>"type="first_name" name="first_name" placeholder="First Name" autofocus></input>
-             <input class="my-2 form-control" value="<?=get_var('middle_name')?>"type="middle_name" name="middle_name" placeholder="Middle Name" autofocus></input>
-             <input class="my-2 form-control" value="<?=get_var('last_name')?>"type="last_name" name="last_name" placeholder="Last Name" autofocus></input>
+             <input class="my-2 form-control" value="<?=get_var('firstname')?>"type="first_name" name="firstname" placeholder="First Name" autofocus></input>
+             <input class="my-2 form-control" value="<?=get_var('middlename')?>"type="middle_name" name="middlename" placeholder="Middle Name" autofocus></input>
+             <input class="my-2 form-control" value="<?=get_var('lastname')?>"type="last_name" name="lastname" placeholder="Last Name" autofocus></input>
              <input class="my-2 form-control" value="<?=get_var('email')?>"type="email" name="email" placeholder="Email" autofocus></input>
              <input class="my-2 form-control" value="<?=get_var('acad_year')?>"type="number" name="acad_year" placeholder="Academic Year" autofocus></input>
              <input class="my-2 form-control" value="<?=get_var('password')?>"type="password" name="password" placeholder="Password" autofocus></input>
@@ -48,33 +48,23 @@
              </select>
 
 
-             <select class="my-2 form-control" name="level" id="Level">
-                <option <?=get_select('gender','')?> value="">--Select a Level--</option>
-                <option <?=get_select('gender','student')?> value="student">Student</option>
-                <option <?=get_select('gender','registrar')?> value="registrar">Registrar</option>
-                <option <?=get_select('gender','teacher')?> value="teacher">Teacher</option>
-                <option <?=get_select('gender','admin')?> value="admin">Admin</option>
-                <option <?=get_select('gender','super_admin')?> value="super_admin">Super Admin</option>
-             </select>
+			<select class="my-2 form-control" name="position" id="Position">
+				<option <?=get_select('position', '')?> value="">Select a Position</option>
+				<option <?=get_select('position', 'admin')?> name="admin" value="admin">Admin</option>
+				<option <?=get_select('position', 'principal')?> name="principal" value="admin">Principal</option>
+				<option <?=get_select('position', 'registrar')?>name="registrar"  value="registrar">Registrar</option>
+				<option <?=get_select('position', 'teacher')?> name="teacher" value="teacher">Teacher</option>
+				<option <?=get_select('position', 'student')?> name="student" value="student">Student</option>
+			</select>
+
+			<select class="my-2 form-control" name="school" id="School">
+				<option <?=get_select('school', '')?> value="">Select a School</option>
+				<option <?=get_select('school', 'general')?> name="general" value="general">general</option>
+				<option <?=get_select('school', 'grade_1')?> name="grade_1" value="grade_1">Grade 1</option>
+
+			</select>
+
              
-             <select name="class" class="my-2 form-control" id="Class">
-             <option <?=get_select('class','')?> value="">--Select a Class--</option>
-                <option <?=get_select('class','kg1')?> value="kg1">KG1</option>
-                <option <?=get_select('class', 'kg2')?> value="kg2">KG2</option>
-                <option <?=get_select('class', 'kg3')?> value="kg3">KG3</option>
-                <option <?=get_select('class', 'grade_1')?> value="grade_1">Grade 1</option>
-                <option <?=get_select('class', 'grade_2')?> value="grade_2">Grade 2</option>
-                <option <?=get_select('class', 'grade_3')?> value="grade_3">Grade 3</option>
-                <option <?=get_select('class', 'grade_4')?> value="grade_4">Grade 4</option>
-                <option <?=get_select('class', 'grade_5')?> value="grade_5">Grade 5</option>
-                <option <?=get_select('class', 'grade_6')?> value="grade_6">Grade 6</option>
-                <option <?=get_select('class', 'grade_7')?> value="grade_7">Grade 7</option>
-                <option <?=get_select('class', 'grade_8')?> value="grade_8">Grade 8</option>
-                <option <?=get_select('class', 'grade_9')?> value="grade_9">Grade 9</option>
-                <option <?=get_select('class', 'grade_10')?> value="grade_10">Grade 10</option>
-                <option <?=get_select('class', 'grade_11')?>value="grade_11">Grade 11</option>
-                <option <?=get_select('class', 'grade_12')?> value="grade_12">Grade 12</option>
-             </select>
 
              <select name="section" class="my-2 form-control" id="Section">
                 <option <?=get_select('section', '')?> value=''>--Select a Section--</option>

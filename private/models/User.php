@@ -5,7 +5,7 @@
 
  class User extends Model
  {
-
+    protected $beforeInsert = ['make_user_id'];
 
    //protected $table = "users";
     public function validate($DATA)
@@ -13,19 +13,19 @@
          $this->errors = array();
 
          //check for first_name
-         if(empty($DATA['first_name']))
+         if(empty($DATA['firstname']))
          {
-               $this->errors['first_name'] = "First name cannot be empty.";
+               $this->errors['firstname'] = "First name cannot be empty.";
          }
           //check for middle_name
-         if(empty($DATA['middle_name']))
+         if(empty($DATA['middlename']))
          {
-               $this->errors['middle_name'] = "Middle name cannot be empty.";
+               $this->errors['middlename'] = "Middle name cannot be empty.";
          }
           //check for last_name
-         if(empty($DATA['last_name']))
+         if(empty($DATA['lastname']))
          {
-               $this->errors['last_name'] = "Last name cannot be empty.";
+               $this->errors['lastname'] = "Last name cannot be empty.";
          }
           //check for email
          if(empty($DATA['email']) || !filter_var($DATA['email'],FILTER_VALIDATE_EMAIL))
@@ -43,9 +43,9 @@
           $this->errors['acad_year'] = "Academic year cannot be empty.";
          }
          //check for level
-         if(empty($DATA['level']))
+         if(empty($DATA['position']))
          {
-          $this->errors['level'] = "Level cannot be empty.";
+          $this->errors['position'] = "Position cannot be empty.";
          }
 
                   //check for password
@@ -71,8 +71,8 @@
       function make_user_id($data) 
       {
 
-            $data['user_id'] = $this->randString(15);   
-            return $data;         
+        $data['user_id'] = make_user_id_from_post();   
+        return $data;         
 
       }
 
@@ -84,22 +84,15 @@
       return $data;
   }
 
-public function randString($length)
-{
-      $array = array(0,1,2,3,4,5,6,7,8,9, 'a', 'b', 'c', 'd','e','f','g','h','i','j','k', '1', 'm','n','o','p','q','r','s','t','u','v','w','x','y','z');
-      $text = "";
-      for($x = 0; $x < $length; $x++)
-      {
-      $random = rand(0,16);
-      $text .= $array[$random];
-      }
-      return $text;
-     
-}
+        function getSchoolID($schoolName)
+        {
+            $query = "select school_id from schools where school = $schoolName";
+            $result = $query;
 
-
+            return $result;
+        }
+        
 
 
  }
-
 

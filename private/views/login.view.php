@@ -32,7 +32,9 @@
                     <input class="my-2 form-control" type="email" value="<?=get_var('email')?>" name="email" placeholder="Email" autofocus></input>
                     <input class="my-2 form-control" type="password" value="<?=get_var('password')?>" name="password" placeholder="Password"></input>
                     <br>
-                    <button class="btn btn-primary" style="margin-left: 40%;">Login</button>
+                    <div class="ml-1 d-inline-flex p-2">
+                    <button class="btn btn-success" style="margin-left: 40%;">Login</button><hr>
+            </div>
 
             </div>
             </form>

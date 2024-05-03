@@ -1,6 +1,6 @@
 <?php
-
 define('ROOT', 'http://localhost/ELS/public');
+define('ASSETS', 'http://localhost/ELS/public/assets');
 
 
 define('DBNAME', 'els');
