@@ -18,7 +18,7 @@ class Users extends Controller
 
         $user = new User();
 		$school_id = Auth::getSchool_id();
-		$data = $user->query("select * from users where position != 'student'");
+		$data = $user->query("select * from users where position != 'student' && position !='parent'");
 		$this->view('users', [
 			'rows'=>$data,
 			'crumbs'=>$crumbs,		

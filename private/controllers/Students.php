@@ -1,7 +1,7 @@
 <?php
 
 /**
- * students controller
+ * Students controller
  */
 class Students extends Controller
 {
@@ -13,16 +13,15 @@ class Students extends Controller
 		{
 			$this->redirect('login');
 		}
+		$crumbs[] = ['Dashboard', ''];
+		$crumbs[] = ['students', 'student'];
 
-		$user = new User();
-		$data = $user->query("select * from users where position in ('student') order by id desc");
-
-		$crumbs[] = ['Dashboard',''];
-		$crumbs[] = ['students','students'];
-
-		$this->view('students',[
+        $student = new Student();
+		//$school_id = Auth::getSchool_id();
+		$data = $student->query("select * from students");
+		$this->view('students', [
 			'rows'=>$data,
-			'crumbs'=>$crumbs,
+			'crumbs'=>$crumbs,		
 		]);
 	}
 }

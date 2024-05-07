@@ -4,41 +4,40 @@
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 		<?php $this->view('includes/crumbs',['crumbs'=>$crumbs])?>
 
-		<nav class="navbar navbar-light bg-light">
-		  <form class="form-inline">
-		    <div class="input-group">
-		      <div class="input-group-prepend">
-		        <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i>&nbsp</span>
-		      </div>
-		      <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-		    </div>
-		  </form>
- 			<a href="<?=ROOT?>/signup?mode=students">
-				<button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</button>
-			</a>
- 		</nav>
-
+			<h5>Students</h5>
 		<div class="card-group justify-content-center">
+			<table class="table table-striped table-hover">
+            <th>View</th><th>Student name</th><th>Class</th>
+            <div style="margin-bottom:2%; margin-left:90%" >
+            <a  href="<?=ROOT?>/student_signup/">
+                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>Add New</button>
+            </a>
+</div>
+            <br><br>
+						<?php if (is_array($rows) || is_object($rows)): ?>
+			<?php foreach ($rows as $row): ?>
+				<tr>
+                    <td>
+                        <a href="<?=ROOT?>/students/profile">
+                            <button class="btn-outline-primary"><i class="fa-solid fa-search"></i>
+                    </a>
+                    </td>
+                    <td>
+                        <p><?=$row->firstname?> <?=$row->middlename?> <?=$row->lastname?></p>
+                    </td>
+                    <td>
+                        <?=str_replace("_", " ", ucwords($row->class_name))?>
+                    </td>
+				</tr>
+			<?php endforeach; ?>
+		<?php else: ?>
+			<tr>
+				<td colspan="5"><h4>No students were found at this time</h4></td>
+			</tr>
+		<?php endif; ?>
 
-			<?php if (is_array($rows) || is_object($rows)):?>
-				<?php foreach ($rows as $row):?>
-				 
-				 <?php
- 				 	$image = get_image($row->image,$row->gender);
- 				 ?>
-				<div class="card m-2 shadow-sm" style="max-width: 14rem;min-width: 14rem;">
-		  		  <img src="<?=$image?>" class="card-img-top " alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title"><?=$row->firstname?> <?=$row->lastname?></h5>
-				    <p class="card-text"><?=ucfirst(str_replace("_", " ", $row->position))?></p>
-				    <a href="<?=ROOT?>/profile/<?=$row->user_id?>" class="btn btn-primary">Profile</a>
-				  </div>
-				</div>
+			</table>
 
-	 			<?php endforeach;?>
- 			<?php else:?>
- 				<h4>No students were found at this time</h4>
- 			<?php endif;?>
 		</div>
 
 		

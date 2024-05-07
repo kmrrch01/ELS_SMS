@@ -29,7 +29,7 @@
 
     <div class="row jumbotron box8">
       <div class="col-sm-12 mx-t3 mb-4">
-        <h2 class="text-center text-primary">Register a New Account</h2>
+        <h2 class="text-center text-primary">Register a New Student</h2>
       </div>
       <div class="col-sm-6 form-group">
         <label for="name-f">First Name[EN]</label>
@@ -69,19 +69,7 @@
          <option <?=get_select('gender','female')?> value="female">Female</option>
                </select>
       </div>
-      
-      <div class="col-sm-6 form-group">
-        <label for="Position">Position</label>
-        <select name="position" id="Position" class="form-control browser-default custom-select">
-        <option <?=get_select('position','')?> value="" placeholder="Choose a position">Please choose a position</option>
-          <option <?=get_select('position','super_admin')?> value="super_admin">Super Admin</option>
-          <option <?=get_select('position','admin')?> value="admin">Admin</option>
-          <option <?=get_select('position','principal')?> value="principal">Principal</option>
-          <option <?=get_select('position','teacher')?> value="teacher">Teacher</option>
-          <option <?=get_select('position','student')?> value="student">Student</option>
-          <option <?=get_select('position','parent')?> value="parent">Parent</option>
-        </select>
-      </div>
+    
       <div class="col-sm-6 form-group">
         <label for="acad_year">Academic Year</label>
         <select name="acad_year" id="acad_year" class="form-control browser-default custom-select">
@@ -134,30 +122,10 @@
         <label for="tel">Phone</label>
         <input <?=get_var('phone_number','phone_number')?>type="tel" name="phone_number" class="form-control" id="tel" placeholder="Mobile No." required>
       </div>
-      
-   
-      <div class="col-sm-6 form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email." required>
-      </div>
-      <div class="col-sm-6 form-group">
-        <label for="password">Password</label>
-        <input class="my-2 form-control" value="<?=get_var('password')?>"type="password" name="password" placeholder="Enter Your Password" autofocus></input>
-      </div>
-      <div class="col-sm-6 form-group">
-        <label for="password2">Confirm Password</label>
-        <input class="my-2 form-control" value="<?=get_var('password2')?>"type="password" name="password2" placeholder="Confirm Your Password" autofocus></input>
-      </div>
         <center><button style="margin-left:20%;" class="fs-1 btn btn-primary">Register</button></center>
-        <?php if($mode == 'students'):?>
         <a href="<?=ROOT?>/students">
 			 		<input style="margin-left:30%;"class="btn btn-danger" type="button" value="Cancel">
-			 	</a>    
-         <?php else:?>
-            <a href="<?=ROOT?>/users">
-			 		<input style="margin-left:30%" class="btn btn-danger" type="button" value="Cancel">
-			 	</a> 
-         <?php endif;?>
+			 	</a>   
     </div>
   </form>
 </div>

@@ -15,6 +15,7 @@
 						</a>
 					</th>
 				</tr>
+				<br><br>
 				<?php if($rows):?>
 					 
 					<?php foreach ($rows as $row):?>
@@ -24,7 +25,7 @@
 							<a href="<?=ROOT?>/single_class/<?=$row->class_id?>">
 							<button class="btn btn-sm btn-primary"><i class="fa fa-chevron-right"></i></button></td>
 					</a>
-					 	<td><?=str_replace("_", " ", ucwords($row->class_name))?></td><td><?=$row->user->firstname?> <?=$row->user->lastname?></td><td><?=get_date($row->date)?></td>
+					 	<td><?=str_replace("_", " ", ucwords($row->class))?></td><td><?=$row->user->firstname?> <?=$row->user->lastname?></td><td><?=get_date($row->date)?></td>
 
 					 	<td>
 					 		<a href="<?=ROOT?>/classes/edit/<?=$row->id?>">
