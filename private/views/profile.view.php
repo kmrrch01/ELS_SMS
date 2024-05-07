@@ -5,7 +5,6 @@
 		<?php $this->view('includes/crumbs',['crumbs'=>$crumbs])?>
 
 		<?php if($row):?>
-
 		<?php
  			$image = get_image($row->image,$row->gender);
  		?>
@@ -21,8 +20,9 @@
 					<tr><th>First Name:</th><td><?=esc($row->firstname)?></td></tr>
 					<tr><th>Last Name:</th><td><?=esc($row->lastname)?></td></tr>
 					<tr><th>Email:</th><td><?=esc($row->email)?></td></tr>
-					<tr><th>Gender:</th><td><?=esc($row->gender)?></td></tr>
+					<tr><th>Gender:</th><td><?=ucfirst(esc($row->gender))?></td></tr>
 					<tr><th>Position:</th><td><?=ucwords(str_replace("_"," ",$row->position))?></td></tr>
+					<tr><th>Class:</th><td><?=ucwords(str_replace("_"," ",$row->class_name))?></td></tr>
 					<tr><th>Date Created:</th><td><?=get_date($row->date)?></td></tr>
 				
 

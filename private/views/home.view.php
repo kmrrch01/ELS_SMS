@@ -1,8 +1,7 @@
 <?php $this->view('includes/header')?>
 <?php $this->view('includes/nav')?>
-	
-	<div class="container-fluid">
-	 
-	</div>
- 
+  
+
+    <center><p>This is home.<p></center>
+
 <?php $this->view('includes/footer')?>

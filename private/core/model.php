@@ -5,28 +5,6 @@
  */
 class Model extends Database
 {
-	protected $allowedColumns = [
-        'school',
-        'school_id',
-        'date',
-		'firstname',
-		'middlename',
-		'lastname',
-		'email',
-		'acad_year',
-		'gender',
-		'school',
-		'position',
-		'st_type',
-		'section',
-		'password'
-    ];
-	protected $beforeInsert = [
-        'make_school_id',
-    ];
-	protected $afterSelect = [
-    ];
-
 	public $errors = array();
 
 	public function __construct()

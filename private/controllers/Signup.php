@@ -6,49 +6,60 @@
 class Signup extends Controller 
 {
 
-    function index()
-   {
-    $mode = isset($_GET['mode']) ? $_GET['mode'] : '';
-
-      $errors = array();
-    
-      if(count($_POST) > 0){
-
-        $user = new User();
-
-        var_dump($_POST);
-        if($user->validate($_POST))
-        {
-          $arr['firstname'] = $_POST['firstname'];
-          $arr['middlename'] = $_POST['middlename'];
-          $arr['lastname'] = $_POST['lastname'];
-          $arr['email'] = $_POST['email'];
-          $arr['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-          $arr['position'] = $_POST['position'];
-          $arr['gender'] = $_POST['gender'];
-          $arr['acad_year'] = $_POST['acad_year'];
-          $arr['school'] = $_POST['school'];
-          $arr['st_type'] = $_POST['st_type'];
-          $arr['section'] = $_POST['section'];
-          $arr['date'] = date("Y-m-d H:i:s");
-
-          $user->insert($arr);
-          $redirect = $mode == 'students' ? 'students' : 'users';
-          $this->redirect($redirect);
-
-        }else
-        {
-          //errors
-          $errors = $user->errors;
-        }
-      }
-
+  function index()
+  {
       $mode = isset($_GET['mode']) ? $_GET['mode'] : '';
-
-      $this->view('signup',[
-        'errors'=>$errors,
-        'mode'=>$mode,
-      ]);
-
-    }
+      $errors = array();
+  
+      if(count($_POST) > 0){
+          $user = new User();
+  
+          if($user->validate($_POST)) {
+              
+  
+              // Proceed with user data insertion if no errors
+              if (empty($errors)) {
+                  $arr = array(
+                      'firstname' => $_POST['firstname'],
+                      'middlename' => $_POST['middlename'],
+                      'lastname' => $_POST['lastname'],
+                      'firstname_ar' => $_POST['firstname_ar'],
+                      'middlename_ar' => $_POST['middlename_ar'],
+                      'lastname_ar' => $_POST['lastname_ar'],
+                      'dob' => $_POST['dob'],
+                      'phone_number' => $_POST['phone_number'],
+                      'email' => $_POST['email'],
+                      'address' => $_POST['address'],
+                      'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+                      'position' => $_POST['position'],
+                      'gender' => $_POST['gender'],
+                      'acad_year' => $_POST['acad_year'],
+                      'class_name' => $_POST['class_name'],
+                      'st_type' => $_POST['st_type'],
+                      'section' => $_POST['section'],
+                      'date' => date("Y-m-d H:i:s")
+                  );
+  
+                  // Insert user data
+                  $user->insert($arr);
+  
+                  // Redirect after successful insertion
+                  $redirect = ($mode == 'students') ? 'students' : 'users';
+                  $this->redirect($redirect);
+              }
+  
+          } else {
+              // Handle validation errors
+              $errors = $user->errors;
+          }
+      }
+  
+      // Render the signup view with errors and mode
+      $this->view('signup', array(
+          'errors' => $errors,
+          'mode' => $mode
+      ));
+  }
+  
+  
 }

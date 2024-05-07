@@ -31,6 +31,7 @@
                 <img src="<?=$image?>" class="card-img-top" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title"><?=$row->firstname?> <?=$row->lastname?></h5>
+                  <p class="card-title"><?=$row->firstname_ar?> <?=$row->lastname_ar?></p>
                   <p class="card-text"><?=ucwords(str_replace("_", " ", $row->position))?></p>
                   <a href="<?=ROOT?>/profile/<?=$row->user_id?>" class="btn btn-primary">Profile</a>
               </div>

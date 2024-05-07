@@ -20,7 +20,7 @@
 
 		<div class="card-group justify-content-center">
 
-			<?php if($rows):?>
+			<?php if (is_array($rows) || is_object($rows)):?>
 				<?php foreach ($rows as $row):?>
 				 
 				 <?php

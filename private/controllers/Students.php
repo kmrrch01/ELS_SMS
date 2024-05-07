@@ -14,7 +14,6 @@ class Students extends Controller
 			$this->redirect('login');
 		}
 
-		$school = new School();
 		$user = new User();
 		$data = $user->query("select * from users where position in ('student') order by id desc");
 

@@ -42,6 +42,14 @@ class Auth
 		return false;
 	}
 
+	public static function classes()
+	{
+		if(isset($_SESSION['USER']))
+		{
+			return $_SESSION['USER']->class_id;
+		}
+	}
+
 	public static function __callStatic($method, $params)
 	{
 		// Extract property name from the method name
@@ -54,16 +62,16 @@ class Auth
 		}
 	
 		// If property doesn't exist or $_SESSION['USER'] is not set, return 'Unknown'
-		return 'Unknown';
+		return 'Not Specified';
 	}
 	
 
-	public static function switch_school($id)
+	public static function switch_class($id)
 	{
-		if(isset($_SESSION['USER']) && $_SESSION['USER']->rank == 'super_admin')
+		if(isset($_SESSION['USER']))
 		{
 			$user = new User();
-			$school = new School();
+			$school = new Classes_model();
 
 			if($row = $school->where('id',$id))
 			{
@@ -71,8 +79,8 @@ class Auth
  				$arr['school_id'] = $row->school_id;
 
 				$user->update($_SESSION['USER']->id,$arr);
- 				$_SESSION['USER']->school_id = $row->school_id;
-				$_SESSION['USER']->school_name = $row->school;
+ 				$_SESSION['USER']->class_id = $row->class_id;
+				$_SESSION['USER']->class_name = $row->class_name;
 
 			}
 			
