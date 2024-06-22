@@ -3,7 +3,7 @@
 /**
  * signup controller
  */
-class Signup extends Controller 
+class Student_Signup extends Controller 
 {
 
   function index()
@@ -12,9 +12,9 @@ class Signup extends Controller
       $errors = array();
   
       if(count($_POST) > 0){
-          $user = new User();
+          $student = new Student();
   
-          if($user->validate($_POST)) {
+          if($student->validate($_POST)) {
               
   
               // Proceed with user data insertion if no errors
@@ -27,11 +27,6 @@ class Signup extends Controller
                       'middlename_ar' => $_POST['middlename_ar'],
                       'lastname_ar' => $_POST['lastname_ar'],
                       'dob' => $_POST['dob'],
-                      'phone_number' => $_POST['phone_number'],
-                      'email' => $_POST['email'],
-                      'address' => $_POST['address'],
-                      'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-                      'position' => $_POST['position'],
                       'gender' => $_POST['gender'],
                       'acad_year' => $_POST['acad_year'],
                       'class_name' => $_POST['class_name'],
@@ -41,21 +36,20 @@ class Signup extends Controller
                   );
   
                   // Insert user data
-                  $user->insert($arr);
+                  $student->insert($arr);
   
                   // Redirect after successful insertion
-                  $redirect = ($mode == 'students') ? 'students' : 'users';
-                  $this->redirect($redirect);
+                  $this->redirect('students');
               }
   
           } else {
               // Handle validation errors
-              $errors = $user->errors;
+              $errors = $student->errors;
           }
       }
   
       // Render the signup view with errors and mode
-      $this->view('signup', array(
+      $this->view('student_signup', array(
           'errors' => $errors,
           'mode' => $mode
       ));

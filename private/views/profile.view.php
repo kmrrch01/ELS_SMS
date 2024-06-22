@@ -5,7 +5,6 @@
 		<?php $this->view('includes/crumbs',['crumbs'=>$crumbs])?>
 
 		<?php if($row):?>
-
 		<?php
  			$image = get_image($row->image,$row->gender);
  		?>
@@ -21,8 +20,9 @@
 					<tr><th>First Name:</th><td><?=esc($row->firstname)?></td></tr>
 					<tr><th>Last Name:</th><td><?=esc($row->lastname)?></td></tr>
 					<tr><th>Email:</th><td><?=esc($row->email)?></td></tr>
-					<tr><th>Gender:</th><td><?=esc($row->gender)?></td></tr>
+					<tr><th>Gender:</th><td><?=ucfirst(esc($row->gender))?></td></tr>
 					<tr><th>Position:</th><td><?=ucwords(str_replace("_"," ",$row->position))?></td></tr>
+					<tr><th>Class:</th><td><?=ucwords(str_replace("_"," ",$row->class_name))?></td></tr>
 					<tr><th>Date Created:</th><td><?=get_date($row->date)?></td></tr>
 				
 
@@ -33,28 +33,35 @@
 		<div class="container-fluid">
 			<ul class="nav nav-tabs">
 			  <li class="nav-item">
-			    <a class="nav-link active" href="#">Basic Info</a>
+			    <a class="nav-link <?=$page_tab == 'info' ? 'active':'';?> href="<?ROOT?>/profile/<?=$row->user_id?>">Basic Info</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" href="#">Classes</a>
+			    <a class="nav-link <?=$page_tab == 'classes' ? 'active':'';?> " href="<?ROOT?>/profile/<?=$row->user_id?>?tab=classes">Classes</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" href="#">Tests</a>
+			    <a class="nav-link <?=$page_tab == 'tests' ? 'active':'';?> " href="<?ROOT?>/profile/<?=$row->user_id?>?tab=tests">Tests</a>
 			  </li>
 		 
 			</ul>
+			<?php
 
-			<nav class="navbar navbar-light bg-light">
-			  <form class="form-inline">
-			    <div class="input-group">
-			      <div class="input-group-prepend">
-			        <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i>&nbsp</span>
-			      </div>
-			      <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-			    </div>
-			  </form>
-			</nav>
+				switch ($page_tab){
+					case 'info':
+							include(views_path('profile-tab-info'));
+						break;
 
+					case 'classes':
+						include(views_path('profile-tab-classes'));
+						break;
+
+					case 'test':
+						include(views_path('profile-tab-tests'));
+						break;
+				}
+
+
+			?>
+			
 		</div>
 		<?php else:?>
 			<center><h4>That profile was not found!</h4></center>

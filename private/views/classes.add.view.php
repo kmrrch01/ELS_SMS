@@ -21,10 +21,7 @@
 				</div>
 				<?php endif;?>
 			
-			 	<input autofocus class="form-control" value="<?=get_var('class')?>" type="text" name="class" placeholder="class Name"><br>
-				<input autofocus class="form-control" value="<?=get_var('subject1')?>" type="text" name="subject1" placeholder="subject 1"><br>
-				<input autofocus class="form-control" value="<?=get_var('subject2')?>" type="text" name="subject2" placeholder="subject 2"><br>
-				<input autofocus class="form-control" value="<?=get_var('subject3')?>" type="text" name="subject3" placeholder="subject 3"><br>
+			 	<input autofocus class="form-control" value="<?=get_var('class_name')?>" type="text" name="class_name" placeholder="Class Name"><br><br>
 			 	<input class="btn btn-primary float-end" type="submit" value="Create">
 
 			 	<a href="<?=ROOT?>/classes">

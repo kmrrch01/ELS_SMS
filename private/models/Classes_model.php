@@ -8,11 +8,8 @@ class Classes_model extends Model
     protected $table = 'classes';
 
 	protected $allowedColumns = [
-        'class',
+        'class_name',
         'date',
-        'subject1',
-        'subject2',
-        'subject3',
     ];
 
     protected $beforeInsert = [
@@ -31,9 +28,9 @@ class Classes_model extends Model
         $this->errors = array();
 
         //check for class name
-        if(empty($DATA['class']) || !preg_match('/^[a-z A-Z0-9]+$/', $DATA['class']))
+        if(empty($DATA['class_name']))
         {
-            $this->errors['class'] = "Only letters & numbers allowed in class name";
+            $this->errors['class_name'] = "Class name cannot be empty.";
         }
  
         if(count($this->errors) == 0)
@@ -62,11 +59,11 @@ class Classes_model extends Model
 
     public function make_class_id($data)
     {
-        if (!isset($data['class'])) {
-            return "Missing class data";
+        if (!isset($data['class_name'])) {
+            return ["error" => "Missing class data"];
         }
     
-        $name_prefix = $data['class'];        
+        $name_prefix = $data['class_name'];
         // Generate the ID 
         $school_id = "ELS" . '_' . strtoupper($name_prefix);
         $data['class_id'] = $school_id;

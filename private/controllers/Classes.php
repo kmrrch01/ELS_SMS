@@ -1,7 +1,8 @@
 <?php
 
+
 /**
- * schools controller
+ * classes controller
  */
 class Classes extends Controller
 {
@@ -15,7 +16,7 @@ class Classes extends Controller
 		}
 
 		$classes = new Classes_model();
- 
+
 		$data = $classes->findAll();
 
 		$crumbs[] = ['Dashboard',''];
@@ -55,8 +56,8 @@ class Classes extends Controller
  		}
 
  		$crumbs[] = ['Dashboard',''];
-		$crumbs[] = ['Classes','Classes'];
-		$crumbs[] = ['Add','Class/add'];
+		$crumbs[] = ['Classes','classes'];
+		$crumbs[] = ['Add','classes/add'];
 
 		$this->view('classes.add',[
 			'errors'=>$errors,
@@ -95,7 +96,7 @@ class Classes extends Controller
 
  		$crumbs[] = ['Dashboard',''];
 		$crumbs[] = ['Classes','classes'];
-		$crumbs[] = ['Edit','schools/edit'];
+		$crumbs[] = ['Edit','classes/edit'];
 
 		$this->view('classes.edit',[
 			'row'=>$row,

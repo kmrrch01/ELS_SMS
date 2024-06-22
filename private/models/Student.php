@@ -1,9 +1,9 @@
 <?php
 /**
- * User Model
+ * Student Model
  */
 
- class User extends Model
+ class Student extends Model
  {
       protected $allowedColumns = [
             'firstname',
@@ -13,25 +13,17 @@
             'middlename_ar',
             'lastname_ar',
             'acad_year',
-            'email',
-            'password',
             'class_name',
             'dob',
-            'address',
-            'phone_number',
             'st_type',
             'section',
             'gender',
-            'position',
             'date',
         ];
     
         protected $beforeInsert = [
-            'make_user_id',
-            'hash_password',
+            'make_student_id',
         ];
-
-   //protected $table = "users";
     public function validate($DATA)
     {
          $this->errors = array();
@@ -63,19 +55,6 @@
          {
                $this->errors['lastname_ar'] = "Please input last name (arabic)";
          }
-          //check for email
-         if(empty($DATA['email']) || !filter_var($DATA['email'],FILTER_VALIDATE_EMAIL))
-         {
-               $this->errors['email'] = "Email is invalid";
-         }
-         if(empty($DATA['address'])){
-            $this->errors['address'] = "Address cannot be empty.";
-         }
-
-         if(empty($DATA['phone_number'])){
-            
-            $this->errors['phone_number'] = "Phone number cannot be empty.";
-         }
          //check for gender
          if(empty($DATA['gender']))
          {
@@ -85,22 +64,6 @@
          if(empty($DATA['acad_year']))
          {
           $this->errors['acad_year'] = "Academic year cannot be empty.";
-         }
-         //check for level
-         if(empty($DATA['position']))
-         {
-          $this->errors['position'] = "Position cannot be empty.";
-         }
-
-                  //check for password
-         if(empty($DATA['password']) || $DATA['password'] != $DATA['password2'] )
-         {
-               $this->errors['password'] = "The passwords do not match";
-         }
-
-         if(strlen($DATA['password']) < 8)
-         {
-            $this->errors['password'] = "Password must be at least 8 characters long.";
          }
 
          if(count($this->errors) == 0)
@@ -112,29 +75,14 @@
 
 
     //test function for rng
-      function make_user_id($data) 
+      function make_student_id($data) 
       {
 
-        $data['user_id'] = make_user_id_from_post();   
+        $data['student_id'] = make_student_id_from_post();   
         return $data;         
 
       }
   
-
-        // Function to get school ID based on school name
-   
-        
-        
-
-  
-      
-  public function hash_password($data)
-  {
-      var_dump($data);
-      $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-      return $data;
-  }
-
 
 
 

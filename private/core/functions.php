@@ -35,7 +35,19 @@ function make_user_id_from_post() {
 	$unique = substr(uniqid(), 0, 6);
 
     // Generate the user ID by concatenating the academic year, an underscore, and the uppercase position prefix
-    $user_id = $_POST['acad_year'] . '_' . strtoupper($position_prefix) . strtoupper($unique);
+    $user_id = $_POST['acad_year'] . strtoupper($position_prefix) . strtoupper($unique);
+
+    return $user_id;
+}
+
+
+function make_student_id_from_post() {
+    // Extract the first three letters of the position
+    $position_prefix = "STU";
+	$unique = substr(uniqid(), 0, 6);
+
+    // Generate the user ID by concatenating the academic year, an underscore, and the uppercase position prefix
+    $user_id = $_POST['acad_year'] . strtoupper($position_prefix) . strtoupper($unique);
 
     return $user_id;
 }
@@ -109,3 +121,37 @@ function deleteUser($userId) {
     // Return true or false based on deletion success
     return $stmt->rowCount() > 0; // Return true if at least one row was affected (user deleted), false otherwise
 }
+
+// functions.php
+
+function getSchoolIDByName($school_name) {
+    // Create a PDO connection using the defined constants
+    $dsn = DBDRIVER . ':host=' . DBHOST . ';dbname=' . DBNAME;
+    $pdo = new PDO($dsn, DBUSER, DBPASSWORD);
+
+    // Prepare and execute the SQL statement
+    $stmt = $pdo->prepare("SELECT school_id FROM schools WHERE school = :school_name");
+    $stmt->bindParam(':school_name', $school_name);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Check if a row was found and return the school ID
+    if ($row) {
+        return $row['school_id'];
+    } else {
+        return null; // Return null if the school name is not found
+    }
+}
+
+function views_path($inc)
+{
+    if(file_exists("../private/views/" . $inc . ".inc.php"))
+		{
+			return ("../private/views/" . $inc . ".inc.php");
+		}else{
+			return ("../private/views/404.view.php");
+		}
+}
+
+
+
