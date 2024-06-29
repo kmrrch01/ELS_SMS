@@ -18,6 +18,8 @@ What is left as far as the vids are concerned is the implementation of search re
 
 // last update : 29/6/2024 ~karim
 
-p.s the version all this was implemented on is the one uploaded by Marwan in his branch of the repo; please make sure to import his database schema when altering/working with this version 
+p.s the version all this was implemented on is the one uploaded by Marwan in his branch of the repo; please make sure to import his database schema when altering/working with this version, ensuring that the tables required are all present, data types are correctly declared for each column as the schema, and the columns being referenced in the code are correct and exact. This should help prevent errors like SQLSTATES and Undefined Column Name etc... that are really about setup problems instead of logical/programming issues.
+
+BEST OF LUCK :D 
 			
 
