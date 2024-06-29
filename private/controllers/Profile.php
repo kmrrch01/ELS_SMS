@@ -13,7 +13,6 @@ class Profile extends Controller
 		{
 			$this->redirect('login');
 		}
-
 		$user = new User();
 		$id = trim($id == '') ? Auth::getUser_id() : $id;
 

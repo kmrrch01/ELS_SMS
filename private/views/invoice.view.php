@@ -77,7 +77,7 @@
 </script>
      
 </head>
-<body style="background-image: url('assets/blue1.jpg');">
+<body style="background-image: url('<?=ASSETS?>/blue1.jpg');">
 <div style="min-width:350px;">
 
 <div class="container mt-3">

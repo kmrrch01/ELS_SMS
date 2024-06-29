@@ -2,9 +2,16 @@
 <?php $this->view('includes/nav')?>
 	
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-		<?php $this->view('includes/crumbs',['crumbs'=>$crumbs])?>
+		<?php //$this->view('includes/crumbs',['crumbs'=>$crumbs])?>
+		<form class="form-inline">
+	   <div class="input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text" id="basic-addon1"><i class="fas fa-magnifying-glass"></i></span>
+		</div>
+		<input type="text" class="form-control" placeholder="Student Name" aria-label="Student Name" aria-describedby="basic-add">
+	  </div>
+	</form>
 
-			<h5>Students</h5>
 		<div class="card-group justify-content-center">
 			<table class="table table-striped table-hover">
             <th>View</th><th>Student name</th><th>Class</th>
@@ -14,11 +21,11 @@
             </a>
 </div>
             <br><br>
-						<?php if (is_array($rows) || is_object($rows)): ?>
+			<?php if (is_array($rows) || is_object($rows)): ?>
 			<?php foreach ($rows as $row): ?>
 				<tr>
                     <td>
-                        <a href="<?=ROOT?>/students/profile">
+                        <a href="<?=ROOT?>/stp/<?=$row->student_id?>">
                             <button class="btn-outline-primary"><i class="fa-solid fa-search"></i>
                     </a>
                     </td>

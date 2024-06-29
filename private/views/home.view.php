@@ -34,6 +34,7 @@
         min-width: 250px;
     }
   </style>
+<div class="dashboard">
 <div class=" container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 
     <div class="row justify-content-center">
@@ -98,5 +99,7 @@
             </div>
 
     </div>
+</div>
+</div>
 
 <?php $this->view('includes/footer')?>

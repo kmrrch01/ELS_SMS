@@ -17,6 +17,10 @@
 </head>
 <body>
 	<style>
+		body{
+			background-image: linear-gradient(to right, white, white);
+        width: 100%;
+		}
 		.fa{
 			margin-right: 4px;
 		}

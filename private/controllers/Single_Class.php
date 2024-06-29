@@ -22,7 +22,7 @@ class Single_class extends Controller
 		$crumbs[] = ['classes','classes'];
         $row_user = array();
 		if($row){
-			$crumbs[] = [$row->class_name,''];
+			$crumbs[] = [$row->class,''];
 		    $row_user = $user->first('user_id',$row->user_id);
         }
 

@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/all.min.css">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Signup</title> 
-</head>
-<body style="background-image: url('assets/blue1.jpg');">
-<div style="min-width:350px;">
-
+<?php $this->view('includes/header');?>
 
 
 <div class="container mt-3">
