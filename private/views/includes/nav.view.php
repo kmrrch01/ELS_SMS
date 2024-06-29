@@ -205,7 +205,7 @@
 <div id="sideNav">
 <nav id="mainnav" class="navbar navbar-default no-margin">
    <div class="navbar-header fixed-brand">
-      <a class="navbar-brand" href="#"><button class="btn btn-outline-primary" id="toggleButton"><i class="fa-sharp fa-solid fa-school fa-4"></i></button> ELS MANAGEMENT SYSTEM</a>
+      <a class="navbar-brand" href="<?=ROOT?>/home"><button class="btn btn-outline-primary" id="toggleButton"><i class="fa-sharp fa-solid fa-school fa-4"></i></button> ELS MANAGEMENT SYSTEM</a>
    </div>
 
    <!-- Add a vertical line to separate user's name -->
@@ -248,10 +248,10 @@
         <li>
             <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-award fa-stack-1x"></i></i></span> Tests</a>
         </li> 
-    <!-- Logout button at the bottom -->
-        <li style="margin-top: 200%;">
-            <a href="<?=ROOT?>/logout"><span class="fa-stack fa-lg pull-left"><i class="fa fa-sign-out fa-stack-1x "></i></span> Log out</a>
-        </li>
+        <li>
+            <a href="<?=ROOT?>/Fees_billing"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-award fa-stack-1x"></i></i></span> Fees</a>
+        </li> 
+    <!-- Logout button moved to Dashboard (home view) -->
     </ul>
 </div>
 

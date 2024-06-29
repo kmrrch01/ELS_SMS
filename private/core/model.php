@@ -152,6 +152,13 @@ class Model extends Database
 		$data['id'] = $id;
 		return $this->query($query,$data);
 	}
+	public function pdf($id)
+	{
+
+		$query = "select from $this->table where id = :id";
+		$data['id'] = $id;
+		return $this->query($query,$data);
+	}
 	
 }
 

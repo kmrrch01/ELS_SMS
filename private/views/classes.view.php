@@ -16,7 +16,7 @@
 					</th>
 				</tr>
 				<br><br>
-				<?php if($rows):?>
+				<?php if(is_array($rows) || is_object($rows)):?>
 					 
 					<?php foreach ($rows as $row):?>
 					 
@@ -25,10 +25,12 @@
 							<a href="<?=ROOT?>/single_class/<?=$row->class_id?>">
 							<button class="btn btn-sm btn-primary"><i class="fa fa-chevron-right"></i></button></td>
 					</a>
-					 	<td><?=str_replace("_", " ", ucwords($row->class))?></td><td><?=$row->user->firstname?> <?=$row->user->lastname?></td><td><?=get_date($row->date)?></td>
+					 	<td><?=str_replace("_", " ", ucwords($row->class))?></td>
+						<td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
+						<td><?=get_date($row->date)?></td>
 
 					 	<td>
-					 		<a href="<?=ROOT?>/classes/edit/<?=$row->id?>">
+					 		<a href="<?=ROOT?>/invoice/edit/<?=$row->id?>">
 					 			<button class="btn-sm btn btn-info text-white"><i class="fa fa-edit"></i></button>
 					 		</a>
 

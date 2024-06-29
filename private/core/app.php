@@ -18,6 +18,9 @@ class App
         if(file_exists("../private/controllers/".$URL[0].".php")){
               $this->controller = ucfirst($URL[0]); //keep strtolower in mind
               unset($URL[0]);
+        }else{
+            $this->controller = "NFound"; //Nfound is the controller for the 404 page
+           
         }
         
         require "../private/controllers/".$this->controller.".php";
@@ -32,6 +35,8 @@ class App
         $URL = array_values($URL);
         $this->params = $URL;
         call_user_func_array([$this->controller,$this->method], $this->params);
+       
+       
     }
 
     private function getURL()

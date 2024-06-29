@@ -5,6 +5,10 @@
 <script src="https://kit.fontawesome.com/ec31c5a730.js" crossorigin="anonymous"></script>
 <script src="<?=ROOT?>/js/script.js"></script>
 
+
+
 </div>
+
+</script>
 </body>
 </html>

@@ -91,3 +91,60 @@ getSidebarLink.forEach((item) => {
     item.classList.add("active");
   }
 });
+
+ $(function () {
+            var data = {
+                IsModified: false,
+                PROJECT_ID: "FM",
+                CONTRACT_ID: "Contract001",
+                DESCRIPTION: "Description of Contract 001",
+                CURRENCY_ID: "CURRENCYID",
+                RPF_ID: "RPFID",
+                BLANKET_ID: "BLANKET_CONTRACT_ID",
+                INVOICE_ID: 12,
+                EXCHANGE_RATE: 10,
+                ORIGINAL_HOUR: 20,
+                APPROVED_CHANGES_HOUR: 30,
+                APPROVED_HOUR: 10,
+                PENDING_CHANGES_HOUR: 10,
+                FORECAST_FINAL_HOUR: 5,
+                PERCENT_COMPLETE_HOUR: 60,
+                EARNED_VALUE_HOUR: 19,
+                INVOICED_HOUR: 3.45,
+                RETENTION_HOUR: 45.67,
+                REMAINING_INVOICED_HOUR: 45,
+                PERCENT_INVOICED_HOUR: 45,
+                PAID_HOUR: 35,
+                ORIGINAL_COST: 45,
+                APPROVED_CHANGES_COST: 2,
+                APPROVED_COST: 4,
+                PENDING_CHANGES_COST: 09,
+                FORECAST_FINAL_COST: 34,
+                PERCENT_COMPLETE_COST: 67,
+                EARNED_VALUE_COST: 50,
+                INVOICED_COST: 30,
+                RETENTION_COST: 40,
+                REMAINING_INVOICED_COST: 43,
+                PERCENT_INVOICED_COST: 25,
+                PAID_COST: 30
+            };
+
+            var viewModel = kendo.observable(data);
+            kendo.bind($("#datapane"), viewModel);
+
+
+            $("#AWARD").kendoDatePicker({
+
+                format: "MM/dd/yyyy"
+
+            });
+
+            $("#MOBILIZE").kendoDatePicker({
+
+                format: "MM/dd/yyyy"
+
+            });
+        });
+        function printInvoice(){
+          window.print();
+      }

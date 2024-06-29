@@ -41,6 +41,10 @@
       <li class="nav-item">
         <a class="nav-link" href="<?=ROOT?>/tests">TESTS</a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?=ROOT?>/tests">Fees</a>
+      </li>
       
       <li class="nav-item">
         <a class="nav-link" href="<?=ROOT?>/logout">LOG OUT</a>

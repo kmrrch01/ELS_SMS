@@ -9,6 +9,11 @@
 
 	<link rel="stylesheet" type="text/css" href="<?=ASSETS?>/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=ASSETS?>/all.min.css">
+	<link rel="stylesheet" type="text/css" href="<?=ASSETS?>/1.css">
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </head>
 <body>
 	<style>
