@@ -18,7 +18,7 @@
 <body>
 	<style>
 		body{
-			background-image: linear-gradient(to right, white, white);
+			background-image: linear-gradient(to right, white, darkgrey);
         width: 100%;
 		}
 		.fa{

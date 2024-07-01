@@ -12,9 +12,9 @@
 		<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-add">
 	  </div>
 	</form>
-  <a href="<?=ROOT?>/signup">
-            <button class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add New </button> 
-      </a>
+  <div><a href="<?=ROOT?>/signup">
+      <h1 class="mx-3 btn btn-primary" style="font-size:15px;"><i class="fa-solid fa-plus"></i> Add new</h1>
+</a></div>
 </nav>
       <div class="card-group justify-content-center">
         <?php if($rows):?>

@@ -11,7 +11,7 @@
 				<tr><th></th><th>Class Name</th><th>Created by</th><th>Date</th>
 					<th>
 						<a href="<?=ROOT?>/classes/add">
-							<button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</button>
+							<button class="btn btn-sm btn-primary"><i class="fa-solid fa-plus"></i>Add New</button>
 						</a>
 					</th>
 				</tr>
@@ -23,7 +23,7 @@
 					 <tr>
 					 	<td>
 							<a href="<?=ROOT?>/single_class/<?=$row->class_id?>">
-							<button class="btn btn-sm btn-primary"><i class="fa fa-chevron-right"></i></button></td>
+							<button class="btn btn-sm btn-primary"><i class="fa-solid fa-chevron-right"></i></button></td>
 					</a>
 					 	<td><?=str_replace("_", " ", ucwords($row->class))?></td>
 						<td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
@@ -31,11 +31,11 @@
 
 					 	<td>
 					 		<a href="<?=ROOT?>/invoice/edit/<?=$row->id?>">
-					 			<button class="btn-sm btn btn-info text-white"><i class="fa fa-edit"></i></button>
+					 			<button class="btn-sm btn btn-info text-white"><i class="fa-solid fa-edit"></i></button>
 					 		</a>
 
 					 		<a href="<?=ROOT?>/classes/delete/<?=$row->id?>">
-					 			<button class="btn-sm btn btn-danger"><i class="fa fa-trash-alt"></i></button>
+					 			<button class="btn-sm btn btn-danger"><i class="fa-solid fa-trash-alt"></i></button>
 					 		</a>
  					 		
 					 	</td>

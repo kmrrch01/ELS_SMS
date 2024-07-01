@@ -40,6 +40,12 @@ class Model extends Database
 		return $data;
 	}
 
+	public function count($table){
+		$query = "select count(*) from $table";
+		$data = $this->query($query);
+		
+		return $data;
+	}
 	public function first($column,$value)
 	{
 

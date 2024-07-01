@@ -14,7 +14,7 @@
 		    </div>
 		  </form>
  			<a href="<?=ROOT?>/signup?mode=parents">
-				<button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</button>
+				<button class="btn btn-sm btn-primary"><i class="fa-solid fa-plus"></i>Add New</button>
 			</a>
  		</nav>
 

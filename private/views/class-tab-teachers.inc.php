@@ -8,6 +8,6 @@
 						</div>
 						</form>
 					<a href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=teachers-add">
-								<button class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Teacher </button> 
+								<button class="btn btn-primary"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add Teacher </button> 
 						</a>
 					</nav>

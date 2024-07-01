@@ -50,13 +50,13 @@ function getRandomNumbers() {
 		  <form class="form-inline">
 		    <div class="input-group">
 		      <div class="input-group-prepend">
-		        <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i>&nbsp</span>
+		        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-search"></i>&nbsp</span>
 		      </div>
 		      <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
 		    </div>
 		  </form>
 		  <a href="<?=ROOT?>/invoices">
-		  <button class="btn btn-sm btn-primary"><i class="fa fa-plus" ></i>Add New</button>
+		  <button class="btn btn-sm btn-primary"><i class="fa-solid fa-plus" ></i>Add New</button>
       				</a>
  		</nav>
 		<div class="card-group justify-content-center">
@@ -104,11 +104,11 @@ function getRandomNumbers() {
                     </td>
 					<td>
 					 		<a href="<?=ROOT?>/Fees_billing/edit/<?=$row->id?>">
-					 			<button class="btn-sm btn btn-info text-white"><i class="fa fa-edit"></i></button>
+					 			<button class="btn-sm btn btn-info text-white"><i class="fa-solid fa-edit"></i></button>
 					 		</a>
 
 					 		<a href="<?=ROOT?>/Fees_billing/delete/<?=$row->id?>">
-					 			<button class="btn-sm btn btn-dark"><i class="fa fa-trash-alt"></i></button>
+					 			<button class="btn-sm btn btn-dark"><i class="fa-solid fa-trash-alt"></i></button>
 					 		</a>
 							 <a href="<?=ROOT?>/Invoices/pdf/<?=$row->id?>">
 					 			<button class="btn-sm btn btn-danger" ><i class="fa-regular fa-file-pdf"></i></button>

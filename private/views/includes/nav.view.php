@@ -1,275 +1,463 @@
-<link rel="stylesheet" src="<?=ROOT?>/css/all.min.css">
-<body>
-	<style>
-		.fa{
-			margin-right: 4px;
-		}
-	</style>
-<div style="min-width:350px;">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!DOCTYPE html><html class="menu">
+<html>
+
+<head>
+
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content=="IE=edge"/>
+<meta name="google" value="notranslate"/>
+<title>Nav</title>
+
+<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
 <style>
-.nav-pills > li > a {
-   border-radius: 0;
-}
-#sidebar-wrapper {
-    width: 0; /* Start with a width of 0 */
-    transition: width 0.5s ease-in-out; /* Apply ease-in-ease-out transition */
-}
+body
+{
+  margin:0px;
+  padding:0px;
+	font-family: "Open Sans", arial;
+  background: linear-gradient(to right, white, white);
+	color:black;
+	font-weight:300;
 
-.hidden {
-    width: 0;
-    overflow: hidden; /* Hide the content when sidebar is hidden */
-}
 
-.visible {
-    width: 250px; /* Width of the sidebar when visible */
 }
 
 
-#wrapper {
-   padding-left: 0;
-   -webkit-transition: all 0.5s ease;
-   -moz-transition: all 0.5s ease;
-   -o-transition: all 0.5s ease;
-   transition: all 0.5s ease;
-   overflow: hidden;
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+}
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+.logo{
+  
 }
 
-#wrapper.toggled {
-   padding-left: 250px;
-   overflow: hidden;
-}
-
-#sidebar-wrapper {
-   z-index: 1000;
-   position: absolute;
-   left: 225px;
-   width: 0;
-   height: 100%;
-   margin-left: -250px;
-   overflow-y: auto;
-   background: #000;
-   -webkit-transition: all 0.5s ease;
-   -moz-transition: all 0.5s ease;
-   -o-transition: all 0.5s ease;
-   transition: all 0.5s ease;
-   background-color: #181f29;
-}
-
-#wrapper.toggled #sidebar-wrapper {
-   width: 250px;
-}
-
-#page-content-wrapper {
-   position: absolute;
-   padding: 25px;
-   width: 100%;
-   overflow-x: hidden;
-}
-
-.xyz {
-   min-width: 360px;
-}
-
-#wrapper.toggled #page-content-wrapper {
-   position: relative;
-   margin-right: 0px;
-}
-
-.fixed-brand {
-   width: auto;
-}
-/* Sidebar Styles */
-
-.sidebar-nav {
-   position: absolute;
-   top: 0;
-   width: 225px;
-   margin: 0;
-   padding: 0;
-   list-style: none;
-   margin-top: 2px;
-}
-
-.sidebar-nav li {
-   text-indent: 15px;
-   line-height: 50px;
-   font-size: 20px;
-}
-
-.sidebar-nav li a {
-   display: block;
-   text-decoration: none;
-   color: white;
-}
-
-.sidebar-nav li a:hover {
-   text-decoration: none;
-   color: #fff;
-   background: rgba(255, 255, 255, 0.2);
-   border-left: red 2px solid;
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-   text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-   height: 65px;
-   font-size: 18px;
-   line-height: 60px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-   color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-   color: #fff;
-   background: none;
-}
-
-.no-margin {
-   margin: 0;
-}
-#wrapper {
-    transition: left 1s ease-out; /* Apply transition for ease-out animation */
-}
-
-.slide-off {
-    left: -100%; /* Slide off the navbar */
-}
-
-@media (min-width: 768px) {
-   #wrapper {
-      padding-left: 250px;
-   }
-   .fixed-brand {
-      width: 250px;
-   }
-   #wrapper.toggled {
-      padding-left: 0;
-   }
-   #sidebar-wrapper {
-      width: 250px;
-   }
-   #wrapper.toggled #sidebar-wrapper {
-      width: 250px;
-   }
-   #wrapper.toggled-2 #sidebar-wrapper {
-      width: 50px;
-   }
-   #wrapper.toggled-2 #sidebar-wrapper:hover {
-      width: 250px;
-   }
-   #page-content-wrapper {
-      padding: 20px;
-      position: relative;
-      -webkit-transition: all 0.5s ease;
-      -moz-transition: all 0.5s ease;
-      -o-transition: all 0.5s ease;
-      transition: all 0.5s ease;
-   }
-   #wrapper.toggled #page-content-wrapper {
-      position: relative;
-      margin-right: 0;
-      padding-left: 250px;
-   }
-   #wrapper.toggled-2 #page-content-wrapper {
-      position: relative;
-      margin-right: 0;
-      margin-left: -200px;
-      -webkit-transition: all 0.5s ease;
-      -moz-transition: all 0.5s ease;
-      -o-transition: all 0.5s ease;
-      transition: all 0.5s ease;
-      width: auto;
-   }
+.settings {
+  
+  height:73px; 
+  float:left;
+  background: linear-gradient(to right, white, white);
+  background-repeat:no-repeat;
+  width:250px;
+  margin:0px;
+ text-align: center;
+font-size:20px;
+font-family: 'Strait', sans-serif;
 
 }
-.vertical-line {
-   border-right: 1px solid black; /* Adjust color and width as needed */
-   height: 45px; /* Adjust height to match navbar */
-   margin-left: 70%; /* Adjust spacing */
+
+
+
+
+
+
+/* ScrolBar  */
+.scrollbar
+{
+
+height: 90%;
+width: 100%;
+overflow-y: hidden;
+overflow-x: hidden;
 }
 
-#mainnav {
-  background-color: white;
-  border: 1px solid blue;
+.scrollbar:hover
+{
+
+height: 90%;
+width: 100%;
+overflow-y: scroll;
+overflow-x: hidden;
 }
+
+/* Scrollbar Style */ 
+
+
+
+#style-1::-webkit-scrollbar-track
+{
+border-radius: 2px;
+}
+
+#style-1::-webkit-scrollbar
+{
+width: 5px;
+background-color: #F7F7F7;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+background-color: #BFBFBF;
+}
+/* Scrollbar End */ 
+
+
+
+
+.fa-lg {
+font-size: 1em;
+  
+}
+.fa {
+position: relative;
+display: table-cell;
+width: 55px;
+height: 36px;
+text-align: center;
+top:12px; 
+font-size:20px;
+
+}
+
+
+
+.main-menu:hover, nav.main-menu.expanded {
+width:250px;
+overflow:hidden;
+opacity:1;
+
+}
+
+.main-menu {
+background:#F7F7F7;
+position:absolute;
+top:0;
+bottom:0;
+height:100%;
+left:0;
+width:55px;
+overflow:hidden;
+-webkit-transition:width .2s linear;
+transition:width .2s linear;
+-webkit-transform:translateZ(0) scale(1,1);
+box-shadow: 1px 0 15px rgba(0, 0, 0, 0.07);
+  opacity:1;
+}
+
+.main-menu>ul {
+margin:7px 0;
+
+}
+
+.main-menu li {
+position:relative;
+display:block;
+width:250px;
+  
+
+
+}
+
+.main-menu li>a {
+position:relative;
+width:255px;
+display:table;
+border-collapse:collapse;
+border-spacing:0;
+color:#8a8a8a;
+font-size: 13px;
+text-decoration:none;
+-webkit-transform:translateZ(0) scale(1,1);
+-webkit-transition:all .14s linear;
+transition:all .14s linear;
+font-family: 'Strait', sans-serif;
+border-top:1px solid #f2f2f2;
+
+text-shadow: 1px 1px 1px  #fff;  
+}
+
+
+
+.main-menu .nav-icon {
+  
+position:relative;
+display:table-cell;
+width:55px;
+height:36px;
+text-align:center;
+vertical-align:middle;
+font-size:18px;
+
+}
+
+.main-menu .nav-text  {
+   
+position:relative;
+display:table-cell;
+vertical-align:middle;
+width:190px;
+font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu .share {
+}
+
+
+
+.main-menu .fb-like {
+
+left: 180px;
+position:absolute;
+top: 15px;
+}
+
+.main-menu>ul.logout {
+position:absolute;
+left:0;
+bottom:0;
+  
+}
+
+.no-touch .scrollable.hover {
+overflow-y:hidden;
+
+}
+
+.no-touch .scrollable.hover:hover {
+overflow-y:auto;
+overflow:visible;
+  
+}
+
+
+/* Logo Hover Property */
+
+
+.settings:hover, settings:focus {   
+  background:url( https://s17.postimg.org/74cl7s05b/logo_hover.jpg);
+  -webkit-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
+-moz-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
+-o-transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0;
+transition: all 0.2s ease-in-out, width 0, height 0, top 0, left 0; 
+}
+
+.settings:active, settings:focus {   
+  background:url( https://s3.postimg.org/bqfooag4z/startific.jpg);
+  -webkit-transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
+-moz-transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
+-o-transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
+transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0; 
+}
+
+
+a:hover,a:focus {
+text-decoration:none;
+border-left:0px solid #F7F7F7;
+
+
+
+}
+
+nav {
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-o-user-select:none;
+user-select:none;
+  
+}
+
+nav ul,nav li {
+outline:0;
+margin:0;
+padding:0;
+text-transform: uppercase;
+}
+
+
+
+
+/* Darker element side menu Start*/
+
+
+.darkerli
+{
+background-color:#ededed;
+text-transform:capitalize;  
+}
+
+.darkerlishadow
+{
+background-color:#ededed;
+text-transform:capitalize;  
+-webkit-box-shadow: inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+-moz-box-shadow:    inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+box-shadow:         inset 0px 5px 5px -4px rgba(50, 50, 50, 0.55);
+}
+
+
+.darkerlishadowdown
+{
+background-color:#ededed;
+text-transform:capitalize;  
+-webkit-box-shadow: inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+-moz-box-shadow:    inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+box-shadow:         inset 0px -4px 5px -4px rgba(50, 50, 50, 0.55);
+}
+
+/* Darker element side menu End*/
+
+
+
+
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+color:#fff;
+background-color:#00bbbb;
+text-shadow: 0px 0px 0px; 
+}
+.area {
+float: left;
+background: #e2e2e2;
+width: 100%;
+height: 100%;
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+
 </style>
 
+  
+ 
 
 
-<div id="sideNav">
-<nav id="mainnav" class="navbar navbar-default no-margin">
-   <div class="navbar-header fixed-brand">
-      <a class="navbar-brand" href="<?=ROOT?>/home"><button class="btn btn-outline-primary" id="toggleButton"><i class="fa-sharp fa-solid fa-school fa-4"></i></button> ELS MANAGEMENT SYSTEM</a>
-   </div>
 
-   <!-- Add a vertical line to separate user's name -->
-   <div class="vertical-line"></div>
+</head>
+<body>
+
+
+
+<div class="sliderNav">
+  <nav class="main-menu">
+
+<div class="container">
+ <img class="btn position-relative" style="cursor: default; width: 150px; height:100px;" src="<?=ASSETS?>/els_logo1.png"></img>
+</div>
+<div class="scrollbar" id="style-1">
+      
+<ul>
+  
+<li>                                   
+<a href="<?=ROOT?>/home">
+<i class="fa fa-home fa-lg"></i>
+<span class="nav-text">Home</span>
+</a>
+</li>   
    
-   <div class="fs-1"><?=str_replace("_", " ", Auth::user())?></div>
-      <!-- navbar-header-->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-         <ul class="nav navbar-nav">
-            <li class="active">
-               <button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
-               </button>
-            </li>
-         </ul>
-      </div>
-      <!-- bs-example-navbar-collapse-1 -->
-   </nav>
-   <div class="" id="wrapper">
-      <!-- Sidebar -->
-      <div id="sidebar-wrapper">
-    <ul class="mx-auto p-2 sidebar-nav nav-pills nav-stacked" id="menu">
-        <li class="active">
-            <a href="<?=ROOT?>/home"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Dashboard</a>
-        </li>
-        <li>
-            <a href="<?=ROOT?>/users"><span class="fs-3 fa-stack fa-lg pull-left"><i class="fa-solid fa-chalkboard-user fa-stack-1x"></i></span> Staff</a>
-        </li>
-        <li>
-            <a href="<?=ROOT?>/students"> <span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-user-graduate fa-stack-1x"></i></span> Students</a>
-        </li>
-        <li>
-            <a href="<?=ROOT?>/parents"> <span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-people-roof fa-stack-1x"></i></span> Parents</a>
-        </li>
-        <li>
-            <a href="<?=ROOT?>/classes"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-book fa-stack-1x"></i></span> Classes</a>
-        </li>
-        <li>
-            <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-calendar fa-stack-1x "></i></span> Roster</a>
-        </li>
-        <li>
-            <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-award fa-stack-1x"></i></i></span> Tests</a>
-        </li> 
-        <li>
-            <a href="<?=ROOT?>/Fees_billing"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-award fa-stack-1x"></i></i></span> Fees</a>
-        </li> 
-    <!-- Logout button moved to Dashboard (home view) -->
-    </ul>
+<li>                                 
+<a href="<?=ROOT?>/profile/">
+<i class="fa fa-user fa-lg"></i>
+<span class="nav-text">Profile</span>
+</a>
+</li>   
+
+    
+<li>                                 
+<a href="<?=ROOT?>/logout">
+<i class="fa fa-sign-out fa-lg"></i>
+<span class="nav-text">Logout</span>
+</a>
+</li>   
+  
+
+
+ 
+
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ff17589278d8b3a"></script>
+                       
+                            
+                              
+                            
+                          
+                        </span>
+              
+                        
+                    </a>
+
+</li>
+                            
+
+  
+  
+</li>
+<li class="darkerlishadow">
+<a href="<?=ROOT?>/users">
+<i class="fa fa-users fa-lg"></i>
+<span class="nav-text">Staff</span>
+</a>
+</li>
+  
+<li class="darkerli">
+<a href="<?=ROOT?>/students">
+<i class="fa fa-user-graduate fa-lg"></i>
+<span class="nav-text">Students</span>
+</a>
+</li>
+  
+<li class="darkerli">
+<a href="<?=ROOT?>/parents">
+<i class="fa fa-people-roof fa-lg"></i>
+<span class="nav-text">Parents</span>
+</a>
+</li>
+  
+<li class="darkerli">
+<a href="<?=ROOT?>/classes">
+<i class="fa fa-landmark"></i>
+ <span class="nav-text">Classes</span>
+</a>
+</li>
+  
+<li class="darkerli">
+<a href="<?=ROOT?>/tests">
+<i class="fa fa-file-word fa-lg"></i>
+<span class="nav-text">Tests & Exams</span>
+</a>
+</li>
+
+<li class="darkerli">
+<a href="<?=ROOT?>/fees_billing">
+<i class="fa fa-file-invoice-dollar fa-lg"></i>
+<span class="nav-text">Fees</span>
+</a>
+</li>
+  
+
+</ul>
+
+  
+<li>
+                                   
+<a href="http://startific.com">
+<i class="fa fa-question-circle fa-lg"></i>
+<span class="nav-text">Help</span>
+</a>
+</li>   
+    
+  
+<ul class="logout">
+<li>
+                   <a href="http://startific.com">
+                         <i class="fa fa-lightbulb-o fa-lg"></i>
+                        <span class="nav-text">
+                            BLOG 
+                        </span>
+                        
+                    </a>
+</li>  
+</ul>
+</nav>
+        
+  
+
 </div>
 
-
-
-</div>
-   </div>
-
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-document.getElementById('toggleButton').addEventListener('click', function() {
-    var sidebar = document.getElementById('sidebar-wrapper');
-    sidebar.classList.toggle('visible');
-});
-
-
-
-</script>
-
-<div class="container-fuild" style="margin-left:20%">
-
+</body>
+</html>
