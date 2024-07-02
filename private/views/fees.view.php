@@ -43,9 +43,12 @@ function getRandomNumbers() {
 }
 </script>
 <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-		<?php $this->view('includes/crumbs',['crumbs'=>$crumbs])?>
+			<div style="padding-left:0px;">
+					<h1 style="font-family: copperplate;" class="breadcrumb justify-content-center">
+				FEES & INVOICING <hr> <i class="fa-solid fa-file-invoice-dollar"></i></h1>
+					</div>
 
-			<h5>Students</h5>
+			<!--<h5>Students</h5>-->
 			<nav class="navbar navbar-light bg-light">
 		  <form class="form-inline">
 		    <div class="input-group">

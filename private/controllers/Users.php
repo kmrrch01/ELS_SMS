@@ -13,8 +13,11 @@ class Users extends Controller
 		{
 			$this->redirect('login');
 		}
+		
 		$crumbs[] = ['Dashboard', ''];
 		$crumbs[] = ['staff', 'users'];
+		$page_tab = isset($_GET['tab']) ? $_GET['tab'] : 'teachers';
+
 
         $user = new User();
 		$school_id = Auth::getSchool_id();

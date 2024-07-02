@@ -3,6 +3,10 @@
 	
 	<div class="justify-content-center container-fluid p-6 shadow mx-auto" style="max-width: 1000px;">
 		<?php // $this->view('includes/crumbs')?>
+		<div style="padding-left:0px;">
+		<h1 style="font-family: copperplate;" class="breadcrumb justify-content-center">
+      <?=$row->class?> DETAILS <hr> <i class="fa-solid fa-clipboard-user fa-1x"></i></h1>
+		</div>
 		<?php if($row):?>
 		<div class="row">
 				<table class="table table-hover table-striped table-bordered">

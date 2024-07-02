@@ -23,7 +23,7 @@
 				</div>
 				<?php endif;?>
 			
-			 	<input autofocus class="form-control" value="<?=get_var('class_name',$row[0]->class_name)?>" type="text" name="class_name" placeholder="Class Name"><br><br>
+			 	<input autofocus class="form-control" value="<?=get_var('class',$row[0]->class)?>" type="text" name="class" placeholder="Class Name"><br><br>
 			 	<input class="btn btn-primary float-end" type="submit" value="Save">
 
 			 	<a href="<?=ROOT?>/classes">

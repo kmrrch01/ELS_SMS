@@ -11,7 +11,7 @@
 			 <form method="post">
 			 	<h3>Are you sure you want to delete?!</h3>
  
-			 	<input disabled autofocus class="form-control" value="<?=get_var('class_name',$row[0]->class_name)?>" type="text" name="class_name" placeholder="Class Name"><br><br>
+			 	<input disabled autofocus class="form-control" value="<?=get_var('class',$row[0]->class)?>" type="text" name="class" placeholder="Class Name"><br><br>
 			 	<input type="hidden" name="id">
 			 	<input class="btn btn-danger float-end" type="submit" value="Delete">
 

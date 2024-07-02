@@ -8,7 +8,7 @@ class Classes_model extends Model
     protected $table = 'classes';
 
 	protected $allowedColumns = [
-        'class_name',
+        'class',
         'date',
     ];
 
@@ -28,9 +28,9 @@ class Classes_model extends Model
         $this->errors = array();
 
         //check for class name
-        if(empty($DATA['class_name']))
+        if(empty($DATA['class']))
         {
-            $this->errors['class_name'] = "Class name cannot be empty.";
+            $this->errors['class'] = "Class name cannot be empty.";
         }
  
         if(count($this->errors) == 0)
@@ -59,11 +59,11 @@ class Classes_model extends Model
 
     public function make_class_id($data)
     {
-        if (!isset($data['class_name'])) {
+        if (!isset($data['class'])) {
             return ["error" => "Missing class data"];
         }
     
-        $name_prefix = $data['class_name'];
+        $name_prefix = $data['class'];
         // Generate the ID 
         $school_id = "ELS" . '_' . strtoupper($name_prefix);
         $data['class_id'] = $school_id;
