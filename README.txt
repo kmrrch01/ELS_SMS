@@ -14,9 +14,13 @@ UPDATES:
 
 > AS FOR THE PROFILE PAGE FOR THE STUDENTS: REQUIRED IS A STUDENT PROFILE CONTROLLER (NAMED STP IN CODE) THAT WILL REDIRECT TO A VIEW CALLED stp AS WELL; THE CONTROLLER IS VERY SIMILAR TO THE PROFILE CONTROLLER, AND THE VIEW IS THE SAME AS THE PROFILE.VIEW.PHP 
 
+	> NOTE WHEN WORKING WITH ICONS (FA FONTAWESOME: 
+		--- The sizing conventions in CSS for the Navigation Menu relied heavily on altering the size of the "fa" icons, and since that was in the body and it is included in all other views of the code, then it also affected the size of the all icons with class "fa" (ex. <i class="fa fa-user"></i>) ... 
+		--- To solve this sizing issue, when you want to use icons in your views from now on use "fa-solid" or "fa-thin" instead of "fa" only; this way the class will remain unaffected with the sizing details of the navbar.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 What is left as far as the vids are concerned is the implementation of search results (follow-up with Hasan) to merge filters on Staff and Students, in addition to completing the page tabs for BASIC INFO, CLASSES, & TESTS in the singular profile views for both Students and Teachers alike. 
 
-// last update : 29/6/2024 ~karim
+// last update : 1/7/2024 ~karim
 
 p.s the version all this was implemented on is the one uploaded by Marwan in his branch of the repo; please make sure to import his database schema when altering/working with this version 
 			
