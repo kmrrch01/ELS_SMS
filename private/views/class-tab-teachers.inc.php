@@ -9,11 +9,11 @@
 	  </form>
 
 	  	<div>
-			<a href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=teachers-add&select=true">
-				<button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add New</button>
+			<a href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=teacher-add&select=true">
+				<button class="btn btn-sm btn-primary"><i class="fa-solid fa-plus"></i>Add New</button>
 			</a>			
-			<a href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=teachers-remove&select=true">
-				<button class="btn btn-sm btn-primary"><i class="fa fa-minus"></i>Remove</button>
+			<a href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=teacher-remove&select=true">
+				<button class="btn btn-sm btn-primary"><i class="fa-solid fa-minus"></i>Remove</button>
 			</a>
  
 		</div>
@@ -21,6 +21,10 @@
 	</nav>
 
 <div class="card-group justify-content-center">
+	<table class="table table-striped-hover">
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Position</th>
 	<?php if(is_array($teachers)):?>
 		<?php foreach($teachers as $teacher):?>
 			
@@ -33,4 +37,5 @@
 	<?php else:?>
 		<center><h4>No teachers were found in this class</h4></center>
 	<?php endif;?>
+	</table>
  </div>

@@ -40,8 +40,8 @@ class Teachers_model extends Model
         foreach ($data as $key => $row) {
             // code...
             if(isset($row->user_id)){
-            $result = $user->where('user_id',$row->user_id);
-            $data[$key]->user = is_array($result) ? $result[0] : false;
+                $result = $user->where('user_id',$row->user_id);
+                $data[$key]->user = is_array($result) ? $result[0] : false;
             }
         }
        

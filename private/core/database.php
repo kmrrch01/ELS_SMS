@@ -40,16 +40,26 @@ class Database
                         $data = $stm->fetchAll(PDO::FETCH_ASSOC);
 
                     }
-                    if(is_array($data) && count($data) > 0){
-                        return $data;
-                    }
 
-                    return true;
                 }
-            } 
 
-            return false;
+            }
+            //run functions after select
+		if(is_array($data)){
+			if(property_exists($this, 'afterSelect'))
+			{
+				foreach($this->afterSelect as $func)
+				{
+					$data = $this->$func($data);
+				}
+			}
+		}
 
+		if(is_array($data) && count($data) >0){
+			return $data;
+		}
+
+		return false;
     }
 
 

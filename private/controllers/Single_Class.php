@@ -31,7 +31,7 @@ class Single_class extends Controller
 		$teachers = new Teachers_model();
 
 		$results = false;
-		if(($page_tab == 'teachers-add' || $page_tab == 'teachers-remove') && count($_POST) > 0)
+		if(($page_tab == 'teacher-add' || $page_tab == 'teacher-remove') && count($_POST) > 0)
 		{
 
 			if(isset($_POST['search'])){
@@ -53,7 +53,7 @@ class Single_class extends Controller
 				//add teacher
 				$query = "select id from class_teachers where user_id = :user_id && class_id = :class_id && disabled = 0 limit 1";
 				
-				if($page_tab == 'teachers-add'){
+				if($page_tab == 'teacher-add'){
 
 					if(!$teachers->query($query,[
 						'user_id' => $_POST['selected'],
@@ -68,13 +68,13 @@ class Single_class extends Controller
 
 						$teachers->insert($arr);
 
-						$this->redirect('single_class/'.$id.'?tab=teachers');
+						$this->redirect("classes");
 
 					}else{
 						$errors[] = "that teacher already belongs to this class";
 					}
 				}else
-				if($page_tab == 'teachers-remove'){
+				if($page_tab == 'teacher-remove'){
 
 					if($row = $teachers->query($query,[
 						'user_id' => $_POST['selected'],
@@ -86,7 +86,7 @@ class Single_class extends Controller
  
 						$teachers->update($row[0]->id,$arr);
 
-						$this->redirect('single_class/'.$id.'?tab=teachers');
+						$this->redirect("single_class/'.$id.'?tab=teachers");
 
 					}else{
 						$errors[] = "that teacher was not found in this class";
@@ -102,7 +102,7 @@ class Single_class extends Controller
 			$query = "select * from class_teachers where class_id = :class_id && disabled = 0";
 			$teachers = $teachers->query($query,['class_id'=>$id]);
 
-			$data['teacher']   = $teachers;
+			$data['teachers']   = $teachers;
 		}
 
 		$data['row'] 		= $row;

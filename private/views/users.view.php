@@ -57,8 +57,9 @@
           <?php endforeach;?>
           <?php else:?>
             <h4> No staff members were found.</h4>
-          </table>
+       
           <?php endif;?>
+          </table>
           
 
       </div>

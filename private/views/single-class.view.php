@@ -5,15 +5,13 @@
 		<?php // $this->view('includes/crumbs')?>
 		<div style="padding-left:0px;">
 		<h1 style="font-family: copperplate;" class="breadcrumb justify-content-center">
-      <?=$row->class?> DETAILS <hr> <i class="fa-solid fa-clipboard-user fa-1x"></i></h1>
 		</div>
 		<?php if($row):?>
 		<div class="row">
+			<center><h4><?=esc(ucwords($row->class))?></h4></center>
 				<table class="table table-hover table-striped table-bordered">
-					<tr><th>ID:</th><td><?=esc($row->class_id)?></td></tr>
-					<tr><th>Class Name:</th><td><?=str_replace("_", " ", ucwords(esc($row->class)))?></td></tr>
-					<tr><th>Created By:</th><td><?=esc($row->user->firstname)?> <?=esc($row->user->lastname)?></td></tr>
-					<tr><th>Date Created:</th><td><?=get_date($row->date)?></td></tr>
+				    <tr><th>Created By:</th><td><?=esc($row->user->firstname)?> <?=esc($row->user->lastname)?></td>
+					<th>Date Created:</th><td><?=get_date($row->date)?></td></tr>
 				
 
 				</table>
@@ -49,10 +47,10 @@
 						case 'tests':
 							include(views_path('class-tab-tests'));
 							break;
-						case 'teachers-add':
+						case 'teacher-add':
 							include(views_path('class-tab-teachers-add'));
 							break;
-						case 'teachers-remove':
+						case 'teacher-remove':
 							include(views_path('class-tab-teachers-remove'));
 							break;
 						case 'students-add':
