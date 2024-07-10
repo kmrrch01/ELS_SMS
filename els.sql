@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2024 at 07:54 PM
+-- Generation Time: Jul 10, 2024 at 08:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -69,11 +69,26 @@ CREATE TABLE `class_students` (
 
 CREATE TABLE `class_teachers` (
   `id` int(11) NOT NULL,
+  `firstname` varchar(60) NOT NULL,
   `user_id` varchar(60) NOT NULL,
   `class_id` varchar(60) NOT NULL,
   `disabled` tinyint(1) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `class_teachers`
+--
+
+INSERT INTO `class_teachers` (`id`, `firstname`, `user_id`, `class_id`, `disabled`, `date`) VALUES
+(1, '', '2024_TEA663534', 'ELS_BAC1', 1, '2024-07-10 19:58:55'),
+(2, '', '2024_TEA663534', 'ELS_BAC2', 1, '2024-07-10 20:02:04'),
+(3, '', '2024TEA668ECD', 'ELS_BAC2', 1, '2024-07-10 20:06:36'),
+(4, '', '2024TEA668ECD', 'ELS_BAC1', 0, '2024-07-10 20:10:11'),
+(5, '', '2024TEA668ED0', 'ELS_BAC2', 1, '2024-07-10 20:20:56'),
+(6, '', '2024_TEA663534', 'ELS_BAC2', 0, '2024-07-10 20:26:34'),
+(7, '', '2024TEA668ED0', 'ELS_BAC2', 0, '2024-07-10 20:28:45'),
+(8, '', '2024TEA668ED0', 'ELS_BAC1', 0, '2024-07-10 20:29:27');
 
 -- --------------------------------------------------------
 
@@ -163,7 +178,9 @@ INSERT INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `firstname_ar`
 (1, 'Super', 'Admin', 'Admin', '', '', '', 'k.marrache@outlook.com', '', '', '2024-05-02 16:27:49', 2024, '', '2024_ADM6633A2', 'female', 'general', 'admin', '', '', 'sinfuliphone', '', ''),
 (3, 'omar', 'omar', 'omar', '', '', '', 'omar.alloush777@gmail.com', '', '', '2024-05-03 20:57:07', 2024, '', '2024_ADM663533', 'male', 'grade_1', 'admin', 'regular', 'section_A', '$2y$10$aXNn28jM2z36odSCxLF0rOCmo4uV1WOvdBjefF51dvfpuLzC037NG', '', ''),
 (4, 'hasan', 'hasan', 'hasan', '', '', '', 'h@gmail.com', '', '', '2024-05-03 21:00:23', 2024, '', '2024_TEA663534', 'male', 'grade_1', 'teacher', '', '', '$2y$10$QIKo3vrTGu.iuKNDqQWqIOAmhglhyXukQStTiEvfq6JSzvd2JMKra', '', ''),
-(5, 'Mohammad', 'Abdelkader', 'Marrache', 'محمد', 'عبدالقادر', 'مراش', 'simsarzada@gmail.com', '03200064', 'Beirut', '2024-05-07 19:19:20', 2024, '1974-10-10', '2024PAR663A62', 'male', '', 'parent', '', '', '$2y$10$nwbASlQX6PU7479DgRWezueHYZeIORCy8y2sICUsxRnpHfB0kTDR6', '', '');
+(5, 'Mohammad', 'Abdelkader', 'Marrache', 'محمد', 'عبدالقادر', 'مراش', 'simsarzada@gmail.com', '03200064', 'Beirut', '2024-05-07 19:19:20', 2024, '1974-10-10', '2024PAR663A62', 'male', '', 'parent', '', '', '$2y$10$nwbASlQX6PU7479DgRWezueHYZeIORCy8y2sICUsxRnpHfB0kTDR6', '', ''),
+(6, 'Omar', 'Ibrahim', 'Alloush', 'عمر', 'ابراهيم', 'اللوش', 'omar@els.com.lb', '11111111', 'dawhet aramoun', '2024-07-10 20:06:24', 2024, '2000-01-01', '2024TEA668ECD', 'male', '', 'teacher', 'regular', 'section_A', '$2y$10$E71i0rTrkL7JYl8p4/nJmOdB.jHQo2nmNN3ZoGRhfjNq3wLBQhImO', '', 'grade_2'),
+(7, 'karim', 'Mohammad', 'Marash', 'كريم', 'محمد', 'مراش', 'K@els.com.lb', '55555555', 'dawhet aramoun', '2024-07-10 20:20:38', 2024, '2000-01-03', '2024TEA668ED0', 'male', '', 'teacher', 'regular', 'section_A', '$2y$10$GQoEJtpIskXo5lB024WOGuR0dgVQ/Mf4Rjc0u2VlVHZFKLLd9UMHG', '', 'grade_2');
 
 --
 -- Indexes for dumped tables
@@ -232,7 +249,7 @@ ALTER TABLE `class_students`
 -- AUTO_INCREMENT for table `class_teachers`
 --
 ALTER TABLE `class_teachers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `class_tests`
@@ -250,7 +267,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
