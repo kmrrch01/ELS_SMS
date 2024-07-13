@@ -12,7 +12,7 @@ class Stp extends Controller
 		}
 
 		$student = new Student(); 
-
+		$image = array();
 		$row = $student->first('student_id',$id);
 
 		$crumbs[] = ['Dashboard',''];
@@ -22,6 +22,7 @@ class Stp extends Controller
 		}
 
 		$this->view('stp',[
+			'image' => $image,
 			'row'=>$row,
 			'crumbs'=>$crumbs,
 		]);

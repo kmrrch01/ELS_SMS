@@ -31,7 +31,7 @@
 		<?php //$this->view('includes/crumbs',['crumbs'=>$crumbs])?>
         <div style="padding-left:0px;">
 		<h1 style="font-family: copperplate;" class="breadcrumb justify-content-center">
-      STUDENTS <hr> <i class="fa-solid fa-graduation-cap"></i></h1>
+      ALL STUDENTS <hr> <i class="fa-solid fa-graduation-cap"></i></h1>
 		</div>
 		<form class="form-inline">
 		    <div class="input-group">
@@ -39,12 +39,17 @@
 		        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-search"></i>&nbsp</span>
 		      </div>
 		      <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-		    </div>
-            <div style="margin-bottom:5%; margin-left:90%" >
-            <a  href="<?=ROOT?>/student_signup/">
-                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>Add New</button>
-            </a>
+             
+            </div>
+            <div style="margin-bottom:5%; margin-left:88%" >
+            <a class="btn btn-primary" href="<?=ROOT?>/student_signup">
+        <i class="fa-solid fa-plus"></i> Add New
+    </a>
+
+                
+           
 	</form>
+   
     
 </div>
 
@@ -70,7 +75,7 @@
                         <p style="text-align:center;"><?=$row->firstname?> <?=$row->middlename?> <?=$row->lastname?></p>
                     </td>
                     <td style="text-align:center;">
-                        <?=str_replace("_", " ", ucwords($row->class_name))?>
+                        <?=str_replace("_", " ", ucwords($row->class))?>
                     </td>
                     <td>
                         <div style="text-align:center;"><?=$row->acad_year?></div>
@@ -79,7 +84,12 @@
 			<?php endforeach; ?>
 		<?php else: ?>
 			<tr>
-				<td colspan="5"><h4>No students were found at this time</h4></td>
+                
+				<td colspan="5">
+                    <center><h3><i style="color: red;" class="fa-solid fa-exclamation-triangle"></i>
+                        No students were found at this time</h4>
+                </td>
+        
 			</tr>
 		<?php endif; ?>
 

@@ -3,7 +3,7 @@
 /**
  * signup controller
  */
-class Student_Signup extends Controller 
+class Student_signup extends Controller 
 {
 
   function index()
@@ -29,7 +29,7 @@ class Student_Signup extends Controller
                       'dob' => $_POST['dob'],
                       'gender' => $_POST['gender'],
                       'acad_year' => $_POST['acad_year'],
-                      'class_name' => $_POST['class_name'],
+                      'class' => $_POST['class'],
                       'st_type' => $_POST['st_type'],
                       'section' => $_POST['section'],
                       'date' => date("Y-m-d H:i:s")

@@ -128,6 +128,7 @@
                 );
                 
                 $grade1->insert($arr);
+                
 
             //try grade_2
             }elseif($student_class == 'grade_2'){

@@ -90,22 +90,22 @@
         </select>
       </div>
       <div class="col-sm-6 form-group">
-        <label for="class_name">Class</label>
-        <select name="class_name" id="class_name" class="form-control browser-default custom-select">
-        <option <?=get_select('class_name','')?> value="" placeholder="Please Choose a Class">Please choose a class</option>
-        <option <?=get_select('class_name', 'general')?> name="general" value="general">General</option>
-				<option <?=get_select('class_name', 'grade_1')?> name="grade_1" value="grade_1">Grade 1</option>
-				<option <?=get_select('class_name', 'grade_2')?> name="grade_2" value="grade_2">Grade 2</option>
-				<option <?=get_select('class_name', 'grade_3')?> name="grade_3" value="grade_2">Grade 3</option>
-				<option <?=get_select('class_name', 'grade_4')?> name="grade_4" value="grade_2">Grade 4</option>
-				<option <?=get_select('class_name', 'grade_5')?> name="grade_5" value="grade_2">Grade 5</option>
-				<option <?=get_select('class_name', 'grade_6')?> name="grade_6" value="grade_2">Grade 6</option>
-				<option <?=get_select('class_name', 'grade_7')?> name="grade_7" value="grade_2">Grade 7</option>
-				<option <?=get_select('class_name', 'grade_8')?> name="grade_8" value="grade_2">Grade 8</option>
-				<option <?=get_select('class_name', 'grade_9')?> name="grade_9" value="grade_2">Grade 9</option>
-				<option <?=get_select('class_name', 'grade_10')?> name="grade_10" value="grade_2">Grade 10</option>
-				<option <?=get_select('class_name', 'grade_11')?> name="grade_11" value="grade_2">Grade 11</option>
-				<option <?=get_select('class_name', 'grade_12')?> name="grade_12" value="grade_2">Grade 12</option>
+        <label for="class">Class</label>
+        <select name="class" id="class" class="form-control browser-default custom-select">
+        <option <?=get_select('class','')?> value="" placeholder="Please Choose a Class">Please choose a class</option>
+        <option <?=get_select('class', 'general')?> name="general" value="general">General</option>
+				<option <?=get_select('class', 'grade_1')?> name="grade_1" value="grade_1">Grade 1</option>
+				<option <?=get_select('class', 'grade_2')?> name="grade_2" value="grade_2">Grade 2</option>
+				<option <?=get_select('class', 'grade_3')?> name="grade_3" value="grade_3">Grade 3</option>
+				<option <?=get_select('class', 'grade_4')?> name="grade_4" value="grade_4">Grade 4</option>
+				<option <?=get_select('class', 'grade_5')?> name="grade_5" value="grade_5">Grade 5</option>
+				<option <?=get_select('class', 'grade_6')?> name="grade_6" value="grade_6">Grade 6</option>
+				<option <?=get_select('class', 'grade_7')?> name="grade_7" value="grade_7">Grade 7</option>
+				<option <?=get_select('class', 'grade_8')?> name="grade_8" value="grade_8">Grade 8</option>
+				<option <?=get_select('class', 'grade_9')?> name="grade_9" value="grade_9">Grade 9</option>
+				<option <?=get_select('class', 'grade_10')?> name="grade_10" value="grade_10">Grade 10</option>
+				<option <?=get_select('class', 'grade_11')?> name="grade_11" value="grade_11">Grade 11</option>
+				<option <?=get_select('class', 'grade_12')?> name="grade_12" value="grade_12">Grade 12</option>
         </select>
       </div>
        <div class="col-sm-6 form-group">

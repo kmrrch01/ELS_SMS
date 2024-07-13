@@ -11,11 +11,13 @@ class Single_class extends Controller
 		// code...
 
 		$user = new User();
+		$student = new Student();
 		$classes = new Classes_model();
 
 
 		$row = $classes->first('class_id',$id);
-
+		$data_teachers = $user->where('class_id',$id);
+		$data_students = $student->where('class_id',$id);
 		
 
 		$crumbs[] = ['Dashboard',''];
@@ -28,7 +30,7 @@ class Single_class extends Controller
 		
 		$page_tab = isset($_GET['tab']) ? $_GET['tab'] : 'teachers';
 		$results = false;
-		if(isset($page_tab) && count($_POST) > 0 ){
+		/*if(isset($page_tab) && count($_POST) > 0 ){
 
 			if(isset($_POST['search'])){
 					//find teacher
@@ -39,12 +41,28 @@ class Single_class extends Controller
 
 				}else{
 					if(isset($_POST['selected'])){
+						$teachers = new Teachers_model();
 						//add teacher
+						$arr = array(
+							'user_id' => $_POST['selected'],
+							'class_id' => $id,
+							'date' => date("Y-m-d H:i:s")
+
+						);
+						$teachers->insert($arr);
+						$this->redirect('single-class?id='.$id);
+						
+
+
 
 					}
 				}
-		}
+		}*/
+
+		$data = 
 		$this->view('single-class',[
+			'data_teachers'=>$data_teachers,
+			'data_students'=>$data_students,
 			'row'=>$row,
 			'row_user'=>$row_user,
 			'crumbs'=>$crumbs,

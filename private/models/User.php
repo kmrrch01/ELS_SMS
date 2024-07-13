@@ -5,6 +5,7 @@
 
  class User extends Model
  {
+      protected $table = 'users';
       protected $allowedColumns = [
             'firstname',
             'middlename',
@@ -15,12 +16,13 @@
             'acad_year',
             'email',
             'password',
-            'class_name',
+            'class',
             'dob',
             'address',
             'phone_number',
             'st_type',
             'section',
+            'class_id',
             'gender',
             'position',
             'date',
@@ -29,6 +31,7 @@
         protected $beforeInsert = [
             'make_user_id',
             'hash_password',
+            'make_class_id',
         ];
 
    //protected $table = "users";
@@ -120,7 +123,19 @@
 
       }
   
-
+      public function make_class_id($data)
+      {
+          if (!isset($data['class'])) {
+              return ["error" => "Missing class data"];
+          }
+      
+          $name_prefix = $data['class'];
+          // Generate the ID 
+          $school_id = "ELS" . '_' . strtoupper($name_prefix);
+          $data['class_id'] = $school_id;
+      
+          return $data;
+      }
         // Function to get school ID based on school name
    
         

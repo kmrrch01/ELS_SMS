@@ -48,8 +48,6 @@
 </nav>
       <!--<div class="card-group justify-content-center">-->
         <?php if($rows):?>
-          <table class="table table-striped table-hover" id="myTable">
-          <tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Profile</th></tr>
         
           <?php foreach($rows as $row):?>
               <?php include(views_path('user'));?>
@@ -57,11 +55,10 @@
           <?php endforeach;?>
           <?php else:?>
             <h4> No staff members were found.</h4>
-          </table>
           <?php endif;?>
           
 
-      </div>
+</div>
 
 </div>
 </div>

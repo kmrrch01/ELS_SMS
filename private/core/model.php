@@ -123,6 +123,21 @@ class Model extends Database
 				}
 			}
 		}
+
+		//run functions after insert
+		if (property_exists($this, 'afterInsert')) {
+					foreach ($this->afterInsert as $func) {
+						$modifiedData = $this->$func($data);
+						// Ensure $modifiedData is an array
+						if (is_array($modifiedData)) {
+							$data = $modifiedData;
+						} else {
+							// Log or handle the unexpected return value
+							// For example, throw an exception
+							throw new Exception("Function $func did not return an array");
+						}
+					}
+				}
 		
 		$keys = array_keys($data);
 		$columns = implode(',', $keys);

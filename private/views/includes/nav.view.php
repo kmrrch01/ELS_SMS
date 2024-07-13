@@ -13,10 +13,10 @@
 <style>
 body
 {
+  background: linear-gradient(to right, #E1E5EE, #E1E5EE);
   margin:0px;
   padding:0px;
 	font-family: "Open Sans", arial;
-  background: linear-gradient(to right, white, white);
 	color:black;
 	font-weight:300;
 
@@ -125,6 +125,7 @@ background:#F7F7F7;
 position:absolute;
 top:0;
 bottom:0;
+z-index: 2;
 height:100%;
 left:0;
 width:55px;
@@ -332,11 +333,16 @@ height: 100%;
 <body>
 
 
-
 <div class="sliderNav">
+<header>
+      <div class="header container">
+  
+</div>
+</header>
   <nav class="main-menu">
-
+      
 <div class="container">
+ 
  <img class="btn position-relative" style="cursor: default; width: 150px; height:100px;" src="<?=ASSETS?>/els_logo1.png"></img>
 </div>
 <div class="scrollbar" id="style-1">
@@ -421,6 +427,13 @@ height: 100%;
 <span class="nav-text">Tests & Exams</span>
 </a>
 </li>
+
+<!--<li class="darkerli">
+<a href="<?=ROOT?>/grade_calc">
+<i class="fa fa-file-word fa-lg"></i>
+<span class="nav-text">Grades</span>
+</a>
+</li>-->
 
 <li class="darkerli">
 <a href="<?=ROOT?>/fees_billing">

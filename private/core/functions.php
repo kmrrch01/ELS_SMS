@@ -68,6 +68,7 @@ function show($data)
 	echo "</pre>";
 }
 
+
 function get_image($image,$gender = 'male')
 {
 	if(!file_exists($image)){

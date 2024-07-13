@@ -6,7 +6,14 @@
 
 		<?php if($row):?>
 		<?php
- 			$image = get_image($row->image,$row->gender);
+ 			/**
+     * Retrieves the appropriate image for the given student based on their gender.
+     *
+     * @param string $image The image filename for the student.
+     * @param string $gender The gender of the student.
+     * @return string The full path to the student's image.
+     */
+    $image = get_image($row->image,$row->gender);
  		?>
 
 		<div class="row">
@@ -20,12 +27,14 @@
 					<tr><th>First Name:</th><td><?=esc($row->firstname)?></td></tr>
 					<tr><th>Last Name:</th><td><?=esc($row->lastname)?></td></tr>
 					<tr><th>Gender:</th><td><?=ucfirst(esc($row->gender))?></td></tr>
-					<tr><th>Class:</th><td><?=ucwords(str_replace("_"," ",$row->class_name))?></td></tr>
+					<tr><th>Class:</th><td><?=ucwords(str_replace("_"," ",$row->class))?></td></tr>
 					<tr><th>Date Created:</th><td><?=get_date($row->date)?></td></tr>
 				
 
 				</table>
 			</div>
+			<a style="margin-top:5px; margin-left: 94%" href="<?=ROOT?>/students?>" class="btn btn-danger">Back</a>
+
 		</div>
 		<br>
 
