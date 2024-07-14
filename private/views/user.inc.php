@@ -1,7 +1,4 @@
-<?php 
-                
-                $image = get_image($row->image,$row->gender);
-                ?>
+
 <style>
   .card-body{
     background-color: white;
@@ -31,3 +28,6 @@
         <?php endif;?>     
                 </div>
 </div>
+
+                    
+

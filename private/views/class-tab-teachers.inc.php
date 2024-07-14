@@ -9,10 +9,10 @@
 	  </form>
 
 	  	<div>
-			<a href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=teacher-add&select=true">
+			<a href="<?=ROOT?>/single_class/teacheradd/<?=$row->class_id?>?select=true">
 				<button class="btn btn-sm btn-primary"><i class="fa-solid fa-plus"></i>Add New</button>
 			</a>			
-			<a href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=teacher-remove&select=true">
+			<a href="<?=ROOT?>/single_class/teacherremove/<?=$row->class_id?>?select=true">
 				<button class="btn btn-sm btn-primary"><i class="fa-solid fa-minus"></i>Remove</button>
 			</a>
  

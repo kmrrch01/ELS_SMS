@@ -41,8 +41,8 @@
 		      <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
 		    </div>
             <div style="margin-bottom:5%; margin-left:90%" >
-            <a  href="<?=ROOT?>/student_signup/">
-                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>Add New</button>
+            <a  class="btn btn-primary" href="<?=ROOT?>/student_signup/">
+                <i class="fa-solid fa-plus"></i>Add New
             </a>
 	</form>
     

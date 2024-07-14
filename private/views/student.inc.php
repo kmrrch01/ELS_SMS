@@ -1,13 +1,33 @@
-<tr>
+
+<style>
+  .card-body{
+    background-color: white;
+    transition: background-color 0.5s;
+  }
+  .card-body:hover{
+    background-color: lightgray;
+  }
+</style>
+
+<tr><td><?=$row->firstname?></td><td><?=$row->lastname?></td><td></td>
                     <td>
-                        <a href="<?=ROOT?>/profile/student/<?=$row->student_id?>">
-                            <button class="btn-outline-primary"><i class="fa-solid fa-search"></i>
+                    <?php 
+                      		$page_tab = isset($_GET['tab']) ? $_GET['tab'] : 'students';?>
+                    <?php if($page_tab == 'students-add'):?>
+                      <button class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
+                  </td>
+                    <?php else:?>
+                      <a  href="<?=ROOT?>/profile/<?=$row->student_id?>"
+                      <button class="btn btn-primary"><i class="fa-solid fa-user"></i></button>
                     </a>
-                    </td>
-                    <td>
-                        <p><?=$row->firstname?> <?=$row->middlename?> <?=$row->lastname?></p>
-                    </td>
-                    <td>
-                        <?=str_replace("_", " ", ucwords($row->class_name))?>
-                    </td>
-				</tr>
+                    <?php endif;?>
+
+
+        <?php if(isset($_GET['select'])):?>
+                  <button name="selected" value="<?=$row->student_id?>" class="btn btn-danger">Select</button>
+        <?php endif;?>     
+                </div>
+</div>
+
+                    
+
