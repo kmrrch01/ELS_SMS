@@ -166,7 +166,6 @@ h1 + p {
   <a href="<?=ROOT?>/home" class="book home-page">DASHBOARD</a>
   <a href="<?=ROOT?>/users" class="book about-us">STAFF</a>
   <a href="<?=ROOT?>/classes" class="book contact">CLASSES</a>
-  <?php endif;?>
   <a href="<?=ROOT?>/faq" class="book faq">F.A.Q.</a>
   
   <span class="book not-found"></span>

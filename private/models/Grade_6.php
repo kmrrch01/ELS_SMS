@@ -15,6 +15,9 @@ class Grade_6 extends Model{
         'science',
         'religion',
         'english',
+        'acad_year',
+        'st_type',
+        'section',
        
     ];
 }

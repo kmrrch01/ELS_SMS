@@ -1,6 +1,6 @@
 <?php
 
-class Grade5_Controller extends Controller{
+class Grade5 extends Controller{
 
 
     public function index(){

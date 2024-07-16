@@ -15,6 +15,9 @@ class Grade_12LS extends Model{
         'science',
         'religion',
         'english',
+        'acad_year',
+        'st_type',
+        'section'
        
     ];
 }

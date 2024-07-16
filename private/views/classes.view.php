@@ -67,10 +67,10 @@
 					 
 					 <tr>
 					 	<td>
-							<a href="<?=ROOT?>/single_class/<?=$row->class_id?>">
+							<a href="<?=ROOT?>/<?=str_replace("_", "",$row->class)?>">
 							<button class="btn btn-sm btn-primary"><i class="fa-solid fa-landmark"></i></button></td>
 					</a>
-					 	<td><?=str_replace("_", " ", ucwords($row->class))?></td>
+					 	<td><?=str_replace("_", " ", strtoupper($row->class))?></td>
 						<td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
 						<td><?=get_date($row->date)?></td>
 

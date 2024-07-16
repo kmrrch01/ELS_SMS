@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2024 at 03:45 AM
+-- Generation Time: Jul 16, 2024 at 02:39 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -44,10 +44,20 @@ CREATE TABLE `classes` (
 --
 
 INSERT INTO `classes` (`id`, `class`, `user_id`, `school_id`, `class_id`, `date`, `subject1`, `subject2`, `subject3`) VALUES
-(68, 'grade_12', '2024_ADM6633A2', '', 'ELS_GRADE_12', '2024-07-10 02:47:41', '', NULL, NULL),
-(69, 'grade_10', '2024_ADM6633A2', '', 'ELS_GRADE_10', '2024-07-10 03:11:02', '', NULL, NULL),
-(70, 'grade_11', '2024_ADM6633A2', '', 'ELS_GRADE_11', '2024-07-10 18:32:18', '', NULL, NULL),
-(71, 'grade_4', '2024_ADM6633A2', '', 'ELS_GRADE_4', '2024-07-11 15:36:25', '', NULL, NULL);
+(68, 'grade_1', '2024_ADM6633A2', '', 'ELS_GRADE_1', '2024-07-10 02:47:41', '', NULL, NULL),
+(72, 'grade_2', '2024_ADM6633A2', '', 'ELS_GRADE_2', '2024-07-15 20:11:59', '', NULL, NULL),
+(73, 'grade_3', '2024_ADM6633A2', '', 'ELS_GRADE_3', '2024-07-15 20:12:03', '', NULL, NULL),
+(74, 'grade_4', '2024_ADM6633A2', '', 'ELS_GRADE_4', '2024-07-15 20:38:43', '', NULL, NULL),
+(75, 'grade_5', '2024_ADM6633A2', '', 'ELS_GRADE_5', '2024-07-15 20:38:52', '', NULL, NULL),
+(76, 'grade_6', '2024_ADM6633A2', '', 'ELS_GRADE_6', '2024-07-15 20:38:59', '', NULL, NULL),
+(77, 'grade_7', '2024_ADM6633A2', '', 'ELS_GRADE_7', '2024-07-15 20:39:05', '', NULL, NULL),
+(78, 'grade_8', '2024_ADM6633A2', '', 'ELS_GRADE_8', '2024-07-15 20:39:16', '', NULL, NULL),
+(79, 'grade_9', '2024_ADM6633A2', '', 'ELS_GRADE_9', '2024-07-15 20:39:38', '', NULL, NULL),
+(80, 'grade_10', '2024_ADM6633A2', '', 'ELS_GRADE_10', '2024-07-15 20:40:14', '', NULL, NULL),
+(81, 'grade_11l', '2024_ADM6633A2', '', 'ELS_GRADE_11L', '2024-07-15 20:40:31', '', NULL, NULL),
+(82, 'grade_11s', '2024_ADM6633A2', '', 'ELS_GRADE_11S', '2024-07-15 20:40:59', '', NULL, NULL),
+(83, 'grade_12es', '2024_ADM6633A2', '', 'ELS_GRADE_12ES', '2024-07-15 20:42:03', '', NULL, NULL),
+(84, 'grade_12ls', '2024_ADM6633A2', '', 'ELS_GRADE_12LS', '2024-07-15 20:42:16', '', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -136,16 +146,22 @@ CREATE TABLE `grade_1` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `grade_1`
 --
 
-INSERT INTO `grade_1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`) VALUES
-(1, 'ELS_GRADE_1', '2024STU66904F', 'guehgu giroiub gurebi', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL),
-(2, 'ELS_GRADE_1', '2024STU669050', 'karim karim karim', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `grade_1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU66904F', 'guehgu giroiub gurebi', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '', '', '', '2024-07-16 03:18:29'),
+(2, 'ELS_GRADE_1', '2024STU669050', 'karim karim karim', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '', '', '', '2024-07-16 03:18:29'),
+(3, 'ELS_GRADE_1', '2024STU669565', 'keoj ingoin oingoiqn', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', '', '', '2024-07-16 03:18:29'),
+(4, 'ELS_GRADE_1', '2024STU66956A', 'rimmm rimm rimm', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', '', '', '2024-07-16 03:18:29');
 
 -- --------------------------------------------------------
 
@@ -163,15 +179,19 @@ CREATE TABLE `grade_2` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `grade_2`
 --
 
-INSERT INTO `grade_2` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`) VALUES
-(1, 'ELS_GRADE_2', 'jhguib egiubeg giub', '2024STU66904F', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `grade_2` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
+(1, 'ELS_GRADE_2', 'jhguib egiubeg giub', '2024STU66904F', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '', '', '', '2024-07-16 03:18:29');
 
 -- --------------------------------------------------------
 
@@ -189,15 +209,19 @@ CREATE TABLE `grade_3` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `grade_3`
 --
 
-INSERT INTO `grade_3` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`) VALUES
-(1, 'ELS_GRADE_3', 'koj ofri okegij', '2024STU66904F', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `grade_3` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
+(1, 'ELS_GRADE_3', 'koj ofri okegij', '2024STU66904F', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '', '', '', '2024-07-16 03:18:29');
 
 -- --------------------------------------------------------
 
@@ -215,15 +239,19 @@ CREATE TABLE `grade_4` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `grade_4`
 --
 
-INSERT INTO `grade_4` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`) VALUES
-(1, 'ELS_GRADE_4', 'hello hello hello', '2024STU669051', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `grade_4` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
+(1, 'ELS_GRADE_4', 'hello hello hello', '2024STU669051', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '', '', '', '2024-07-16 03:18:29');
 
 -- --------------------------------------------------------
 
@@ -241,7 +269,11 @@ CREATE TABLE `grade_5` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -260,8 +292,19 @@ CREATE TABLE `grade_6` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6`
+--
+
+INSERT INTO `grade_6` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
+(1, 'ELS_GRADE_6', 'g g g', '2024STU6695C0', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-16 03:37:50');
 
 -- --------------------------------------------------------
 
@@ -279,7 +322,11 @@ CREATE TABLE `grade_7` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -298,7 +345,11 @@ CREATE TABLE `grade_8` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -317,7 +368,11 @@ CREATE TABLE `grade_9` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -336,15 +391,19 @@ CREATE TABLE `grade_10` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `grade_10`
 --
 
-INSERT INTO `grade_10` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`) VALUES
-(1, 'ELS_GRADE_10', 'omar omar omar', '2024STU669112', '2024TEA668DDF', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `grade_10` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
+(1, 'ELS_GRADE_10', 'omar omar omar', '2024STU669112', '2024TEA668DDF', NULL, NULL, NULL, NULL, NULL, '', '', '', '2024-07-16 03:18:29');
 
 -- --------------------------------------------------------
 
@@ -362,7 +421,11 @@ CREATE TABLE `grade_11l` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -381,7 +444,11 @@ CREATE TABLE `grade_11s` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -400,7 +467,11 @@ CREATE TABLE `grade_12es` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -419,8 +490,19 @@ CREATE TABLE `grade_12ls` (
   `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
-  `religion` decimal(5,2) DEFAULT NULL
+  `religion` decimal(5,2) DEFAULT NULL,
+  `acad_year` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_12ls`
+--
+
+INSERT INTO `grade_12ls` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
+(1, 'ELS_GRADE_12LS', 'c c c', '2024STU6695BD', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'sect', 'regu', '2024-07-16 03:22:36');
 
 -- --------------------------------------------------------
 
@@ -492,7 +574,11 @@ INSERT INTO `students` (`id`, `firstname`, `middlename`, `lastname`, `firstname_
 (3, 'jhguib', 'egiubeg', 'giub', 'iugiub', 'iu', 'iubgiub', '2024STU66904F', '', 'grade_2', 'ELS_GRADE_2', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-11', ''),
 (4, 'karim', 'karim', 'karim', 'karim', 'karim', 'karim', '2024STU669050', '', 'grade_1', 'ELS_GRADE_1', '2024', '2020-10-10', 'male', 'regular', 'sect', '2024-07-11', ''),
 (5, 'hello', 'hello', 'hello', 'hello', 'hello', 'hello', '2024STU669051', '', 'grade_4', 'ELS_GRADE_4', '2024', '1999-10-10', 'male', 'regular', 'sect', '2024-07-11', ''),
-(6, 'omar', 'omar', 'omar', 'omar', 'omar', 'omar', '2024STU669112', '', 'grade_10', 'ELS_GRADE_10', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-12', '');
+(6, 'omar', 'omar', 'omar', 'omar', 'omar', 'omar', '2024STU669112', '', 'grade_10', 'ELS_GRADE_10', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-12', ''),
+(7, 'keoj', 'ingoin', 'oingoiqn', 'oingoin', 'oignoi', 'niognoi', '2024STU669565', '', 'grade_1', 'ELS_GRADE_1', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-15', ''),
+(8, 'rimmm', 'rimm', 'rimm', 'rimm', 'rimm', 'rimm', '2024STU66956A', '', 'grade_1', 'ELS_GRADE_1', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-15', ''),
+(9, 'c', 'c', 'c', 'c', 'c', 'c', '2024STU6695BD', '', 'grade_12ls', 'ELS_GRADE_12LS', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-16', ''),
+(10, 'g', 'g', 'g', 'g', 'g', 'g', '2024STU6695C0', '', 'grade_6', 'ELS_GRADE_6', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-16', '');
 
 -- --------------------------------------------------------
 
@@ -729,7 +815,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `class_students`
@@ -759,7 +845,7 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `grade_1`
 --
 ALTER TABLE `grade_1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `grade_2`
@@ -789,7 +875,7 @@ ALTER TABLE `grade_5`
 -- AUTO_INCREMENT for table `grade_6`
 --
 ALTER TABLE `grade_6`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `grade_7`
@@ -837,7 +923,7 @@ ALTER TABLE `grade_12es`
 -- AUTO_INCREMENT for table `grade_12ls`
 --
 ALTER TABLE `grade_12ls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `invoices`
@@ -849,7 +935,7 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`

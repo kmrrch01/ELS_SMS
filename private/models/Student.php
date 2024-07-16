@@ -125,6 +125,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+                    
                 );
                 
                 $grade1->insert($arr);
@@ -143,6 +147,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+                    
                 );
                 
                 $grade2->insert($arr);
@@ -161,6 +169,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
                 
                 $grade3->insert($arr);
@@ -178,6 +190,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
                 
                 $grade4->insert($arr);
@@ -195,6 +211,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
 
                 $grade5->insert($arr);
@@ -211,6 +231,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
                 $grade6->insert($arr);
 
@@ -226,6 +250,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
                 $grade7->insert($arr);
             
@@ -241,6 +269,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
                 $grade8->insert($arr);
 
@@ -256,6 +288,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
                 $grade9->insert($arr);
             
@@ -271,6 +307,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
                 $grade10->insert($arr);
             
@@ -286,6 +326,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
                 $grade11s->insert($arr);
 
@@ -301,6 +345,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
                 $grade11l->insert($arr);
 
@@ -316,6 +364,11 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+    
+
                 );
                 $grade12ls->insert($arr);
             
@@ -331,6 +384,10 @@
                     'class_id' => $data['class_id'],
                     'fullname' => $data['firstname'].' '. $data['middlename'].' '. $data['lastname'],
                     'user_id' => Auth::user_id(),
+                    'acad_year'=> $data['acad_year'],
+                    'st_type'=> $data['st_type'],
+                    'section'=> $data['section'],
+
                 );
                 $grade12es->insert($arr);
             }
