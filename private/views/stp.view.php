@@ -30,32 +30,7 @@
 		<br>
 
 		<!--to be worked on to include same functionality from Staff tabs-->
-		<div class="container-fluid">
-			<ul class="nav nav-tabs">
-			  <li class="nav-item">
-			    <a class="nav-link active" href="#">Basic Info</a>
-			  </li>
-			  <li class="nav-item">
-			    <a class="nav-link" href="#">Classes</a>
-			  </li>
-			  <li class="nav-item">
-			    <a class="nav-link" href="#">Tests</a>
-			  </li>
-		 
-			</ul>
-
-			<nav class="navbar navbar-light bg-light">
-			  <form class="form-inline">
-			    <div class="input-group">
-			      <div class="input-group-prepend">
-			        <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i>&nbsp</span>
-			      </div>
-			      <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-			    </div>
-			  </form>
-			</nav>
-
-		</div>
+		
 		<?php else:?>
 			<center><h4>That profile was not found!</h4></center>
 		<?php endif;?>

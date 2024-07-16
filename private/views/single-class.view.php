@@ -26,53 +26,9 @@
 			  <li class="nav-item">
 			    <a class="nav-link <?=$page_tab=='teachers'?'active':'';?> " href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=teachers ">Teachers</a>
 			  </li>
-			  <li class="nav-item">
-			    <a class="nav-link <?=$page_tab=='students'?'active':'';?> " href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=students">Students</a>
-			  </li>
-			  <li class="nav-item">
-			    <a class="nav-link <?=$page_tab=='tests'?'active':'';?> " href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=tests">Tests</a>
-			  </li>
-		 
 			</ul>
 
 
-					<?php 
-					switch($page_tab) {
-						case 'teachers':
-							include(views_path('class-tab-teachers'));
-							break;
-						case 'students':
-							include(views_path('class-tab-students'));
-							break;
-						case 'tests':
-							include(views_path('class-tab-tests'));
-							break;
-						case 'teacher-add':
-							include(views_path('class-tab-teachers-add'));
-							break;
-						case 'student-add':
-							include(views_path('class-tab-students-add'));
-						break;
-						case 'student-remove':
-							include(views_path('class-tab-students-remove'));
-						break;
-						case 'teacher-remove':
-							include(views_path('class-tab-teachers-remove'));
-							break;
-						case 'students-add':
-							include(views_path('class-tab-students-add'));
-							break;
-						case 'tests-add':
-							include(views_path('class-tab-tests-add'));
-							break;
-							
-						
-						default:
-							break;
-					}
-
-
-					?>
 					
 
 		<?php else:?>

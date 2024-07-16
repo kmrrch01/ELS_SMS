@@ -37,7 +37,7 @@ class Classes extends Controller
 		}
 
 		$errors = array();
-		if(count($_POST) > 0)
+		if(count($_POST) > 0 && Auth::access('admin'))
  		{
 
 			$classes = new Classes_model();
@@ -59,11 +59,16 @@ class Classes extends Controller
 		$crumbs[] = ['Classes','classes'];
 		$crumbs[] = ['Add','classes/add'];
 
+		if(Auth::access('admin')){
+
 		$this->view('classes.add',[
 			'errors'=>$errors,
 			'crumbs'=>$crumbs,
-			
 		]);
+		}else{
+			$this->view('naccess');
+		}
+		
 	}
 
 	public function edit($id = null)

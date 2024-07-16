@@ -9,7 +9,8 @@
   }
 </style>
 
-<tr><td><?=$row->firstname?></td><td><?=$row->lastname?></td><td></td>
+
+<tr><td><?=$row->firstname?></td><td><?=$row->lastname?></td>
                     <td>
                     <?php 
                       		$page_tab = isset($_GET['tab']) ? $_GET['tab'] : 'students';?>
@@ -17,8 +18,8 @@
                       <button class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
                   </td>
                     <?php else:?>
-                      <a  href="<?=ROOT?>/profile/<?=$row->student_id?>"
-                      <button class="btn btn-primary"><i class="fa-solid fa-user"></i></button>
+                      <a  href="<?=ROOT?>/stp/<?=$row->student_id?>"
+                      class="btn btn-primary"><i class="fa-solid fa-user"></i>
                     </a>
                     <?php endif;?>
 

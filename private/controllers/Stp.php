@@ -16,7 +16,7 @@ class Stp extends Controller
 		$row = $student->first('student_id',$id);
 
 		$crumbs[] = ['Dashboard',''];
-		$crumbs[] = ['student','student'];
+		$crumbs[] = ['students','student'];
 		if($row){
 			$crumbs[] = [$row->firstname,'student'];
 		}

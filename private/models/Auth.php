@@ -90,5 +90,82 @@ class Auth
 		return false;
 	}
 
-	
+	public static function access($position = 'student')
+	{
+		// code...
+		if(!isset($_SESSION['USER']))
+		{
+			return false;
+		}
+		$logged_in_position = $_SESSION['USER']->position;
+		$POSITION['super_admin'] = ['super_admin','admin','teacher','reception','student'];
+		$POSITION['admin'] = ['admin','teacher','reception','student'];
+		$POSITION['teacher'] = ['teacher','reception','student'];
+		$POSITION['reception'] = ['reception','student'];
+		$POSITION['student'] = ['student'];
+
+		if(!isset($POSITION[$logged_in_position]))
+		{
+			return false;
+		}
+
+		if(in_array($position,$POSITION[$logged_in_position]))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	public static function ownership($row)
+	{
+
+		if(!isset($_SESSION['USER']))
+		{
+			return false;
+		}
+
+		if(isset($row->user_id)){
+
+			if($_SESSION['USER']->user_id == $row->user_id){
+				return true;
+			}
+		}
+
+		$allowed[] = "super_admin";
+		$allowed[] = "admin";
+
+		if(in_array($_SESSION['USER']->position,$allowed)){
+			return true;
+		}
+
+
+		return false;
+	}
+	public static function user_email()
+	{
+		if(isset($_SESSION['USER']))
+		{
+			return $_SESSION['USER']->email;
+		}
+
+		return false;
+	}
+
+	public static function user_gender()
+{
+    if(isset($_SESSION['USER']))
+    {
+        $gender = $_SESSION['USER']->gender; 
+
+        if ($gender === 'male') { 
+            return 'fas fa-user-male'; 
+        } else {
+            return 'fas fa-user-female'; 
+        }
+    }
+
+    return false; 
+}
+
 }
