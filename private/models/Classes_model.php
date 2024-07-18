@@ -10,6 +10,7 @@ class Classes_model extends Model
 	protected $allowedColumns = [
         'class',
         'date',
+        'school_id',
     ];
 
     protected $beforeInsert = [
@@ -43,8 +44,8 @@ class Classes_model extends Model
 
     public function make_school_id($data)
     {
-        if(isset($_SESSION['USER']->school_id)){
-            $data['school_id'] = $_SESSION['USER']->school_id;
+        if(isset($_SESSION['USER']->section)){
+            $data['school_id'] = $_SESSION['USER']->section;
         }
         return $data;
     }

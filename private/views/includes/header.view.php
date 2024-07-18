@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Home</title>
+	<title>ELS</title>
+	<link rel="icon" type="image/x-icon" href="<?=ASSETS?>/elsico.ico">
+
   	<meta name="description" content="Free Web tutorials">
   	<meta name="keywords" content="HTML, CSS, JavaScript">
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">

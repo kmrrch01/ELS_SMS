@@ -120,6 +120,33 @@
                 }
         
                 $grade1 = new Grade_1();
+
+                //grade_1 init
+                $grade_1_mathT1 = new Grade_1_mathT1();
+                $grade_1_mathT2 = new Grade_1_mathT2();
+                $grade_1_mathT3 = new Grade_1_mathT3();
+                $grade_1_englishT1 = new Grade_1_englishT1();
+                $grade_1_englishT2 = new Grade_1_englishT2();
+                $grade_1_englishT3 = new Grade_1_englishT3();
+                $grade_1_arabicT1 = new Grade_1_arabicT1();
+                $grade_1_arabicT2 = new Grade_1_arabicT2();
+                $grade_1_arabicT3 = new Grade_1_arabicT3();
+                $grade_1_scienceT1 = new Grade_1_scienceT1();
+                $grade_1_scienceT2 = new Grade_1_scienceT2();
+                $grade_1_scienceT3 = new Grade_1_scienceT3();
+                $grade_1_religionT1 = new Grade_1_religionT1();
+                $grade_1_religionT2 = new Grade_1_religionT2();
+                $grade_1_religionT3 = new Grade_1_religionT3();
+
+
+
+
+
+
+
+
+
+                
                 $arr = array(
                     'student_id' => $data['student_id'],
                     'class_id' => $data['class_id'],
@@ -132,10 +159,43 @@
                 );
                 
                 $grade1->insert($arr);
+                $grade_1_mathT1->insert($arr);
+                $grade_1_mathT2->insert($arr);
+                $grade_1_mathT3->insert($arr);
+                $grade_1_englishT1->insert($arr);
+                $grade_1_englishT2->insert($arr);
+                $grade_1_englishT3->insert($arr);
+                $grade_1_arabicT1->insert($arr);
+                $grade_1_arabicT2->insert($arr);
+                $grade_1_arabicT3->insert($arr);
+                $grade_1_scienceT1->insert($arr);
+                $grade_1_scienceT2->insert($arr);
+                $grade_1_scienceT3->insert($arr);
+                $grade_1_religionT1->insert($arr);
+                $grade_1_religionT2->insert($arr);
+                $grade_1_religionT3->insert($arr);
+
                 
 
             //try grade_2
             }elseif($student_class == 'grade_2'){
+                
+                //grade_2 init
+                $grade_2_mathT1 = new Grade_2_mathT1();
+                $grade_2_mathT2 = new Grade_2_mathT2();
+                $grade_2_mathT3 = new Grade_2_mathT3();
+                $grade_2_englishT1 = new Grade_2_englishT1();
+                $grade_2_englishT2 = new Grade_2_englishT2();
+                $grade_2_englishT3 = new Grade_2_englishT3();
+                $grade_2_arabicT1 = new Grade_2_arabicT1();
+                $grade_2_arabicT2 = new Grade_2_arabicT2();
+                $grade_2_arabicT3 = new Grade_2_arabicT3();
+                $grade_2_scienceT1 = new Grade_2_scienceT1();
+                $grade_2_scienceT2 = new Grade_2_scienceT2();
+                $grade_2_scienceT3 = new Grade_2_scienceT3();
+                $grade_2_religionT1 = new Grade_2_religionT1();
+                $grade_2_religionT2 = new Grade_2_religionT2();
+                $grade_2_religionT3 = new Grade_2_religionT3();
                 // Check if student_id is complete, if not, generate it
                 if (!isset($data['student_id']) || strlen($data['student_id']) <= 4) {
                     $data['student_id'] = make_student_id_from_post();
@@ -154,10 +214,41 @@
                 );
                 
                 $grade2->insert($arr);
+                $grade_2_mathT1->insert($arr);
+                $grade_2_mathT2->insert($arr);
+                $grade_2_mathT3->insert($arr);
+                $grade_2_englishT1->insert($arr);
+                $grade_2_englishT2->insert($arr);
+                $grade_2_englishT3->insert($arr);
+                $grade_2_arabicT1->insert($arr);
+                $grade_2_arabicT2->insert($arr);
+                $grade_2_arabicT3->insert($arr);
+                $grade_2_scienceT1->insert($arr);
+                $grade_2_scienceT2->insert($arr);
+                $grade_2_scienceT3->insert($arr);
+                $grade_2_religionT1->insert($arr);
+                $grade_2_religionT2->insert($arr);
+                $grade_2_religionT3->insert($arr);
 
 
             //try grade_3
             }elseif($student_class == 'grade_3'){
+                                //grade_3 init
+                $grade_3_mathT1 = new Grade_3_mathT1();
+                $grade_3_mathT2 = new Grade_3_mathT2();
+                $grade_3_mathT3 = new Grade_3_mathT3();
+                $grade_3_englishT1 = new Grade_3_englishT1();
+                $grade_3_englishT2 = new Grade_3_englishT2();
+                $grade_3_englishT3 = new Grade_3_englishT3();
+                $grade_3_arabicT1 = new Grade_3_arabicT1();
+                $grade_3_arabicT2 = new Grade_3_arabicT2();
+                $grade_3_arabicT3 = new Grade_3_arabicT3();
+                $grade_3_scienceT1 = new Grade_3_scienceT1();
+                $grade_3_scienceT2 = new Grade_3_scienceT2();
+                $grade_3_scienceT3 = new Grade_3_scienceT3();
+                $grade_3_religionT1 = new Grade_3_religionT1();
+                $grade_3_religionT2 = new Grade_3_religionT2();
+                $grade_3_religionT3 = new Grade_3_religionT3();
                  // Check if student_id is complete, if not, generate it
                  if (!isset($data['student_id']) || strlen($data['student_id']) <= 4) {
                     $data['student_id'] = make_student_id_from_post();
@@ -176,9 +267,42 @@
                 );
                 
                 $grade3->insert($arr);
+                $grade_3_mathT1->insert($arr);
+                $grade_3_mathT2->insert($arr);
+                $grade_3_mathT3->insert($arr);
+                $grade_3_englishT1->insert($arr);
+                $grade_3_englishT2->insert($arr);
+                $grade_3_englishT3->insert($arr);
+                $grade_3_arabicT1->insert($arr);
+                $grade_3_arabicT2->insert($arr);
+                $grade_3_arabicT3->insert($arr);
+                $grade_3_scienceT1->insert($arr);
+                $grade_3_scienceT2->insert($arr);
+                $grade_3_scienceT3->insert($arr);
+                $grade_3_religionT1->insert($arr);
+                $grade_3_religionT2->insert($arr);
+                $grade_3_religionT3->insert($arr);
+
 
             //try grade_4
             }elseif($student_class == 'grade_4'){
+                 //grade_4 init
+                 $grade_4_mathT1 = new Grade_4_mathT1();
+                 $grade_4_mathT2 = new Grade_4_mathT2();
+                 $grade_4_mathT3 = new Grade_4_mathT3();
+                 $grade_4_englishT1 = new Grade_4_englishT1();
+                 $grade_4_englishT2 = new Grade_4_englishT2();
+                 $grade_4_englishT3 = new Grade_4_englishT3();
+                 $grade_4_arabicT1 = new Grade_4_arabicT1();
+                 $grade_4_arabicT2 = new Grade_4_arabicT2();
+                 $grade_4_arabicT3 = new Grade_4_arabicT3();
+                 $grade_4_scienceT1 = new Grade_4_scienceT1();
+                 $grade_4_scienceT2 = new Grade_4_scienceT2();
+                 $grade_4_scienceT3 = new Grade_4_scienceT3();
+                 $grade_4_religionT1 = new Grade_4_religionT1();
+                 $grade_4_religionT2 = new Grade_4_religionT2();
+                 $grade_4_religionT3 = new Grade_4_religionT3();
+
                   // Check if student_id is complete, if not, generate it
                   if (!isset($data['student_id']) || strlen($data['student_id']) <= 4) {
                     $data['student_id'] = make_student_id_from_post();
@@ -197,9 +321,43 @@
                 );
                 
                 $grade4->insert($arr);
+                $grade_4_mathT1->insert($arr);
+                $grade_4_mathT2->insert($arr);
+                $grade_4_mathT3->insert($arr);
+                $grade_4_englishT1->insert($arr);
+                $grade_4_englishT2->insert($arr);
+                $grade_4_englishT3->insert($arr);
+                $grade_4_arabicT1->insert($arr);
+                $grade_4_arabicT2->insert($arr);
+                $grade_4_arabicT3->insert($arr);
+                $grade_4_scienceT1->insert($arr);
+                $grade_4_scienceT2->insert($arr);
+                $grade_4_scienceT3->insert($arr);
+                $grade_4_religionT1->insert($arr);
+                $grade_4_religionT2->insert($arr);
+                $grade_4_religionT3->insert($arr);
+
 
             //try grade_5
             }elseif($student_class == 'grade_5'){
+
+                                //grade_5 init
+                $grade_5_mathT1 = new Grade_5_mathT1();
+                $grade_5_mathT2 = new Grade_5_mathT2();
+                $grade_5_mathT3 = new Grade_5_mathT3();
+                $grade_5_englishT1 = new Grade_5_englishT1();
+                $grade_5_englishT2 = new Grade_5_englishT2();
+                $grade_5_englishT3 = new Grade_5_englishT3();
+                $grade_5_arabicT1 = new Grade_5_arabicT1();
+                $grade_5_arabicT2 = new Grade_5_arabicT2();
+                $grade_5_arabicT3 = new Grade_5_arabicT3();
+                $grade_5_scienceT1 = new Grade_5_scienceT1();
+                $grade_5_scienceT2 = new Grade_5_scienceT2();
+                $grade_5_scienceT3 = new Grade_5_scienceT3();
+                $grade_5_religionT1 = new Grade_5_religionT1();
+                $grade_5_religionT2 = new Grade_5_religionT2();
+                $grade_5_religionT3 = new Grade_5_religionT3();
+
                   // Check if student_id is complete, if not, generate it
                   if (!isset($data['student_id']) || strlen($data['student_id']) <= 4) {
                     $data['student_id'] = make_student_id_from_post();
@@ -218,9 +376,43 @@
                 );
 
                 $grade5->insert($arr);
+                $grade_5_mathT1->insert($arr);
+                $grade_5_mathT2->insert($arr);
+                $grade_5_mathT3->insert($arr);
+                $grade_5_englishT1->insert($arr);
+                $grade_5_englishT2->insert($arr);
+                $grade_5_englishT3->insert($arr);
+                $grade_5_arabicT1->insert($arr);
+                $grade_5_arabicT2->insert($arr);
+                $grade_5_arabicT3->insert($arr);
+                $grade_5_scienceT1->insert($arr);
+                $grade_5_scienceT2->insert($arr);
+                $grade_5_scienceT3->insert($arr);
+                $grade_5_religionT1->insert($arr);
+                $grade_5_religionT2->insert($arr);
+                $grade_5_religionT3->insert($arr);
+
             
             //try grade_6
             }elseif($student_class == 'grade_6'){
+                
+                //grade_6 init
+                $grade_6_mathT1 = new Grade_6_mathT1();
+                $grade_6_mathT2 = new Grade_6_mathT2();
+                $grade_6_mathT3 = new Grade_6_mathT3();
+                $grade_6_englishT1 = new Grade_6_englishT1();
+                $grade_6_englishT2 = new Grade_6_englishT2();
+                $grade_6_englishT3 = new Grade_6_englishT3();
+                $grade_6_arabicT1 = new Grade_6_arabicT1();
+                $grade_6_arabicT2 = new Grade_6_arabicT2();
+                $grade_6_arabicT3 = new Grade_6_arabicT3();
+                $grade_6_scienceT1 = new Grade_6_scienceT1();
+                $grade_6_scienceT2 = new Grade_6_scienceT2();
+                $grade_6_scienceT3 = new Grade_6_scienceT3();
+                $grade_6_religionT1 = new Grade_6_religionT1();
+                $grade_6_religionT2 = new Grade_6_religionT2();
+                $grade_6_religionT3 = new Grade_6_religionT3();
+
                 // Check if student_id is complete, if not, generate it
                   if (!isset($data['student_id']) || strlen($data['student_id']) <= 4) {
                     $data['student_id'] = make_student_id_from_post();
@@ -236,7 +428,23 @@
                     'section'=> $data['section'],
 
                 );
+                
                 $grade6->insert($arr);
+                $grade_6_mathT1->insert($arr);
+                $grade_6_mathT2->insert($arr);
+                $grade_6_mathT3->insert($arr);
+                $grade_6_englishT1->insert($arr);
+                $grade_6_englishT2->insert($arr);
+                $grade_6_englishT3->insert($arr);
+                $grade_6_arabicT1->insert($arr);
+                $grade_6_arabicT2->insert($arr);
+                $grade_6_arabicT3->insert($arr);
+                $grade_6_scienceT1->insert($arr);
+                $grade_6_scienceT2->insert($arr);
+                $grade_6_scienceT3->insert($arr);
+                $grade_6_religionT1->insert($arr);
+                $grade_6_religionT2->insert($arr);
+                $grade_6_religionT3->insert($arr);
 
             //try grade_7
             }elseif($student_class == 'grade_7'){

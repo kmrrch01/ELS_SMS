@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2024 at 02:39 AM
+-- Generation Time: Jul 18, 2024 at 09:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -143,8 +143,8 @@ CREATE TABLE `grade_1` (
   `fullname` varchar(60) NOT NULL,
   `user_id` varchar(60) NOT NULL,
   `english` decimal(5,2) DEFAULT NULL,
-  `arabic` decimal(5,2) DEFAULT NULL,
   `math` decimal(5,2) DEFAULT NULL,
+  `arabic` decimal(5,2) DEFAULT NULL,
   `science` decimal(5,2) DEFAULT NULL,
   `religion` decimal(5,2) DEFAULT NULL,
   `acad_year` varchar(60) NOT NULL,
@@ -157,11 +157,470 @@ CREATE TABLE `grade_1` (
 -- Dumping data for table `grade_1`
 --
 
-INSERT INTO `grade_1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
-(1, 'ELS_GRADE_1', '2024STU66904F', 'guehgu giroiub gurebi', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '', '', '', '2024-07-16 03:18:29'),
-(2, 'ELS_GRADE_1', '2024STU669050', 'karim karim karim', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '', '', '', '2024-07-16 03:18:29'),
-(3, 'ELS_GRADE_1', '2024STU669565', 'keoj ingoin oingoiqn', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', '', '', '2024-07-16 03:18:29'),
-(4, 'ELS_GRADE_1', '2024STU66956A', 'rimmm rimm rimm', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', '', '', '2024-07-16 03:18:29');
+INSERT INTO `grade_1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `english`, `math`, `arabic`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU66904F', 'guehgu giroiub gurebi', '2024_ADM6633A2', 4.00, 5.00, 1.00, 1.00, 12.00, '', '', '', '2024-07-16 03:18:29'),
+(2, 'ELS_GRADE_1', '2024STU669050', 'karim karim karim', '2024_ADM6633A2', 3.00, 2.00, 2.00, 1.00, 12.00, '', '', '', '2024-07-16 03:18:29'),
+(3, 'ELS_GRADE_1', '2024STU669565', 'keoj ingoin oingoiqn', '2024_ADM6633A2', 3.00, 1.00, 3.00, 1.00, 12.00, '2024', '', '', '2024-07-16 03:18:29'),
+(4, 'ELS_GRADE_1', '2024STU66956A', 'rimmm rimm rimm', '2024_ADM6633A2', 4.00, 1.00, 4.00, 1.00, 12.00, '2024', '', '', '2024-07-16 03:18:29'),
+(5, 'ELS_GRADE_1', '2024STU669938', 'kr krk r', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-18 18:44:40'),
+(6, 'ELS_GRADE_1', '2024STU669939', 'kr krk r', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-18 18:50:04'),
+(7, 'ELS_GRADE_1', '2024STU66993D', 'KR KRK RK', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-18 19:07:19'),
+(8, 'ELS_GRADE_1', '2024STU66993E', 'KR KRK RK', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-18 19:09:59'),
+(9, 'ELS_GRADE_1', '2024STU66993E', 'KR KRK RK', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-18 19:10:04'),
+(10, 'ELS_GRADE_1', '2024STU66993E', 'KR KRK RK', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-18 19:11:28'),
+(11, 'ELS_GRADE_1', '2024STU66993E', 'KR KRK RK', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-18 19:11:31'),
+(12, 'ELS_GRADE_1', '2024STU66993E', 'KR KRK RK', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-18 19:11:44'),
+(13, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_arabict1`
+--
+
+CREATE TABLE `grade_1_arabict1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_arabict1`
+--
+
+INSERT INTO `grade_1_arabict1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_arabict2`
+--
+
+CREATE TABLE `grade_1_arabict2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_arabict2`
+--
+
+INSERT INTO `grade_1_arabict2` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_arabict3`
+--
+
+CREATE TABLE `grade_1_arabict3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_arabict3`
+--
+
+INSERT INTO `grade_1_arabict3` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_englisht1`
+--
+
+CREATE TABLE `grade_1_englisht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_englisht1`
+--
+
+INSERT INTO `grade_1_englisht1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_englisht2`
+--
+
+CREATE TABLE `grade_1_englisht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_englisht2`
+--
+
+INSERT INTO `grade_1_englisht2` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_englisht3`
+--
+
+CREATE TABLE `grade_1_englisht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_englisht3`
+--
+
+INSERT INTO `grade_1_englisht3` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_matht1`
+--
+
+CREATE TABLE `grade_1_matht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_matht1`
+--
+
+INSERT INTO `grade_1_matht1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_matht2`
+--
+
+CREATE TABLE `grade_1_matht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_matht2`
+--
+
+INSERT INTO `grade_1_matht2` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(0, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_matht3`
+--
+
+CREATE TABLE `grade_1_matht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_matht3`
+--
+
+INSERT INTO `grade_1_matht3` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(0, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_religiont1`
+--
+
+CREATE TABLE `grade_1_religiont1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_religiont1`
+--
+
+INSERT INTO `grade_1_religiont1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_religiont2`
+--
+
+CREATE TABLE `grade_1_religiont2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_religiont2`
+--
+
+INSERT INTO `grade_1_religiont2` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_religiont3`
+--
+
+CREATE TABLE `grade_1_religiont3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_religiont3`
+--
+
+INSERT INTO `grade_1_religiont3` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_sciencet1`
+--
+
+CREATE TABLE `grade_1_sciencet1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_sciencet1`
+--
+
+INSERT INTO `grade_1_sciencet1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_sciencet2`
+--
+
+CREATE TABLE `grade_1_sciencet2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_sciencet2`
+--
+
+INSERT INTO `grade_1_sciencet2` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_1_sciencet3`
+--
+
+CREATE TABLE `grade_1_sciencet3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_1_sciencet3`
+--
+
+INSERT INTO `grade_1_sciencet3` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_1', '2024STU669940', 'testing testing testing', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 19:20:50');
 
 -- --------------------------------------------------------
 
@@ -196,6 +655,351 @@ INSERT INTO `grade_2` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `e
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `grade_2_arabict1`
+--
+
+CREATE TABLE `grade_2_arabict1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_arabict2`
+--
+
+CREATE TABLE `grade_2_arabict2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_arabict3`
+--
+
+CREATE TABLE `grade_2_arabict3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_englisht1`
+--
+
+CREATE TABLE `grade_2_englisht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_englisht2`
+--
+
+CREATE TABLE `grade_2_englisht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_englisht3`
+--
+
+CREATE TABLE `grade_2_englisht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_matht1`
+--
+
+CREATE TABLE `grade_2_matht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_matht2`
+--
+
+CREATE TABLE `grade_2_matht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_matht3`
+--
+
+CREATE TABLE `grade_2_matht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_religiont1`
+--
+
+CREATE TABLE `grade_2_religiont1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_religiont2`
+--
+
+CREATE TABLE `grade_2_religiont2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_religiont3`
+--
+
+CREATE TABLE `grade_2_religiont3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_sciencet1`
+--
+
+CREATE TABLE `grade_2_sciencet1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_sciencet2`
+--
+
+CREATE TABLE `grade_2_sciencet2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_2_sciencet3`
+--
+
+CREATE TABLE `grade_2_sciencet3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `grade_3`
 --
 
@@ -222,6 +1026,351 @@ CREATE TABLE `grade_3` (
 
 INSERT INTO `grade_3` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
 (1, 'ELS_GRADE_3', 'koj ofri okegij', '2024STU66904F', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '', '', '', '2024-07-16 03:18:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_arabict1`
+--
+
+CREATE TABLE `grade_3_arabict1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_arabict2`
+--
+
+CREATE TABLE `grade_3_arabict2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_arabict3`
+--
+
+CREATE TABLE `grade_3_arabict3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_englisht1`
+--
+
+CREATE TABLE `grade_3_englisht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_englisht2`
+--
+
+CREATE TABLE `grade_3_englisht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_englisht3`
+--
+
+CREATE TABLE `grade_3_englisht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_matht1`
+--
+
+CREATE TABLE `grade_3_matht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_matht2`
+--
+
+CREATE TABLE `grade_3_matht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_matht3`
+--
+
+CREATE TABLE `grade_3_matht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_religiont1`
+--
+
+CREATE TABLE `grade_3_religiont1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_religiont2`
+--
+
+CREATE TABLE `grade_3_religiont2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_religiont3`
+--
+
+CREATE TABLE `grade_3_religiont3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_sciencet1`
+--
+
+CREATE TABLE `grade_3_sciencet1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_sciencet2`
+--
+
+CREATE TABLE `grade_3_sciencet2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_3_sciencet3`
+--
+
+CREATE TABLE `grade_3_sciencet3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -256,6 +1405,351 @@ INSERT INTO `grade_4` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `e
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `grade_4_arabict1`
+--
+
+CREATE TABLE `grade_4_arabict1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_arabict2`
+--
+
+CREATE TABLE `grade_4_arabict2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_arabict3`
+--
+
+CREATE TABLE `grade_4_arabict3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_englisht1`
+--
+
+CREATE TABLE `grade_4_englisht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_englisht2`
+--
+
+CREATE TABLE `grade_4_englisht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_englisht3`
+--
+
+CREATE TABLE `grade_4_englisht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_matht1`
+--
+
+CREATE TABLE `grade_4_matht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_matht2`
+--
+
+CREATE TABLE `grade_4_matht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_matht3`
+--
+
+CREATE TABLE `grade_4_matht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_religiont1`
+--
+
+CREATE TABLE `grade_4_religiont1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_religiont2`
+--
+
+CREATE TABLE `grade_4_religiont2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_religiont3`
+--
+
+CREATE TABLE `grade_4_religiont3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_sciencet1`
+--
+
+CREATE TABLE `grade_4_sciencet1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_sciencet2`
+--
+
+CREATE TABLE `grade_4_sciencet2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_4_sciencet3`
+--
+
+CREATE TABLE `grade_4_sciencet3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `grade_5`
 --
 
@@ -273,6 +1767,351 @@ CREATE TABLE `grade_5` (
   `acad_year` varchar(60) NOT NULL,
   `section` varchar(10) NOT NULL,
   `st_type` varchar(10) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_arabict1`
+--
+
+CREATE TABLE `grade_5_arabict1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_arabict2`
+--
+
+CREATE TABLE `grade_5_arabict2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_arabict3`
+--
+
+CREATE TABLE `grade_5_arabict3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_englisht1`
+--
+
+CREATE TABLE `grade_5_englisht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_englisht2`
+--
+
+CREATE TABLE `grade_5_englisht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_englisht3`
+--
+
+CREATE TABLE `grade_5_englisht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_matht1`
+--
+
+CREATE TABLE `grade_5_matht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_matht2`
+--
+
+CREATE TABLE `grade_5_matht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_matht3`
+--
+
+CREATE TABLE `grade_5_matht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_religiont1`
+--
+
+CREATE TABLE `grade_5_religiont1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_religiont2`
+--
+
+CREATE TABLE `grade_5_religiont2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_religiont3`
+--
+
+CREATE TABLE `grade_5_religiont3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_sciencet1`
+--
+
+CREATE TABLE `grade_5_sciencet1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_sciencet2`
+--
+
+CREATE TABLE `grade_5_sciencet2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_5_sciencet3`
+--
+
+CREATE TABLE `grade_5_sciencet3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
   `date` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -304,7 +2143,458 @@ CREATE TABLE `grade_6` (
 --
 
 INSERT INTO `grade_6` (`id`, `class_id`, `fullname`, `student_id`, `user_id`, `english`, `arabic`, `math`, `science`, `religion`, `acad_year`, `section`, `st_type`, `date`) VALUES
-(1, 'ELS_GRADE_6', 'g g g', '2024STU6695C0', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-16 03:37:50');
+(1, 'ELS_GRADE_6', 'g g g', '2024STU6695C0', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-16 03:37:50'),
+(2, 'ELS_GRADE_6', 'ali ali ali', '2024STU66996C', '2024_ADM6633A2', NULL, NULL, NULL, NULL, NULL, '2024', 'section_A', 'regular', '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_arabict1`
+--
+
+CREATE TABLE `grade_6_arabict1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_arabict1`
+--
+
+INSERT INTO `grade_6_arabict1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(0, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_arabict2`
+--
+
+CREATE TABLE `grade_6_arabict2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_arabict2`
+--
+
+INSERT INTO `grade_6_arabict2` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_arabict3`
+--
+
+CREATE TABLE `grade_6_arabict3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_arabict3`
+--
+
+INSERT INTO `grade_6_arabict3` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_englisht1`
+--
+
+CREATE TABLE `grade_6_englisht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_englisht1`
+--
+
+INSERT INTO `grade_6_englisht1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_englisht2`
+--
+
+CREATE TABLE `grade_6_englisht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_englisht2`
+--
+
+INSERT INTO `grade_6_englisht2` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_englisht3`
+--
+
+CREATE TABLE `grade_6_englisht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_englisht3`
+--
+
+INSERT INTO `grade_6_englisht3` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_matht1`
+--
+
+CREATE TABLE `grade_6_matht1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_matht1`
+--
+
+INSERT INTO `grade_6_matht1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_matht2`
+--
+
+CREATE TABLE `grade_6_matht2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_matht2`
+--
+
+INSERT INTO `grade_6_matht2` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_matht3`
+--
+
+CREATE TABLE `grade_6_matht3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_matht3`
+--
+
+INSERT INTO `grade_6_matht3` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_religiont1`
+--
+
+CREATE TABLE `grade_6_religiont1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_religiont1`
+--
+
+INSERT INTO `grade_6_religiont1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_religiont2`
+--
+
+CREATE TABLE `grade_6_religiont2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_religiont2`
+--
+
+INSERT INTO `grade_6_religiont2` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_religiont3`
+--
+
+CREATE TABLE `grade_6_religiont3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_religiont3`
+--
+
+INSERT INTO `grade_6_religiont3` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_sciencet1`
+--
+
+CREATE TABLE `grade_6_sciencet1` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_sciencet1`
+--
+
+INSERT INTO `grade_6_sciencet1` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_sciencet2`
+--
+
+CREATE TABLE `grade_6_sciencet2` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_sciencet2`
+--
+
+INSERT INTO `grade_6_sciencet2` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grade_6_sciencet3`
+--
+
+CREATE TABLE `grade_6_sciencet3` (
+  `id` int(11) NOT NULL,
+  `class_id` varchar(60) NOT NULL,
+  `student_id` varchar(60) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  `user_id` varchar(60) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `st_type` varchar(10) NOT NULL,
+  `acad_year` varchar(20) NOT NULL,
+  `quiz` decimal(5,2) NOT NULL,
+  `homework` decimal(5,2) NOT NULL,
+  `test` decimal(5,2) NOT NULL,
+  `term_avg` decimal(5,2) NOT NULL,
+  `term_perc` decimal(5,2) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `grade_6_sciencet3`
+--
+
+INSERT INTO `grade_6_sciencet3` (`id`, `class_id`, `student_id`, `fullname`, `user_id`, `section`, `st_type`, `acad_year`, `quiz`, `homework`, `test`, `term_avg`, `term_perc`, `date`) VALUES
+(1, 'ELS_GRADE_6', '2024STU66996C', 'ali ali ali', '2024_ADM6633A2', 'section_A', 'regular', '2024', 0.00, 0.00, 0.00, 0.00, 0.00, '2024-07-18 22:28:59');
 
 -- --------------------------------------------------------
 
@@ -578,7 +2868,9 @@ INSERT INTO `students` (`id`, `firstname`, `middlename`, `lastname`, `firstname_
 (7, 'keoj', 'ingoin', 'oingoiqn', 'oingoin', 'oignoi', 'niognoi', '2024STU669565', '', 'grade_1', 'ELS_GRADE_1', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-15', ''),
 (8, 'rimmm', 'rimm', 'rimm', 'rimm', 'rimm', 'rimm', '2024STU66956A', '', 'grade_1', 'ELS_GRADE_1', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-15', ''),
 (9, 'c', 'c', 'c', 'c', 'c', 'c', '2024STU6695BD', '', 'grade_12ls', 'ELS_GRADE_12LS', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-16', ''),
-(10, 'g', 'g', 'g', 'g', 'g', 'g', '2024STU6695C0', '', 'grade_6', 'ELS_GRADE_6', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-16', '');
+(10, 'g', 'g', 'g', 'g', 'g', 'g', '2024STU6695C0', '', 'grade_6', 'ELS_GRADE_6', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-16', ''),
+(12, 'testing', 'testing', 'testing', 'testing', 'testing', 'testing', '2024STU669940', '', 'grade_1', 'ELS_GRADE_1', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-18', ''),
+(13, 'ali', 'ali', 'ali', 'al', 'alsi', 'ali', '2024STU66996C', '', 'grade_6', 'ELS_GRADE_6', '2024', '2000-10-10', 'male', 'regular', 'sect', '2024-07-18', '');
 
 -- --------------------------------------------------------
 
@@ -678,9 +2970,239 @@ ALTER TABLE `grade_1`
   ADD KEY `idx_student_id` (`student_id`);
 
 --
+-- Indexes for table `grade_1_arabict1`
+--
+ALTER TABLE `grade_1_arabict1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `grade_1_arabict2`
+--
+ALTER TABLE `grade_1_arabict2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_arabict3`
+--
+ALTER TABLE `grade_1_arabict3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_englisht1`
+--
+ALTER TABLE `grade_1_englisht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_englisht2`
+--
+ALTER TABLE `grade_1_englisht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_englisht3`
+--
+ALTER TABLE `grade_1_englisht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_matht1`
+--
+ALTER TABLE `grade_1_matht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_matht2`
+--
+ALTER TABLE `grade_1_matht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_matht3`
+--
+ALTER TABLE `grade_1_matht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_religiont1`
+--
+ALTER TABLE `grade_1_religiont1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_religiont2`
+--
+ALTER TABLE `grade_1_religiont2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_religiont3`
+--
+ALTER TABLE `grade_1_religiont3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_sciencet1`
+--
+ALTER TABLE `grade_1_sciencet1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_sciencet2`
+--
+ALTER TABLE `grade_1_sciencet2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_1_sciencet3`
+--
+ALTER TABLE `grade_1_sciencet3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
 -- Indexes for table `grade_2`
 --
 ALTER TABLE `grade_2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_arabict2`
+--
+ALTER TABLE `grade_2_arabict2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_arabict3`
+--
+ALTER TABLE `grade_2_arabict3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_englisht1`
+--
+ALTER TABLE `grade_2_englisht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_englisht2`
+--
+ALTER TABLE `grade_2_englisht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_englisht3`
+--
+ALTER TABLE `grade_2_englisht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_matht1`
+--
+ALTER TABLE `grade_2_matht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_matht2`
+--
+ALTER TABLE `grade_2_matht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_matht3`
+--
+ALTER TABLE `grade_2_matht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_religiont1`
+--
+ALTER TABLE `grade_2_religiont1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_religiont2`
+--
+ALTER TABLE `grade_2_religiont2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_religiont3`
+--
+ALTER TABLE `grade_2_religiont3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_sciencet1`
+--
+ALTER TABLE `grade_2_sciencet1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_sciencet2`
+--
+ALTER TABLE `grade_2_sciencet2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_2_sciencet3`
+--
+ALTER TABLE `grade_2_sciencet3`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_class_id` (`class_id`),
   ADD KEY `idx_student_id` (`student_id`);
@@ -694,9 +3216,233 @@ ALTER TABLE `grade_3`
   ADD KEY `idx_student_id` (`student_id`);
 
 --
+-- Indexes for table `grade_3_arabict2`
+--
+ALTER TABLE `grade_3_arabict2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_arabict3`
+--
+ALTER TABLE `grade_3_arabict3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_englisht1`
+--
+ALTER TABLE `grade_3_englisht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_englisht2`
+--
+ALTER TABLE `grade_3_englisht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_englisht3`
+--
+ALTER TABLE `grade_3_englisht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_matht1`
+--
+ALTER TABLE `grade_3_matht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_matht2`
+--
+ALTER TABLE `grade_3_matht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_matht3`
+--
+ALTER TABLE `grade_3_matht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_religiont1`
+--
+ALTER TABLE `grade_3_religiont1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_religiont2`
+--
+ALTER TABLE `grade_3_religiont2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_religiont3`
+--
+ALTER TABLE `grade_3_religiont3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_sciencet1`
+--
+ALTER TABLE `grade_3_sciencet1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_sciencet2`
+--
+ALTER TABLE `grade_3_sciencet2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_3_sciencet3`
+--
+ALTER TABLE `grade_3_sciencet3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
 -- Indexes for table `grade_4`
 --
 ALTER TABLE `grade_4`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_arabict2`
+--
+ALTER TABLE `grade_4_arabict2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_arabict3`
+--
+ALTER TABLE `grade_4_arabict3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_englisht1`
+--
+ALTER TABLE `grade_4_englisht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_englisht2`
+--
+ALTER TABLE `grade_4_englisht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_englisht3`
+--
+ALTER TABLE `grade_4_englisht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_matht1`
+--
+ALTER TABLE `grade_4_matht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_matht2`
+--
+ALTER TABLE `grade_4_matht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_matht3`
+--
+ALTER TABLE `grade_4_matht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_religiont1`
+--
+ALTER TABLE `grade_4_religiont1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_religiont2`
+--
+ALTER TABLE `grade_4_religiont2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_religiont3`
+--
+ALTER TABLE `grade_4_religiont3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_sciencet1`
+--
+ALTER TABLE `grade_4_sciencet1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_sciencet2`
+--
+ALTER TABLE `grade_4_sciencet2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_4_sciencet3`
+--
+ALTER TABLE `grade_4_sciencet3`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_class_id` (`class_id`),
   ADD KEY `idx_student_id` (`student_id`);
@@ -710,9 +3456,241 @@ ALTER TABLE `grade_5`
   ADD KEY `idx_student_id` (`student_id`);
 
 --
+-- Indexes for table `grade_5_arabict1`
+--
+ALTER TABLE `grade_5_arabict1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_arabict2`
+--
+ALTER TABLE `grade_5_arabict2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_arabict3`
+--
+ALTER TABLE `grade_5_arabict3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_englisht1`
+--
+ALTER TABLE `grade_5_englisht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_englisht2`
+--
+ALTER TABLE `grade_5_englisht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_englisht3`
+--
+ALTER TABLE `grade_5_englisht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_matht1`
+--
+ALTER TABLE `grade_5_matht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_matht2`
+--
+ALTER TABLE `grade_5_matht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_matht3`
+--
+ALTER TABLE `grade_5_matht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_religiont1`
+--
+ALTER TABLE `grade_5_religiont1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_religiont2`
+--
+ALTER TABLE `grade_5_religiont2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_religiont3`
+--
+ALTER TABLE `grade_5_religiont3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_sciencet1`
+--
+ALTER TABLE `grade_5_sciencet1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_sciencet2`
+--
+ALTER TABLE `grade_5_sciencet2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_5_sciencet3`
+--
+ALTER TABLE `grade_5_sciencet3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
 -- Indexes for table `grade_6`
 --
 ALTER TABLE `grade_6`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_arabict2`
+--
+ALTER TABLE `grade_6_arabict2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_arabict3`
+--
+ALTER TABLE `grade_6_arabict3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_englisht1`
+--
+ALTER TABLE `grade_6_englisht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_englisht2`
+--
+ALTER TABLE `grade_6_englisht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_englisht3`
+--
+ALTER TABLE `grade_6_englisht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_matht1`
+--
+ALTER TABLE `grade_6_matht1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_matht2`
+--
+ALTER TABLE `grade_6_matht2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_matht3`
+--
+ALTER TABLE `grade_6_matht3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_religiont1`
+--
+ALTER TABLE `grade_6_religiont1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_religiont2`
+--
+ALTER TABLE `grade_6_religiont2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_religiont3`
+--
+ALTER TABLE `grade_6_religiont3`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_sciencet1`
+--
+ALTER TABLE `grade_6_sciencet1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_sciencet2`
+--
+ALTER TABLE `grade_6_sciencet2`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_class_id` (`class_id`),
+  ADD KEY `idx_student_id` (`student_id`);
+
+--
+-- Indexes for table `grade_6_sciencet3`
+--
+ALTER TABLE `grade_6_sciencet3`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_class_id` (`class_id`),
   ADD KEY `idx_student_id` (`student_id`);
@@ -845,7 +3823,85 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `grade_1`
 --
 ALTER TABLE `grade_1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `grade_1_arabict1`
+--
+ALTER TABLE `grade_1_arabict1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_arabict2`
+--
+ALTER TABLE `grade_1_arabict2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_arabict3`
+--
+ALTER TABLE `grade_1_arabict3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_englisht1`
+--
+ALTER TABLE `grade_1_englisht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_englisht2`
+--
+ALTER TABLE `grade_1_englisht2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_englisht3`
+--
+ALTER TABLE `grade_1_englisht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_matht1`
+--
+ALTER TABLE `grade_1_matht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_religiont1`
+--
+ALTER TABLE `grade_1_religiont1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_religiont2`
+--
+ALTER TABLE `grade_1_religiont2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_religiont3`
+--
+ALTER TABLE `grade_1_religiont3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_sciencet1`
+--
+ALTER TABLE `grade_1_sciencet1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_sciencet2`
+--
+ALTER TABLE `grade_1_sciencet2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_1_sciencet3`
+--
+ALTER TABLE `grade_1_sciencet3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `grade_2`
@@ -854,10 +3910,166 @@ ALTER TABLE `grade_2`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `grade_2_arabict2`
+--
+ALTER TABLE `grade_2_arabict2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_arabict3`
+--
+ALTER TABLE `grade_2_arabict3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_englisht1`
+--
+ALTER TABLE `grade_2_englisht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_englisht2`
+--
+ALTER TABLE `grade_2_englisht2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_englisht3`
+--
+ALTER TABLE `grade_2_englisht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_matht1`
+--
+ALTER TABLE `grade_2_matht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_matht3`
+--
+ALTER TABLE `grade_2_matht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_religiont1`
+--
+ALTER TABLE `grade_2_religiont1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_religiont2`
+--
+ALTER TABLE `grade_2_religiont2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_religiont3`
+--
+ALTER TABLE `grade_2_religiont3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_sciencet1`
+--
+ALTER TABLE `grade_2_sciencet1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_sciencet2`
+--
+ALTER TABLE `grade_2_sciencet2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_2_sciencet3`
+--
+ALTER TABLE `grade_2_sciencet3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `grade_3`
 --
 ALTER TABLE `grade_3`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_3_arabict2`
+--
+ALTER TABLE `grade_3_arabict2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_arabict3`
+--
+ALTER TABLE `grade_3_arabict3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_englisht1`
+--
+ALTER TABLE `grade_3_englisht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_englisht2`
+--
+ALTER TABLE `grade_3_englisht2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_englisht3`
+--
+ALTER TABLE `grade_3_englisht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_matht1`
+--
+ALTER TABLE `grade_3_matht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_matht3`
+--
+ALTER TABLE `grade_3_matht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_religiont1`
+--
+ALTER TABLE `grade_3_religiont1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_religiont2`
+--
+ALTER TABLE `grade_3_religiont2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_religiont3`
+--
+ALTER TABLE `grade_3_religiont3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_sciencet1`
+--
+ALTER TABLE `grade_3_sciencet1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_sciencet2`
+--
+ALTER TABLE `grade_3_sciencet2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_3_sciencet3`
+--
+ALTER TABLE `grade_3_sciencet3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `grade_4`
@@ -866,15 +4078,273 @@ ALTER TABLE `grade_4`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `grade_4_arabict2`
+--
+ALTER TABLE `grade_4_arabict2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_arabict3`
+--
+ALTER TABLE `grade_4_arabict3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_englisht1`
+--
+ALTER TABLE `grade_4_englisht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_englisht2`
+--
+ALTER TABLE `grade_4_englisht2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_englisht3`
+--
+ALTER TABLE `grade_4_englisht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_matht1`
+--
+ALTER TABLE `grade_4_matht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_matht2`
+--
+ALTER TABLE `grade_4_matht2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_matht3`
+--
+ALTER TABLE `grade_4_matht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_religiont1`
+--
+ALTER TABLE `grade_4_religiont1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_religiont2`
+--
+ALTER TABLE `grade_4_religiont2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_religiont3`
+--
+ALTER TABLE `grade_4_religiont3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_sciencet1`
+--
+ALTER TABLE `grade_4_sciencet1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_sciencet2`
+--
+ALTER TABLE `grade_4_sciencet2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_4_sciencet3`
+--
+ALTER TABLE `grade_4_sciencet3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `grade_5`
 --
 ALTER TABLE `grade_5`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `grade_5_arabict1`
+--
+ALTER TABLE `grade_5_arabict1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_arabict2`
+--
+ALTER TABLE `grade_5_arabict2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_arabict3`
+--
+ALTER TABLE `grade_5_arabict3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_englisht1`
+--
+ALTER TABLE `grade_5_englisht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_englisht2`
+--
+ALTER TABLE `grade_5_englisht2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_englisht3`
+--
+ALTER TABLE `grade_5_englisht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_matht1`
+--
+ALTER TABLE `grade_5_matht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_matht2`
+--
+ALTER TABLE `grade_5_matht2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_matht3`
+--
+ALTER TABLE `grade_5_matht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_religiont1`
+--
+ALTER TABLE `grade_5_religiont1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_religiont2`
+--
+ALTER TABLE `grade_5_religiont2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_religiont3`
+--
+ALTER TABLE `grade_5_religiont3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_sciencet1`
+--
+ALTER TABLE `grade_5_sciencet1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_sciencet2`
+--
+ALTER TABLE `grade_5_sciencet2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `grade_5_sciencet3`
+--
+ALTER TABLE `grade_5_sciencet3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `grade_6`
 --
 ALTER TABLE `grade_6`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `grade_6_arabict2`
+--
+ALTER TABLE `grade_6_arabict2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_arabict3`
+--
+ALTER TABLE `grade_6_arabict3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_englisht1`
+--
+ALTER TABLE `grade_6_englisht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_englisht2`
+--
+ALTER TABLE `grade_6_englisht2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_englisht3`
+--
+ALTER TABLE `grade_6_englisht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_matht1`
+--
+ALTER TABLE `grade_6_matht1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_matht2`
+--
+ALTER TABLE `grade_6_matht2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_matht3`
+--
+ALTER TABLE `grade_6_matht3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_religiont1`
+--
+ALTER TABLE `grade_6_religiont1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_religiont2`
+--
+ALTER TABLE `grade_6_religiont2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_religiont3`
+--
+ALTER TABLE `grade_6_religiont3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_sciencet1`
+--
+ALTER TABLE `grade_6_sciencet1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_sciencet2`
+--
+ALTER TABLE `grade_6_sciencet2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `grade_6_sciencet3`
+--
+ALTER TABLE `grade_6_sciencet3`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -935,7 +4405,7 @@ ALTER TABLE `invoices`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`

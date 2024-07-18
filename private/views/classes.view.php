@@ -51,7 +51,7 @@
 				
 				<tr>
 					<th>View</th>
-					<th>Class Name</th>
+					<th>Evaluation</th>
 					<th>Created by</th>
 					<th>Date</th>
 					<th>
@@ -68,8 +68,13 @@
 					 <tr>
 					 	<td>
 							<a href="<?=ROOT?>/<?=str_replace("_", "",$row->class)?>">
-							<button class="btn btn-sm btn-primary"><i class="fa-solid fa-landmark"></i></button></td>
+							<button class="btn btn-sm btn-primary"><i class="fa-solid fa-book"></i></button></td>
 					</a>
+					<td>
+					<a href="<?=ROOT?>/<?=str_replace("_", "",$row->class) . "_" . "table"?>">
+							<button class="btn btn-sm btn-primary"><i class="fa-solid fa-star"></i></button></td>
+					</a>
+					</td>
 					 	<td><?=str_replace("_", " ", strtoupper($row->class))?></td>
 						<td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
 						<td><?=get_date($row->date)?></td>
