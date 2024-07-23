@@ -17,5 +17,6 @@ class Grade_1_mathT1 extends Model{
         'term_avg',
         'term_perc',
         'section',
+        'quiz',
     ];
 }

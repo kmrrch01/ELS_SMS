@@ -8,7 +8,6 @@ require "model.php";
 require "app.php";
 
 
-
 spl_autoload_register(function($class_name){
 
         // Check if the class name ends with "Controller"

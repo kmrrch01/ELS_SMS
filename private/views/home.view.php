@@ -33,7 +33,7 @@
     text-transform: uppercase;
 }
 .circle-tile-footer {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #0050A6;
     color: rgba(255, 255, 255, 0.5);
     display: block;
     padding: 5px;
@@ -67,13 +67,13 @@
 }
 
 .dark-blue {
-    background-color: #34495E;
+    background-color: #0050A6;
 }
 .green {
     background-color: #16A085;
 }
 .blue {
-    background-color: #2980B9;
+    background-color: ##0050A6;
 }
 .orange {
     background-color: #F39C12;
@@ -97,13 +97,13 @@
     background-color: #F1C40F;
 }
 .text-dark-blue {
-    color: #34495E;
+    color: #0050A6;
 }
 .text-green {
     color: #16A085;
 }
 .text-blue {
-    color: #2980B9;
+    color: #0050A6;
 }
 .text-orange {
     color: #F39C12;

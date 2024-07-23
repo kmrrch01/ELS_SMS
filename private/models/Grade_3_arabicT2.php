@@ -2,7 +2,7 @@
 
 class Grade_3_arabicT2 extends Model{
 
-    protected $table = 'grade_3_arabic_t2';
+    protected $table = 'grade_3_arabict2';
 
     protected $allowedColumns = [
         'student_id',

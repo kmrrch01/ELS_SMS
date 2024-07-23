@@ -17,6 +17,6 @@ class Grade_6_religionT1 extends Model{
         'term_avg',
         'term_perc',
         'section',
-       
+       'quiz',
     ];
 }

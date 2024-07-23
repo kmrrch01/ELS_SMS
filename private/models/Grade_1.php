@@ -18,6 +18,7 @@ class Grade_1 extends Model{
         'acad_year',
         'st_type',
         'section',
+        
        
     ];
 }

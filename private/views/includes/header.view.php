@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>ELS</title>
-	<link rel="icon" type="image/x-icon" href="<?=ASSETS?>/elsico.ico">
+	<link rel="icon" type="image/x-icon" href="<?=ASSETS?>/els_logoup.ico">
 
   	<meta name="description" content="Free Web tutorials">
   	<meta name="keywords" content="HTML, CSS, JavaScript">
@@ -46,7 +46,7 @@ body {
 		margin-bottom: 10px;
 		position: relative;
 		z-index: 1;
-		background: #34495E;
+		background: #0050A6;
 		color: white;
 		text-align: center;
 		font-family: 'Bodoni MT';

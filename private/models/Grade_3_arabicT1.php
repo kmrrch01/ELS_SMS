@@ -2,7 +2,7 @@
 
 class Grade_3_arabicT1 extends Model{
 
-    protected $table = 'grade_3_arabic_t1';
+    protected $table = 'grade_3_arabict1';
 
     protected $allowedColumns = [
         'student_id',
@@ -17,6 +17,7 @@ class Grade_3_arabicT1 extends Model{
         'term_avg',
         'term_perc',
         'section',
+        'quiz',
        
     ];
 }

@@ -17,6 +17,6 @@ class Grade_6_englishT3 extends Model{
         'term_avg',
         'term_perc',
         'section',
-       
+       'quiz',
     ];
 }

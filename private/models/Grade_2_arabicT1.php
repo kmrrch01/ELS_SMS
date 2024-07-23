@@ -17,6 +17,7 @@ class Grade_2_arabicT1 extends Model{
         'term_avg',
         'term_perc',
         'section',
+        'quiz',
        
     ];
 }

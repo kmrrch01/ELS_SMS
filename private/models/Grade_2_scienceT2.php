@@ -1,6 +1,7 @@
 <?php
 
-class Grade_2_scienceT2 extends Model{
+class Grade_2_scienceT2 extends Model
+{
 
     protected $table = 'grade_2_sciencet2';
 
@@ -17,6 +18,6 @@ class Grade_2_scienceT2 extends Model{
         'term_avg',
         'term_perc',
         'section',
-       
+        'quiz',
     ];
 }

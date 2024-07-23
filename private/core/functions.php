@@ -42,14 +42,14 @@ function make_user_id_from_post() {
 
 
 function make_student_id_from_post() {
-    // Extract the first three letters of the position
     $position_prefix = "STU";
-	$unique = substr(uniqid(), 0, 6);
-
-    // Generate the user ID by concatenating the academic year, an underscore, and the uppercase position prefix
-    $user_id = $_POST['acad_year'] . strtoupper($position_prefix) . strtoupper($unique);
-
-    return $user_id;
+    $academic_year = $_POST['acad_year'];
+    $timestamp = time();
+    $random = mt_rand(1000, 9999);
+    
+    $student_id = $academic_year . strtoupper($position_prefix) . $timestamp . $random;
+    
+    return $student_id;
 }
 
 
