@@ -32,6 +32,46 @@ class Auth
 		return false;
 	}
 
+	public static function image($gender = 'male')
+	{
+		if(isset($_SESSION['USER'])){
+			$gender = $_SESSION['USER']->gender;	
+			if($gender == "male"){
+				return (ASSETS.'/male_user.jpg');
+			}
+			else{
+				return ASSETS.'/female_user.jpg';
+			}
+		}
+	}
+
+	public static function gender(){
+		if(isset($_SESSION['USER']))
+		{
+			return $_SESSION['USER']->gender;
+		}
+	}
+
+	public static function position(){
+		if(isset($_SESSION['USER']))
+		{
+			return $_SESSION['USER']->position;
+		}
+	}
+	
+	public static function email(){
+		if(isset($_SESSION['USER'])){
+			return $_SESSION['USER']->email;
+		}
+	}
+	
+     public static function user_id(){
+		if(isset($_SESSION['USER']))
+		{
+			return $_SESSION['USER']->user_id;
+		}
+	 }
+
 	public static function user()
 	{
 		if(isset($_SESSION['USER']))
@@ -49,6 +89,7 @@ class Auth
 			return $_SESSION['USER']->class_id;
 		}
 	}
+
 
 	public static function __callStatic($method, $params)
 	{
@@ -80,7 +121,7 @@ class Auth
 
 				$user->update($_SESSION['USER']->id,$arr);
  				$_SESSION['USER']->class_id = $row->class_id;
-				$_SESSION['USER']->class_name = $row->class_name;
+				$_SESSION['USER']->class = $row->class;
 
 			}
 			
@@ -98,9 +139,9 @@ class Auth
 			return false;
 		}
 		$logged_in_position = $_SESSION['USER']->position;
-		$POSITION['super_admin'] = ['super_admin','admin','teacher','reception','student'];
-		$POSITION['admin'] = ['admin','teacher','reception','student'];
-		$POSITION['teacher'] = ['teacher','reception','student'];
+		$POSITION['super_admin'] = ['super_admin','admin','lecturer','reception','student'];
+		$POSITION['admin'] = ['admin','lecturer','reception','student'];
+		$POSITION['lecturer'] = ['lecturer','reception','student'];
 		$POSITION['reception'] = ['reception','student'];
 		$POSITION['student'] = ['student'];
 
@@ -117,6 +158,9 @@ class Auth
 		return false;
 	}
 
+
+
+	
 	public static function ownership($row)
 	{
 
@@ -142,30 +186,5 @@ class Auth
 
 		return false;
 	}
-	public static function user_email()
-	{
-		if(isset($_SESSION['USER']))
-		{
-			return $_SESSION['USER']->email;
-		}
-
-		return false;
-	}
-
-	public static function user_gender()
-{
-    if(isset($_SESSION['USER']))
-    {
-        $gender = $_SESSION['USER']->gender; 
-
-        if ($gender === 'male') { 
-            return 'fas fa-user-male'; 
-        } else {
-            return 'fas fa-user-female'; 
-        }
-    }
-
-    return false; 
-}
-
+	
 }

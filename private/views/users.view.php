@@ -1,4 +1,6 @@
 <?php $this->view('includes/header')?>
+<title>Staff</title>
+
 <?php $this->view('includes/nav')?>
 
 <script>

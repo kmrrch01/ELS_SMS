@@ -1,5 +1,5 @@
 <?php $this->view('includes/header');?>
-
+<title>Student SignUp</title>
 
 <div class="container mt-3">
   <form method="post">
@@ -15,7 +15,7 @@
             </div>
             <?php endif;?>
 
-    <div class="row jumbotron box8">
+            <div class="row jumbotron box8">
       <div class="col-sm-12 mx-t3 mb-4">
         <h2 class="text-center text-primary">Register a New Student</h2>
       </div>
@@ -50,6 +50,14 @@
         <input type="Date" value="<?=get_var('dob')?>" name="dob" class="form-control" id="Date" placeholder="" required>
       </div>
       <div class="col-sm-6 form-group">
+        <label>Place Of Birth</label>
+        <input  value="<?=get_var('PoB')?>" name="PoB" id='PoB' class="form-control"  placeholder="Place Of Birth" required>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label>Nationality</label>
+        <input value="<?=get_var('Nationality')?>" name="Nationality" id='Natinality' class="form-control"  placeholder="Nationality" required>
+      </div>
+      <div class="col-sm-6 form-group">
         <label for="gender">Gender</label>
         <select name="gender" id="gender" class="form-control browser-default custom-select">
         <option <?=get_select('gender','')?> value="">Please choose a gender</option>
@@ -57,7 +65,24 @@
          <option <?=get_select('gender','female')?> value="female">Female</option>
                </select>
       </div>
-    
+      <div class="col-sm-6 form-group">
+        <label for="blood_type">Blood Type</label>
+        <select name="blood_type" id="blood_type" class="form-control browser-default custom-select">
+        <option <?=get_select('blood_type','')?> value="">Please choose a blood type</option>
+         <option <?=get_select('blood_type','O+')?> value="O+">O+</option>
+         <option <?=get_select('blood_type','O-')?> value="O-">O-</option>
+         <option <?=get_select('blood_type','A+')?> value="A+">A+</option>
+         <option <?=get_select('blood_type','A-')?> value="A-">A-</option>
+         <option <?=get_select('blood_type','B+')?> value="B+">B+</option>
+         <option <?=get_select('blood_type','B-')?> value="B-">B-</option>
+         <option <?=get_select('blood_type','AB+')?> value="AB+">AB+</option>
+         <option <?=get_select('blood_type','AB-')?> value="AB-">AB-</option>
+               </select>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="health_condition">Health Conditions</label>
+        <input value="<?=get_var('health_condition')?>" name="health_condition" id='health_condition' class="form-control"  placeholder="Health conditions" required>
+      </div>
       <div class="col-sm-6 form-group">
         <label for="acad_year">Academic Year</label>
         <select name="acad_year" id="acad_year" class="form-control browser-default custom-select">
@@ -66,22 +91,22 @@
         </select>
       </div>
       <div class="col-sm-6 form-group">
-        <label for="class_name">Class</label>
-        <select name="class_name" id="class_name" class="form-control browser-default custom-select">
-        <option <?=get_select('class_name','')?> value="" placeholder="Please Choose a Class">Please choose a class</option>
-        <option <?=get_select('class_name', 'general')?> name="general" value="general">General</option>
-				<option <?=get_select('class_name', 'grade_1')?> name="grade_1" value="grade_1">Grade 1</option>
-				<option <?=get_select('class_name', 'grade_2')?> name="grade_2" value="grade_2">Grade 2</option>
-				<option <?=get_select('class_name', 'grade_3')?> name="grade_3" value="grade_2">Grade 3</option>
-				<option <?=get_select('class_name', 'grade_4')?> name="grade_4" value="grade_2">Grade 4</option>
-				<option <?=get_select('class_name', 'grade_5')?> name="grade_5" value="grade_2">Grade 5</option>
-				<option <?=get_select('class_name', 'grade_6')?> name="grade_6" value="grade_2">Grade 6</option>
-				<option <?=get_select('class_name', 'grade_7')?> name="grade_7" value="grade_2">Grade 7</option>
-				<option <?=get_select('class_name', 'grade_8')?> name="grade_8" value="grade_2">Grade 8</option>
-				<option <?=get_select('class_name', 'grade_9')?> name="grade_9" value="grade_2">Grade 9</option>
-				<option <?=get_select('class_name', 'grade_10')?> name="grade_10" value="grade_2">Grade 10</option>
-				<option <?=get_select('class_name', 'grade_11')?> name="grade_11" value="grade_2">Grade 11</option>
-				<option <?=get_select('class_name', 'grade_12')?> name="grade_12" value="grade_2">Grade 12</option>
+        <label for="class">Class</label>
+        <select name="class" id="class" class="form-control browser-default custom-select">
+        <option <?=get_select('class','')?> value="" placeholder="Please Choose a Class">Please choose a class</option>
+        <option <?=get_select('class', 'general')?> name="general" value="general">General</option>
+				<option <?=get_select('class', 'grade_1')?> name="grade_1" value="grade_1">Grade 1</option>
+				<option <?=get_select('class', 'grade_2')?> name="grade_2" value="grade_2">Grade 2</option>
+				<option <?=get_select('class', 'grade_3')?> name="grade_3" value="grade_2">Grade 3</option>
+				<option <?=get_select('class', 'grade_4')?> name="grade_4" value="grade_2">Grade 4</option>
+				<option <?=get_select('class', 'grade_5')?> name="grade_5" value="grade_2">Grade 5</option>
+				<option <?=get_select('class', 'grade_6')?> name="grade_6" value="grade_2">Grade 6</option>
+				<option <?=get_select('class', 'grade_7')?> name="grade_7" value="grade_2">Grade 7</option>
+				<option <?=get_select('class', 'grade_8')?> name="grade_8" value="grade_2">Grade 8</option>
+				<option <?=get_select('class', 'grade_9')?> name="grade_9" value="grade_2">Grade 9</option>
+				<option <?=get_select('class', 'grade_10')?> name="grade_10" value="grade_2">Grade 10</option>
+				<option <?=get_select('class', 'grade_11')?> name="grade_11" value="grade_2">Grade 11</option>
+				<option <?=get_select('class', 'grade_12')?> name="grade_12" value="grade_2">Grade 12</option>
         </select>
       </div>
        <div class="col-sm-6 form-group">
@@ -105,11 +130,30 @@
         <label for="address-2">Address</label>
         <input type="address" value="<?=get_var('address')?>" name="address" class="form-control" id="Date" placeholder="Address" required>
       </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email." required>
+      </div>
       
       <div class="col-sm-4 form-group">
-        <label for="tel">Phone</label>
-        <input <?=get_var('phone_number','phone_number')?>type="tel" name="phone_number" class="form-control" id="tel" placeholder="Mobile No." required>
+        <label for="tel">Home Phone</label>
+        <input <?=get_var('home_phone','home_phone')?>type="tel" name="home_phone" class="form-control" id="home_phone" placeholder="Home No." required>
       </div>
+      <div class="col-sm-4 form-group">
+        <label for="tel">Phone 1</label>
+        <input <?=get_var('cell_phone1','cell_phone1')?>type="tel" name="cell_phone1" class="form-control" id="cell_phone1" placeholder="Mobile No." required>
+      </div>
+      <div class="col-sm-4 form-group">
+        <label for="tel">Phone 2</label>
+        <input <?=get_var('cell_phone2','cell_phone2')?>type="tel" name="cell_phone2" class="form-control" id="cell_phone2" placeholder="Mobile No." required>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label for="MISC">Additional info</label>
+        <input value="<?=get_var('MISC')?>" name="MISC" class="form-control"  placeholder="Additional info" required>
+      </div>
+
         <center><button style="margin-left:20%;" class="fs-1 btn btn-primary">Register</button></center>
         <a href="<?=ROOT?>/students">
 			 		<input style="margin-left:30%;"class="btn btn-danger" type="button" value="Cancel">

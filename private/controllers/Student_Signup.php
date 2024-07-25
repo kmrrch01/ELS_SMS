@@ -20,19 +20,29 @@ class Student_Signup extends Controller
               // Proceed with user data insertion if no errors
               if (empty($errors)) {
                   $arr = array(
-                      'firstname' => $_POST['firstname'],
-                      'middlename' => $_POST['middlename'],
-                      'lastname' => $_POST['lastname'],
-                      'firstname_ar' => $_POST['firstname_ar'],
-                      'middlename_ar' => $_POST['middlename_ar'],
-                      'lastname_ar' => $_POST['lastname_ar'],
-                      'dob' => $_POST['dob'],
-                      'gender' => $_POST['gender'],
-                      'acad_year' => $_POST['acad_year'],
-                      'class_name' => $_POST['class_name'],
-                      'st_type' => $_POST['st_type'],
-                      'section' => $_POST['section'],
-                      'date' => date("Y-m-d H:i:s")
+                    'firstname' => $_POST['firstname'],
+                    'middlename' => $_POST['middlename'],
+                    'lastname' => $_POST['lastname'],
+                    'firstname_ar' => $_POST['firstname_ar'],
+                    'middlename_ar' => $_POST['middlename_ar'],
+                    'lastname_ar' => $_POST['lastname_ar'],
+                    'dob' => $_POST['dob'],
+                    'gender' => $_POST['gender'],
+                    'acad_year' => $_POST['acad_year'],
+                    'class_name' => $_POST['class_name'],
+                    'st_type' => $_POST['st_type'],
+                    'section' => $_POST['section'],
+                    'date' => date("Y-m-d H:i:s"),
+                    'PoB'=> $_POST['PoB'],
+                    'Nationality'=> $_POST['Nationality'],
+                    'blood_type'=> $_POST['blood_type'],
+                    'health_condition'=> $_POST['health_condition'],
+                    'home_phone'=> $_POST['home_phone'],
+                    'address'=> $_POST['address'],
+                    'MISC'=> $_POST['MISC'],
+                    'cell_phone1'=> $_POST['cell_phone1'],
+                    'cell_phone2'=> $_POST['cell_phone2'],
+                    'email'=> $_POST['email']
                   );
   
                   // Insert user data

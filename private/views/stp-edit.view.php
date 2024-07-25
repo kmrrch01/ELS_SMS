@@ -1,75 +1,56 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/all.min.css">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="viewport" content= "width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Signup</title> 
-</head>
-<body style="background-image: url('assets/blue1.jpg');">
-<div style="min-width:350px;">
+<?php $this->view('includes/header')?>
+<title>Student Profile Edit</title>
+<?php $this->view('includes/nav')?>
+	
+	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
+		<?php //$this->view('includes/crumbs',['crumbs'=>$crumbs])?>
 
-
-
-<div class="container mt-3">
-  <form method="post">
-  <?php if(count($errors) > 0):?>
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Errors:</strong>
-            <?php foreach($errors as $error):?>
-               <br><?=$error?>
-            <?php endforeach?>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <?php endif;?>
-
-    <div class="row jumbotron box8">
+		<?php if($row):?>
+		<?php
+ 		$image = get_image($row->image,$row->gender);
+ 		?>
+        <form method="post">
+		<div class="row">
+			<div class="col-sm-4 col-md-3">
+				<img src="<?=$image?>" class="border border-primary d-block mx-auto rounded-circle " style="width:150px;">
+				<h3 style="padding-top:10px" class="text-center col-11"><?=esc($row->firstname)?> <?=esc($row->lastname)?></h3>
+		    </div>
+        </div>
+        <div class="row jumbotron box8">
       <div class="col-sm-12 mx-t3 mb-4">
-        <h2 class="text-center text-primary">Register a New Account</h2>
+        <h2 class="text-center text-primary">Edit Student Profile</h2>
       </div>
-      <div class="col-sm-6 form-group">
+	<div class="col-sm-6 form-group">
         <label for="name-f">First Name[EN]</label>
         <input class="my-2 form-control" value="<?=get_var('firstname')?>"type="firstname" name="firstname" placeholder="First Name" autofocus></input>
       </div>
-      <div class="col-sm-6 form-group">
+    <div class="col-sm-6 form-group">
         <label for="name-f">Middle Name[EN]</label>
         <input class="my-2 form-control" value="<?=get_var('middlename')?>"type="middlename" name="middlename" placeholder="Middle Name" autofocus></input>
       </div>
-      <div class="col-sm-6 form-group">
+    <div class="col-sm-6 form-group">
         <label for="name-f">Last Name[EN]</label>
         <input class="my-2 form-control" value="<?=get_var('lastname')?>"type="lastname" name="lastname" placeholder="Last Name" autofocus></input>
       </div>
-      <div class="col-sm-6 form-group">
+    <div class="col-sm-6 form-group">
         <label for="name-f">First Name[AR]</label>
         <input class="my-2 form-control" value="<?=get_var('firstname_ar')?>"type="firstname_ar" name="firstname_ar" placeholder="First Name[AR]" autofocus></input>
       </div>
 
-      <div class="col-sm-6 form-group">
+    <div class="col-sm-6 form-group">
         <label for="name-f">Middle Name[AR]</label>
         <input class="my-2 form-control" value="<?=get_var('middlename_ar')?>"type="middlename_ar" name="middlename_ar" placeholder="Middle Name[AR]" autofocus></input>
       </div>
 
-      <div class="col-sm-6 form-group">
+    <div class="col-sm-6 form-group">
         <label for="name-f">Last Name[AR]</label>
         <input class="my-2 form-control" value="<?=get_var('lastname_ar')?>"type="lastname_ar" name="lastname_ar" placeholder="Last Name[AR]" autofocus></input>
       </div>
-      <div class="col-sm-6 form-group">
+    <div class="col-sm-6 form-group">
         <label for="Date">Date Of Birth</label>
         <input type="Date" value="<?=get_var('dob')?>" name="dob" class="form-control" id="Date" placeholder="" required>
       </div>
-      <div class="col-sm-6 form-group">
-        <label>Place Of Birth</label>
-        <input  value="<?=get_var('PoB')?>" name="PoB" id='PoB' class="form-control"  placeholder="Place Of Birth" required>
-      </div>
-      <div class="col-sm-6 form-group">
-        <label>Nationality</label>
-        <input value="<?=get_var('Nationality')?>" name="Nationality" id='Natinality' class="form-control"  placeholder="Nationality" required>
-      </div>
-      <div class="col-sm-6 form-group">
+    <div class="col-sm-6 form-group">
         <label for="gender">Gender</label>
         <select name="gender" id="gender" class="form-control browser-default custom-select">
         <option <?=get_select('gender','')?> value="">Please choose a gender</option>
@@ -77,37 +58,7 @@
          <option <?=get_select('gender','female')?> value="female">Female</option>
                </select>
       </div>
-      <div class="col-sm-6 form-group">
-        <label for="blood_type">Blood Type</label>
-        <select name="blood_type" id="blood_type" class="form-control browser-default custom-select">
-        <option <?=get_select('blood_type','')?> value="">Please choose a blood type</option>
-         <option <?=get_select('blood_type','O+')?> value="O+">O+</option>
-         <option <?=get_select('blood_type','O-')?> value="O-">O-</option>
-         <option <?=get_select('blood_type','A+')?> value="A+">A+</option>
-         <option <?=get_select('blood_type','A-')?> value="A-">A-</option>
-         <option <?=get_select('blood_type','B+')?> value="B+">B+</option>
-         <option <?=get_select('blood_type','B-')?> value="B-">B-</option>
-         <option <?=get_select('blood_type','AB+')?> value="AB+">AB+</option>
-         <option <?=get_select('blood_type','AB-')?> value="AB-">AB-</option>
-               </select>
-      </div>
-      <div class="col-sm-6 form-group">
-        <label for="health_condition">Health Conditions</label>
-        <input value="<?=get_var('health_condition')?>" name="health_condition" id='health_condition' class="form-control"  placeholder="Health conditions" required>
-      </div>
-      
-      <div class="col-sm-6 form-group">
-        <label for="Position">Position</label>
-        <select name="position" id="Position" class="form-control browser-default custom-select">
-        <option <?=get_select('position','')?> value="" placeholder="Choose a position">Please choose a position</option>
-          <option <?=get_select('position','super_admin')?> value="super_admin">Super Admin</option>
-          <option <?=get_select('position','admin')?> value="admin">Admin</option>
-          <option <?=get_select('position','principal')?> value="principal">Principal</option>
-          <option <?=get_select('position','teacher')?> value="teacher">Teacher</option>
-          <option <?=get_select('position','student')?> value="student">Student</option>
-          <option <?=get_select('position','parent')?> value="parent">Parent</option>
-        </select>
-      </div>
+    
       <div class="col-sm-6 form-group">
         <label for="acad_year">Academic Year</label>
         <select name="acad_year" id="acad_year" class="form-control browser-default custom-select">
@@ -160,36 +111,18 @@
         <label for="tel">Phone</label>
         <input <?=get_var('phone_number','phone_number')?>type="tel" name="phone_number" class="form-control" id="tel" placeholder="Mobile No." required>
       </div>
-      
-   
-      <div class="col-sm-6 form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email." required>
-      </div>
-      <div class="col-sm-6 form-group">
-        <label for="password">Password</label>
-        <input class="my-2 form-control" value="<?=get_var('password')?>"type="password" name="password" placeholder="Enter Your Password" autofocus></input>
-      </div>
-      <div class="col-sm-6 form-group">
-        <label for="password2">Confirm Password</label>
-        <input class="my-2 form-control" value="<?=get_var('password2')?>"type="password" name="password2" placeholder="Confirm Your Password" autofocus></input>
-      </div>
-        <center><button style="margin-left:20%;" class="fs-1 btn btn-primary">Register</button></center>
-        <?php if($mode == 'students'):?>
-        <a href="<?=ROOT?>/students">
-			 		<input style="margin-left:30%;"class="btn btn-danger" type="button" value="Cancel">
-			 	</a>    
-         <?php else:?>
-            <a href="<?=ROOT?>/users">
-			 		<input style="margin-left:30%" class="btn btn-danger" type="button" value="Cancel">
-			 	</a> 
-         <?php endif;?>
-    </div>
-  </form>
-</div>
-<script type="text/javascript" src="assets/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="assets/bootstrap.min.js"></script>
+		<br>
+        <button type="submit" href="<?=ROOT?>/stp/<?=$row->student_id?>" class="btn btn-primary float-end">Save Changes</button>
+        <a href="<?=ROOT?>/stp/<?=$row->student_id?>">
+            <button type="button" class="btn btn-danger">Back to profile</button>
+        </a>  
+        </form>  
+		<!--to be worked on to include same functionality from Staff tabs-->
+		
+		<?php else:?>
+			<center><h4>That profile was not found!</h4></center>
+		<?php endif;?>
 
+	</div>
 
-         </body>
-         </html>
+<?php $this->view('includes/footer')?>

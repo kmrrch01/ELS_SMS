@@ -1,4 +1,6 @@
 <?php $this->view('includes/header')?>
+<title>Students</title>
+
 <?php $this->view('includes/nav')?>
 
 <script>
@@ -70,7 +72,7 @@
                         <p style="text-align:center;"><?=$row->firstname?> <?=$row->middlename?> <?=$row->lastname?></p>
                     </td>
                     <td style="text-align:center;">
-                        <?=str_replace("_", " ", ucwords($row->class_name))?>
+                        <?=str_replace("_", " ", ucwords($row->class))?>
                     </td>
                     <td>
                         <div style="text-align:center;"><?=$row->acad_year?></div>

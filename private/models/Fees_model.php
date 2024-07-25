@@ -10,7 +10,7 @@
             'middlename',
             'lastname',
             'acad_year',
-            'class_name',
+            'class',
         ];
     
         protected $beforeInsert = [

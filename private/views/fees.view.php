@@ -1,4 +1,5 @@
 <?php $this->view('includes/header')?>
+<title>Fees</title>
 <?php $this->view('includes/nav')?>
 <script>
 function myFunction() {

@@ -111,18 +111,14 @@ class Model extends Database
 
 		//run functions before insert
 		if (property_exists($this, 'beforeInsert')) {
-			foreach ($this->beforeInsert as $func) {
-				$modifiedData = $this->$func($data);
-				// Ensure $modifiedData is an array
-				if (is_array($modifiedData)) {
-					$data = $modifiedData;
-				} else {
-					// Log or handle the unexpected return value
-					// For example, throw an exception
-					throw new Exception("Function $func did not return an array");
-				}
+			foreach($this->beforeInsert as $func)
+		
+			{
+				$data = $this->$func($data);
 			}
-		}
+		
+
+	    }
 		
 		$keys = array_keys($data);
 		$columns = implode(',', $keys);
@@ -136,7 +132,26 @@ class Model extends Database
 
 	public function update($id,$data)
 	{
+		if(property_exists($this, 'allowedColumns'))
+		{
+			foreach($data as $key => $column)
+			{
+				if(!in_array($key, $this->allowedColumns))
+				{
+					unset($data[$key]);
+				}
+			}
 
+		}
+
+		//run functions before insert
+		if (property_exists($this, 'beforeUpdate')) {
+			foreach ($this->beforeUpdate as $func) {
+			{
+				$data = $this->$func($data);
+			}
+		}
+	}
 		$str = "";
 		foreach ($data as $key => $value) {
 			// code...
@@ -149,6 +164,8 @@ class Model extends Database
 		$query = "update $this->table set $str where id = :id";
 
 		return $this->query($query,$data);
+	  
+     
 	}
 
 	public function delete($id)

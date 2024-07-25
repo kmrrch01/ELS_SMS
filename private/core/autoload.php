@@ -10,8 +10,8 @@ require "app.php";
 
 
 
-spl_autoload_register(function($class_name){
+spl_autoload_register(function($class){
 
-    require "../private/models/". ucfirst($class_name) . ".php";
+    require "../private/models/". ucfirst($class) . ".php";
 
 });

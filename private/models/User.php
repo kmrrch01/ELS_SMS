@@ -15,7 +15,8 @@
             'acad_year',
             'email',
             'password',
-            'class_name',
+            'class',
+            'class_id',
             'dob',
             'address',
             'phone_number',
@@ -24,6 +25,10 @@
             'gender',
             'position',
             'date',
+            'PoB',
+            'Nationality',
+            'blood_type',
+            'health_condition',
         ];
     
         protected $beforeInsert = [
@@ -31,8 +36,12 @@
             'hash_password',
         ];
 
+        protected $beforeUpdate = [
+            'hash_password',
+        ];
+
    //protected $table = "users";
-    public function validate($DATA)
+    public function validate($DATA,$id = '')
     {
          $this->errors = array();
 
@@ -68,6 +77,20 @@
          {
                $this->errors['email'] = "Email is invalid";
          }
+         
+
+         if(trim($id) == ""){
+            if($this->where('email',$DATA['email']))
+            {
+                $this->errors['email'] = "That email is already in use";
+            }
+        }else{
+            if($this->query("select email from $this->table where email = :email && user_id != :id",['email'=>$DATA['email'],'id'=>$id]))
+            {
+                $this->errors['email'] = "That email is already in use";
+            }
+        }
+      
          if(empty($DATA['address'])){
             $this->errors['address'] = "Address cannot be empty.";
          }
@@ -92,12 +115,13 @@
           $this->errors['position'] = "Position cannot be empty.";
          }
 
-                  //check for password
+            //check for password
+         if(isset($DATA['password'])){
          if(empty($DATA['password']) || $DATA['password'] != $DATA['password2'] )
          {
                $this->errors['password'] = "The passwords do not match";
          }
-
+         }
          if(strlen($DATA['password']) < 8)
          {
             $this->errors['password'] = "Password must be at least 8 characters long.";
@@ -130,8 +154,10 @@
       
   public function hash_password($data)
   {
+      if(isset($data['password'])){
       var_dump($data);
       $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+      }
       return $data;
   }
 

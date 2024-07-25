@@ -1,4 +1,5 @@
 <?php $this->view('includes/header')?>
+<title>Parents</title>
 <?php $this->view('includes/nav')?>
 	
 	<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
@@ -22,27 +23,19 @@
 			</a>
  		</nav>
 
-		<div class="card-group justify-content-center">
-
-			<?php if (is_array($rows) || is_object($rows)):?>
-				<?php foreach ($rows as $row):?>
-				 
-				 <?php
- 				 	$image = get_image($row->image,$row->gender);
- 				 ?>
-				<div class="card m-2 shadow-sm" style="max-width: 14rem;min-width: 14rem;">
-		  		  <img src="<?=$image?>" class="card-img-top " alt="Card image cap">
-				  <div class="card-body">
-				    <h5 class="card-title"><?=$row->firstname?> <?=$row->lastname?></h5>
-				    <p class="card-text"><?=ucfirst(str_replace("_", " ", $row->position))?></p>
-				    <a href="<?=ROOT?>/profile/<?=$row->user_id?>" class="btn btn-primary">Profile</a>
-				  </div>
-				</div>
-
-	 			<?php endforeach;?>
- 			<?php else:?>
- 				<h4>No parents were found at this time</h4>
- 			<?php endif;?>
+		 <?php if($rows):?>
+          <table class="table table-striped table-hover" id="myTable">
+          <tr><th>First Name</th><th>Last Name</th><th>Position</th><th>Profile</th></tr>
+        
+          <?php foreach($rows as $row):?>
+              <?php include(views_path('user'));?>
+              
+          <?php endforeach;?>
+          <?php else:?>
+            <h4> No staff members were found.</h4>
+       
+          <?php endif;?>
+          </table>
 		</div>
 
 		

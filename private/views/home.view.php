@@ -1,4 +1,5 @@
 <?php $this->view('includes/header')?>
+<title>Home</title>
 <?php $this->view('includes/nav')?>
 
 <style>
