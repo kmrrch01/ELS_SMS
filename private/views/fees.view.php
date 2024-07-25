@@ -80,7 +80,12 @@
 <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
 	<div style="padding-left:0px;">
 		<h1 style="font-family: copperplate;" class="breadcrumb justify-content-center">
-			FEES & INVOICING
+			FEES & INVOICING <hr> <a href="" style="margin-left: 100px ;">
+						<button class="btn btn-success" onclick="exportToExcel('myTable')"><i class="fa-solid fa-download"></i></button>
+					</a>
+					<a style="margin-left:10px;"href="<?= ROOT ?>/Fees_billing/excel">
+						<button class="btn btn-success"><i class="fa-solid fa-file-import"></i></button>
+					</a>
 			<hr> <i class="fa-solid fa-file-invoice-dollar"></i>
 		</h1>
 	</div>
@@ -94,15 +99,19 @@
 				</div>
 				<input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
 			</div>
+			
 		</form>
 		<a href="<?= ROOT ?>/invoices">
 			<button class="btn btn-sm btn-primary"><i class="fa-solid fa-plus"></i>Add New</button>
 		</a>
 	</nav>
 	<div class="card-group justify-content-center">
+		
 		<table class="table table-striped table-hover" id="myTable">
+			
 			<tr>
 
+				<th>Parent ID</th>
 				<th>Student name</th>
 				<th>Class</th>
 				<th>Paid in $</th>
@@ -111,18 +120,16 @@
 				<th>Remain L.L.</th>
 
 				<th>
-					<a href="" style="margin-left: 100px ;">
-						<button class="btn btn-success" onclick="exportToExcel('myTable')"><i class="fa-solid fa-download"></i></button>
-					</a>
-					<a href="<?= ROOT ?>/Fees_billing/excel">
-						<button class="btn btn-success"><i class="fa-solid fa-file-import"></i></button>
-					</a>
+					
 				</th>
 			</tr>
 			<br><br>
 			<?php if (is_array($rows) || is_object($rows)) : ?>
 				<?php foreach ($rows as $row) : ?>
 					<tr>
+					<td>
+							<p><?= $row->parent_id ?> </p>
+						</td>
 
 						<td>
 							<p><?= $row->fullname ?> </p>

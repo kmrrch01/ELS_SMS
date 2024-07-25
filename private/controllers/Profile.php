@@ -24,9 +24,14 @@ class Profile extends Controller
 			$crumbs[] = [$row->firstname,'profile'];
 		}
 
+		$profile = new Profile_Model();
+		$parents = $profile->get_students_by_parent($row->user_id);
+
+
 		$this->view('profile',[
 			'row'=>$row,
 			'crumbs'=>$crumbs,
+			'parents'=>$parents
 		]);
 	}
 }

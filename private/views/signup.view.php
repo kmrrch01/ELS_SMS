@@ -44,6 +44,10 @@
         <input class="my-2 form-control" value="<?=get_var('lastname')?>"type="lastname" name="lastname" placeholder="Last Name" autofocus></input>
       </div>
       <div class="col-sm-6 form-group">
+        <label for="name-f">Spouse Maiden Name[EN]</label>
+        <input class="my-2 form-control" value="<?=get_var('spouse')?>"type="spouse" name="spouse" placeholder="Spouse Maiden Name" autofocus></input>
+      </div>
+      <div class="col-sm-6 form-group">
         <label for="name-f">First Name[AR]</label>
         <input class="my-2 form-control" value="<?=get_var('firstname_ar')?>"type="firstname_ar" name="firstname_ar" placeholder="First Name[AR]" autofocus></input>
       </div>
@@ -58,9 +62,17 @@
         <input class="my-2 form-control" value="<?=get_var('lastname_ar')?>"type="lastname_ar" name="lastname_ar" placeholder="Last Name[AR]" autofocus></input>
       </div>
       <div class="col-sm-6 form-group">
+        <label for="name-f">Spouse Maiden Name[AR]</label>
+        <input class="my-2 form-control" value="<?=get_var('spouse_ar')?>"type="spouse_ar" name="spouse_ar" placeholder="Spouse Maiden Name [AR]" autofocus></input>
+      </div>
+      <div class="col-sm-6 form-group">
         <label for="Date">Date Of Birth</label>
         <input type="Date" value="<?=get_var('dob')?>" name="dob" class="form-control" id="Date" placeholder="" required>
       </div>
+
+
+
+
       <div class="col-sm-6 form-group">
         <label for="gender">Gender</label>
         <select name="gender" id="gender" class="form-control browser-default custom-select">

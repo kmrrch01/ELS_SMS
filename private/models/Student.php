@@ -16,6 +16,7 @@
             'acad_year',
             'class',
             'class_id',
+            'parent_id',
             'dob',
             'st_type',
             'section',
@@ -80,7 +81,23 @@
          return false;
     }
 
-
+    public static function get_parent_dropdown() {
+        $user = new User();
+        $parents = $user->where('position', 'parent');
+    
+        $html = "<select name='parent_id' id='parent_id' class='form-control browser-default custom-select'>";
+        $html .= "<option value=''>Select a parent</option>";
+    
+        foreach ($parents as $parent) {
+            $selected = get_select('parent_id', $parent->user_id);
+            $html .= "<option $selected value='{$parent->user_id}'>{$parent->user_id} | Father: {$parent->firstname} {$parent->middlename} {$parent->lastname} | Mother: {$parent->spouse}</option>";
+        }
+    
+        $html .= "</select>";
+    
+        return $html;
+    }
+    
     //test function for rng
       function make_student_id($data) 
       {

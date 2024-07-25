@@ -8,9 +8,9 @@
       protected $allowedColumns = [
             'fullname',
             'fullname_ar',
-            'position',
             'academic_year',
             'Class',
+            'parent_id',
             'Section',
             'Fees_in_Dollar',
             'Fees_in_lebanese',
@@ -41,14 +41,6 @@
                $this->errors['fullname_ar'] = "Please Select Full name in (arabic)";
          }
           
-         if(empty($DATA['position']))
-         {
-               $this->errors['position'] = "position name cannot be empty.";
-         }
-         if(empty($DATA['academic_year']))
-         {
-               $this->errors['academic_year'] = "Please input Academic Year";
-         }
          
          if(empty($DATA['Class']))
          {
@@ -87,24 +79,8 @@
          {
           $this->errors['Remain_in_lebanese'] = "Remain cannot be empty.";
          }
-         if(empty($DATA['Discount_d']))
-         {
-          $this->errors['Discount_d'] = "Discount cannot be empty.";
-         }
-        
-         if(empty($DATA['Discount']))
-         {
-          $this->errors['Discount'] = "Discount cannot be empty.";
-         }
-         if(empty($DATA['Total_d']))
-         {
-          $this->errors['Total_d'] = "Total cannot be empty.";
-         }
-        
-         if(empty($DATA['Total']))
-         {
-          $this->errors['Total'] = "Total cannot be empty.";
-         }
+
+
          
          if(count($this->errors) == 0)
          {

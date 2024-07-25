@@ -8,6 +8,10 @@ class Invoices extends Controller
 
     function index()
     {
+        $user = new User();
+
+        $parents = $user->where('position','parent');
+
 
 
         $mode = isset($_GET['mode']) ? $_GET['mode'] : '';
@@ -24,7 +28,6 @@ class Invoices extends Controller
                     $arr = array(
                         'fullname' => $_POST['fullname'],
                         'fullname_ar' => $_POST['fullname_ar'],
-                        'position' => $_POST['position'],
                         'academic_year' => $_POST['academic_year'],
                         'Class' => $_POST['Class'],
                         'Section' => $_POST['Section'],
@@ -38,6 +41,7 @@ class Invoices extends Controller
                         'Discount' => $_POST['Discount'],
                         'Total_d' => $_POST['Total_d'],
                         'Total' => $_POST['Total'],
+                        'parent_id' => isset($_POST['parent_id']) ? $_POST['parent_id'] : null,
 
                     );
 
@@ -55,7 +59,8 @@ class Invoices extends Controller
         // Render the signup view with errors and mode
         $this->view('invoice', array(
             'errors' => $errors,
-            'mode' => $mode
+            'mode' => $mode,
+            'parents'=>$parents
         ));
     }
     public function generatePDF($id) {

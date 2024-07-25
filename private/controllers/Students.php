@@ -17,11 +17,14 @@ class Students extends Controller
 		$crumbs[] = ['students', 'student'];
 
         $student = new Student();
+
+		$parent_dropdown = $student->get_parent_dropdown();
 		//$school_id = Auth::getSchool_id();
 		$data = $student->query("select * from students");
 		$this->view('students', [
 			'rows'=>$data,
-			'crumbs'=>$crumbs,		
+			'crumbs'=>$crumbs,
+			'parent_dropdown'=>$parent_dropdown		
 		]);
 	}
 }

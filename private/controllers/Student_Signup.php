@@ -28,6 +28,7 @@ class Student_signup extends Controller
                       'lastname_ar' => $_POST['lastname_ar'],
                       'dob' => $_POST['dob'],
                       'gender' => $_POST['gender'],
+                      'parent_id'=> $_POST['parent_id'],
                       'acad_year' => $_POST['acad_year'],
                       'class' => $_POST['class'],
                       'st_type' => $_POST['st_type'],
@@ -49,9 +50,16 @@ class Student_signup extends Controller
       }
   
       // Render the signup view with errors and mode
+
+
+      $user = new User();
+
+      $parents = $user->where('position', 'parent');
+
       $this->view('student_signup', array(
           'errors' => $errors,
-          'mode' => $mode
+          'mode' => $mode,
+          'parents' => $parents
       ));
   }
   

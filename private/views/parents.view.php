@@ -35,6 +35,7 @@
 				  <div class="card-body">
 				    <h5 class="card-title"><?=$row->firstname?> <?=$row->lastname?></h5>
 				    <p class="card-text"><?=ucfirst(str_replace("_", " ", $row->position))?></p>
+					<p class="card-text">Spouse: <?=ucfirst($row->spouse)?></p>
 				    <a href="<?=ROOT?>/profile/<?=$row->user_id?>" class="btn btn-primary">Profile</a>
 				  </div>
 				</div>
