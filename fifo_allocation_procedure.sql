@@ -6,13 +6,18 @@ DELIMITER //
 DROP PROCEDURE IF EXISTS UpdateFIFOAllocation//
 
 CREATE PROCEDURE UpdateFIFOAllocation(
-    IN p_jv_line_id INT DEFAULT NULL,  -- Optional: specific JV line ID, NULL for all
-    IN p_modified_by VARCHAR(50) DEFAULT 'FIFO_ALLOCATION_PROC'
+    IN p_jv_line_id INT,  -- Optional: specific JV line ID, NULL for all
+    IN p_modified_by VARCHAR(50)  -- Modified by user identifier
 )
 BEGIN
     DECLARE v_total_updated INT DEFAULT 0;
     DECLARE v_total_processed INT DEFAULT 0;
     DECLARE v_jv_lines_affected INT DEFAULT 0;
+    
+    -- Handle default values
+    IF p_modified_by IS NULL OR p_modified_by = '' THEN
+        SET p_modified_by = 'FIFO_ALLOCATION_PROC';
+    END IF;
     
     -- Error handling
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
@@ -147,13 +152,31 @@ END//
 
 DELIMITER ;
 
+-- Create a convenience procedure for updating all JV lines with default settings
+DELIMITER //
+
+DROP PROCEDURE IF EXISTS UpdateAllFIFOAllocation//
+
+CREATE PROCEDURE UpdateAllFIFOAllocation()
+BEGIN
+    CALL UpdateFIFOAllocation(NULL, 'FIFO_ALLOCATION_PROC');
+END//
+
+DELIMITER ;
+
 -- Usage examples:
 
--- Example 1: Update all JV lines
--- CALL UpdateFIFOAllocation();
+-- Example 1: Simplest - Update all JV lines (uses convenience procedure)
+-- CALL UpdateAllFIFOAllocation();
 
--- Example 2: Update specific JV line (your example)
+-- Example 2: Update all JV lines with default modified_by
+-- CALL UpdateFIFOAllocation(NULL, NULL);
+
+-- Example 3: Update specific JV line (your example)
 -- CALL UpdateFIFOAllocation(396, 'USER_FIFO_UPDATE');
 
--- Example 3: Update with custom modified_by
+-- Example 4: Update all JV lines with custom modified_by
 -- CALL UpdateFIFOAllocation(NULL, 'BATCH_FIFO_PROCESS');
+
+-- Example 5: Update specific JV line with default modified_by
+-- CALL UpdateFIFOAllocation(396, NULL);
