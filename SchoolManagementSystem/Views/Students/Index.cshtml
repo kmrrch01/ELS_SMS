@@ -1,0 +1,165 @@
+@model List<SchoolManagementSystem.Models.Student>
+@{
+    ViewData["Title"] = "Students Management";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-6">
+                <i class="fa fa-users text-primary"></i> 
+                Students Management
+            </h1>
+            <p class="lead">Manage and view all registered students in the system.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">
+                        <i class="fa fa-list"></i> Students List
+                        <span class="badge bg-primary">@ViewBag.TotalStudents</span>
+                    </h5>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Teacher"))
+                    {
+                        <a class="btn btn-success" asp-action="Create">
+                            <i class="fa fa-plus"></i> Add New Student
+                        </a>
+                    }
+                </div>
+                <div class="card-body">
+                    <!-- Search and Filter -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <form method="get" class="d-flex">
+                                <input type="search" name="searchTerm" value="@ViewBag.SearchTerm" 
+                                       class="form-control me-2" placeholder="Search by name, email, or grade...">
+                                <button type="submit" class="btn btn-outline-primary">
+                                    <i class="fa fa-search"></i> Search
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            @if (!string.IsNullOrEmpty(ViewBag.SearchTerm))
+                            {
+                                <a class="btn btn-outline-secondary" asp-action="Index">
+                                    <i class="fa fa-times"></i> Clear Search
+                                </a>
+                            }
+                        </div>
+                    </div>
+
+                    @if (Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Photo</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Grade</th>
+                                        <th>Phone</th>
+                                        <th>Family</th>
+                                        <th>Enrollment Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var student in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <img src="~/els_logo1.png" alt="Student Photo" 
+                                                     class="rounded-circle" style="width: 40px; height: 40px;">
+                                            </td>
+                                            <td>
+                                                <strong>@student.FirstName @student.LastName</strong>
+                                                <br>
+                                                <small class="text-muted">ID: @student.Id</small>
+                                            </td>
+                                            <td>@student.Email</td>
+                                            <td>
+                                                <span class="badge bg-info">@student.Grade</span>
+                                            </td>
+                                            <td>@(student.PhoneNumber ?? "-")</td>
+                                            <td>@(student.Family?.FamilyName ?? "Not assigned")</td>
+                                            <td>@student.EnrollmentDate.ToString("MMM dd, yyyy")</td>
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@student.Id" title="View Details">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                    <a class="btn btn-sm btn-outline-info" asp-controller="Profile" asp-action="Index" asp-route-id="@student.Id" title="View Profile">
+                                                        <i class="fa fa-user"></i>
+                                                    </a>
+                                                    @if (User.IsInRole("Admin") || User.IsInRole("Teacher"))
+                                                    {
+                                                        <a class="btn btn-sm btn-outline-warning" asp-action="Edit" asp-route-id="@student.Id" title="Edit">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                    }
+                                                    @if (User.IsInRole("Admin"))
+                                                    {
+                                                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@student.Id" title="Delete">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                    }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pagination -->
+                        @if (ViewBag.TotalPages > 1)
+                        {
+                            <nav aria-label="Students pagination">
+                                <ul class="pagination justify-content-center">
+                                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                    {
+                                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                            <a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-searchTerm="@ViewBag.SearchTerm">
+                                                @i
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </nav>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fa fa-users fa-3x text-muted mb-3"></i>
+                            <h5>No Students Found</h5>
+                            <p class="text-muted">
+                                @if (!string.IsNullOrEmpty(ViewBag.SearchTerm))
+                                {
+                                    <span>No students match your search criteria.</span>
+                                    <br>
+                                    <a class="btn btn-primary mt-2" asp-action="Index">View All Students</a>
+                                }
+                                else
+                                {
+                                    <span>No students have been registered yet.</span>
+                                    @if (User.IsInRole("Admin") || User.IsInRole("Teacher"))
+                                    {
+                                        <br>
+                                        <a class="btn btn-success mt-2" asp-action="Create">
+                                            <i class="fa fa-plus"></i> Add First Student
+                                        </a>
+                                    }
+                                }
+                            </p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
