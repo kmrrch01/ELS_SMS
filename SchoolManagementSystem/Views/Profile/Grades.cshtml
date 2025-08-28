@@ -1,0 +1,190 @@
+@model List<SchoolManagementSystem.Models.Grade>
+@{
+    ViewData["Title"] = "Student Grades";
+    var student = ViewBag.Student as SchoolManagementSystem.Models.Student;
+}
+
+<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1200px;">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Profile" asp-action="Index" asp-route-id="@student?.Id">Profile</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Grades</li>
+        </ol>
+    </nav>
+    
+    <div class="row">
+        <div class="col-sm-4 col-md-3 text-center">
+            <img src="~/els_logo1.png" class="border border-primary d-block mx-auto rounded-circle" style="width: 150px; height: 150px;">
+            <h3 class="text-center mt-2">@student?.FirstName @student?.LastName</h3>
+            <p class="text-muted">@student?.Grade Grade Student</p>
+        </div>
+        <div class="col-sm-8 col-md-9">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Profile" asp-action="Index" asp-route-id="@student?.Id" asp-route-tab="Personal">
+                        Personal
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Profile" asp-action="Family" asp-route-id="@student?.Id">
+                        Family
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" asp-controller="Profile" asp-action="Grades" asp-route-id="@student?.Id">
+                        Grades
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active">
+                    <nav class="navbar bg-body-tertiary">
+                        <div class="container-fluid">
+                            <span class="navbar-text">
+                                <strong>Total Grades: @ViewBag.TotalGrades</strong>
+                            </span>
+                            <form class="d-flex" method="get" asp-controller="Profile" asp-action="Grades" asp-route-id="@student?.Id">
+                                <input class="form-control me-2" type="search" name="searchTerm" value="@ViewBag.SearchTerm" placeholder="Search grades..." aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">
+                                    <i class="fa fa-search"></i> Search
+                                </button>
+                            </form>
+                        </div>
+                    </nav>
+                    
+                    @if (Model.Any())
+                    {
+                        <div class="mt-3">
+                            <!-- Grade Statistics -->
+                            @{
+                                var averageScore = Model.Average(g => (double)g.Score);
+                                var highestScore = Model.Max(g => g.Score);
+                                var lowestScore = Model.Min(g => g.Score);
+                                var gradeDistribution = Model.GroupBy(g => g.LetterGrade).ToDictionary(g => g.Key, g => g.Count());
+                            }
+                            
+                            <div class="row mb-4">
+                                <div class="col-md-3">
+                                    <div class="card bg-primary text-white">
+                                        <div class="card-body text-center">
+                                            <h4>@averageScore.ToString("F1")%</h4>
+                                            <p>Average Score</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card bg-success text-white">
+                                        <div class="card-body text-center">
+                                            <h4>@highestScore%</h4>
+                                            <p>Highest Score</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card bg-warning text-white">
+                                        <div class="card-body text-center">
+                                            <h4>@lowestScore%</h4>
+                                            <p>Lowest Score</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="card bg-info text-white">
+                                        <div class="card-body text-center">
+                                            <h4>@Model.Count</h4>
+                                            <p>Total Grades</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Grades Table -->
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Subject</th>
+                                            <th>Score</th>
+                                            <th>Letter Grade</th>
+                                            <th>Date Recorded</th>
+                                            <th>Teacher</th>
+                                            <th>Comments</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var grade in Model)
+                                        {
+                                            <tr>
+                                                <td><strong>@grade.Subject</strong></td>
+                                                <td>@grade.Score%</td>
+                                                <td>
+                                                    <span class="badge @(grade.Score >= 90 ? "bg-success" : grade.Score >= 80 ? "bg-warning" : grade.Score >= 70 ? "bg-info" : "bg-danger")">
+                                                        @grade.LetterGrade
+                                                    </span>
+                                                </td>
+                                                <td>@grade.DateRecorded.ToString("MMM dd, yyyy")</td>
+                                                <td>@(grade.Teacher?.FirstName + " " + grade.Teacher?.LastName ?? "Not assigned")</td>
+                                                <td>
+                                                    @if (!string.IsNullOrEmpty(grade.Comments))
+                                                    {
+                                                        <span class="text-muted">@grade.Comments</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-muted">-</span>
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Pagination -->
+                            @if (ViewBag.TotalPages > 1)
+                            {
+                                <nav aria-label="Grades pagination">
+                                    <ul class="pagination justify-content-center">
+                                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                                        {
+                                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                                <a class="page-link" asp-controller="Profile" asp-action="Grades" asp-route-id="@student?.Id" asp-route-page="@i" asp-route-searchTerm="@ViewBag.SearchTerm">
+                                                    @i
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </nav>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center mt-5">
+                            <i class="fa fa-chart-line fa-3x text-muted mb-3"></i>
+                            <h5>No Grades Found</h5>
+                            <p class="text-muted">
+                                @if (!string.IsNullOrEmpty(ViewBag.SearchTerm))
+                                {
+                                    <span>No grades match your search criteria.</span>
+                                }
+                                else
+                                {
+                                    <span>No grades have been recorded for this student yet.</span>
+                                }
+                            </p>
+                            @if (!string.IsNullOrEmpty(ViewBag.SearchTerm))
+                            {
+                                <a class="btn btn-primary" asp-controller="Profile" asp-action="Grades" asp-route-id="@student?.Id">
+                                    <i class="fa fa-list"></i> Show All Grades
+                                </a>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

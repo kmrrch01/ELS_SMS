@@ -1,0 +1,150 @@
+@model SchoolManagementSystem.Models.Family?
+@{
+    ViewData["Title"] = "Family Information";
+    var student = ViewBag.Student as SchoolManagementSystem.Models.Student;
+}
+
+<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Profile" asp-action="Index" asp-route-id="@student?.Id">Profile</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Family</li>
+        </ol>
+    </nav>
+    
+    <div class="row">
+        <div class="col-sm-4 col-md-3 text-center">
+            <img src="~/els_logo1.png" class="border border-primary d-block mx-auto rounded-circle" style="width: 150px; height: 150px;">
+            <h3 class="text-center mt-2">@student?.FirstName @student?.LastName</h3>
+            <p class="text-muted">@student?.Grade Grade Student</p>
+        </div>
+        <div class="col-sm-8 col-md-9">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Profile" asp-action="Index" asp-route-id="@student?.Id" asp-route-tab="Personal">
+                        Personal
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" asp-controller="Profile" asp-action="Family" asp-route-id="@student?.Id">
+                        Family
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Profile" asp-action="Grades" asp-route-id="@student?.Id">
+                        Grades
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active">
+                    @if (Model != null)
+                    {
+                        <div class="card">
+                            <div class="card-header">
+                                <h5><i class="fa fa-home"></i> Family Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <th>Family Name:</th>
+                                                <td>@Model.FamilyName</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Address:</th>
+                                                <td>@(Model.Address ?? "Not provided")</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Contact Email:</th>
+                                                <td>@(Model.ContactEmail ?? "Not provided")</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Primary Contact:</th>
+                                                <td>@(Model.PrimaryContactNumber ?? "Not provided")</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <th>Guardian Name:</th>
+                                                <td>@(Model.GuardianName ?? "Not provided")</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Relationship:</th>
+                                                <td>@(Model.GuardianRelationship ?? "Not specified")</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Emergency Contact:</th>
+                                                <td>@(Model.EmergencyContactNumber ?? "Not provided")</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                @if (Model.Students.Any())
+                                {
+                                    <hr>
+                                    <h6><i class="fa fa-users"></i> Family Members</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-sm table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Grade</th>
+                                                    <th>Email</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var familyMember in Model.Students)
+                                                {
+                                                    <tr class="@(familyMember.Id == student?.Id ? "table-primary" : "")">
+                                                        <td>
+                                                            @familyMember.FirstName @familyMember.LastName
+                                                            @if (familyMember.Id == student?.Id)
+                                                            {
+                                                                <span class="badge bg-primary">Current</span>
+                                                            }
+                                                        </td>
+                                                        <td>@familyMember.Grade</td>
+                                                        <td>@familyMember.Email</td>
+                                                        <td>
+                                                            <a class="btn btn-sm btn-outline-primary" asp-controller="Profile" asp-action="Index" asp-route-id="@familyMember.Id">
+                                                                <i class="fa fa-eye"></i> View
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i class="fa fa-info-circle fa-3x text-muted mb-3"></i>
+                                <h5>No Family Information</h5>
+                                <p class="text-muted">Family information has not been provided for this student.</p>
+                                @if (User.IsInRole("Admin") || User.IsInRole("Teacher"))
+                                {
+                                    <a class="btn btn-primary" href="#">
+                                        <i class="fa fa-plus"></i> Add Family Information
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

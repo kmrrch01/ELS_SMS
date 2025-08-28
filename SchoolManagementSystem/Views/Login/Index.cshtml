@@ -1,0 +1,73 @@
+@model SchoolManagementSystem.Models.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/all.min.css">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Login - ELS Management System</title>
+</head>
+<body style="background-image: url('~/blue1.jpg'); background-size: cover; background-position: center; min-height: 100vh;">
+<div style="min-width:350px; display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+    <div class="container-fluid">
+        <div class="border border-primary p-4 mx-auto shadow rounded" style="background-color: #282855; margin-top: 100px; width: 100%; max-width: 340px;">
+            <h4 class="text-center" style="color: white; margin-top: 5px;">ELS Management System</h4>
+            <img src="~/els_logo1.png" class="mx-auto d-block rounded-circle" style="width: 100px; height: 100px;">
+            <br>
+            
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                    {
+                        <div>@error.ErrorMessage</div>
+                    }
+                </div>
+            }
+            
+            <form asp-controller="Login" asp-action="Index" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <input asp-for="Email" class="my-2 form-control" type="email" placeholder="Email" autofocus />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                
+                <input asp-for="Password" class="my-2 form-control" type="password" placeholder="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+                
+                <div class="form-check my-2">
+                    <input asp-for="RememberMe" class="form-check-input" type="checkbox" />
+                    <label asp-for="RememberMe" class="form-check-label text-white">
+                        Remember me
+                    </label>
+                </div>
+                
+                <input asp-for="ReturnUrl" type="hidden" />
+                
+                <br>
+                <button type="submit" class="btn btn-primary" style="margin-left: 35%;">
+                    <i class="fa fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            
+            <div class="text-center mt-3">
+                <small class="text-light">
+                    Default Admin: admin@els.edu / admin123
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/bootstrap.min.js"></script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

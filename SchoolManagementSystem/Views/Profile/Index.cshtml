@@ -1,0 +1,120 @@
+@model SchoolManagementSystem.Models.ViewModels.StudentProfileViewModel
+@{
+    ViewData["Title"] = "Student Profile";
+}
+
+<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Students</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+        </ol>
+    </nav>
+    
+    <div class="row">
+        <div class="col-sm-4 col-md-3 text-center">
+            <img src="~/els_logo1.png" class="border border-primary d-block mx-auto rounded-circle" style="width: 150px; height: 150px;">
+            <h3 class="text-center mt-2">@Model.Student.FirstName @Model.Student.LastName</h3>
+            <p class="text-muted">@Model.Student.Grade Grade Student</p>
+        </div>
+        <div class="col-sm-8 col-md-9 bg-light p-3 rounded">
+            <table class="table table-hover table-striped table-bordered">
+                <tr><th>Grade:</th><td>@Model.Student.Grade</td></tr>
+                <tr><th>Email:</th><td>@Model.Student.Email</td></tr>
+                <tr><th>Phone number:</th><td>@(Model.Student.PhoneNumber ?? "Not provided")</td></tr>
+                <tr><th>Gender:</th><td>@(Model.Student.Gender ?? "Not specified")</td></tr>
+                <tr><th>Date of Birth:</th><td>@Model.Student.DateOfBirth.ToString("MMMM dd, yyyy")</td></tr>
+                <tr><th>Enrollment Date:</th><td>@Model.Student.EnrollmentDate.ToString("MMMM dd, yyyy")</td></tr>
+            </table>
+        </div>
+    </div>
+    
+    <br>
+    <div class="container-fluid">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link @(Model.ActiveTab == "Personal" ? "active" : "")" 
+                   asp-controller="Profile" asp-action="Index" asp-route-id="@Model.Student.Id" asp-route-tab="Personal">
+                    Personal
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(Model.ActiveTab == "Family" ? "active" : "")" 
+                   asp-controller="Profile" asp-action="Family" asp-route-id="@Model.Student.Id">
+                    Family
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @(Model.ActiveTab == "Grades" ? "active" : "")" 
+                   asp-controller="Profile" asp-action="Grades" asp-route-id="@Model.Student.Id">
+                    Grades
+                </a>
+            </li>
+        </ul>
+        
+        <div class="tab-content mt-3">
+            @if (Model.ActiveTab == "Personal")
+            {
+                <div class="tab-pane fade show active">
+                    <nav class="navbar bg-body-tertiary">
+                        <div class="container-fluid">
+                            <form class="d-flex" method="get" asp-controller="Profile" asp-action="Index" asp-route-id="@Model.Student.Id" asp-route-tab="Personal">
+                                <input class="form-control me-2" type="search" name="searchTerm" value="@Model.SearchTerm" placeholder="Search grades..." aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">
+                                    <i class="fa fa-search"></i> Search
+                                </button>
+                            </form>
+                        </div>
+                    </nav>
+                    
+                    <div class="mt-3">
+                        <h5>Recent Grades</h5>
+                        @if (Model.RecentGrades.Any())
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Subject</th>
+                                            <th>Score</th>
+                                            <th>Grade</th>
+                                            <th>Date</th>
+                                            <th>Comments</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var grade in Model.RecentGrades)
+                                        {
+                                            <tr>
+                                                <td>@grade.Subject</td>
+                                                <td>@grade.Score%</td>
+                                                <td>
+                                                    <span class="badge @(grade.Score >= 90 ? "bg-success" : grade.Score >= 80 ? "bg-warning" : "bg-danger")">
+                                                        @grade.LetterGrade
+                                                    </span>
+                                                </td>
+                                                <td>@grade.DateRecorded.ToString("MMM dd, yyyy")</td>
+                                                <td>@(grade.Comments ?? "-")</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No grades found.</p>
+                        }
+                        
+                        <div class="text-center mt-3">
+                            <a class="btn btn-primary" asp-controller="Profile" asp-action="Grades" asp-route-id="@Model.Student.Id">
+                                <i class="fa fa-chart-line"></i> View All Grades
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
